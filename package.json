@@ -1,0 +1,32 @@
+{
+  "name": "7orNad0Bot",
+  "version": "1.0.0",
+  "description": "bot discord",
+  "main": "main.js",
+  "dependencies": {
+    "discord.js": "^11.2.1",
+    "erlpack": "github:hammerandchisel/erlpack",
+    "ffmpeg": "0.0.4",
+    "ffmpeg-binaries": "^3.2.2",
+    "http": "0.0.0",
+    "node-opus": "^0.2.6",
+    "mysql": "^2.15.0",
+    "request": "^2.81.0",
+    "youtube-search": "^1.0.9",
+    "ytdl-core": "^0.14.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pafad/7orNad0Bot.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/pafad/7orNad0Bot/issues"
+  },
+  "homepage": "https://github.com/pafad/7orNad0Bot#readme"
+}

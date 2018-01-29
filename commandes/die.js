@@ -6,6 +6,7 @@ if(message.author.id !== '306119836503900161'){
         message.channel.send(":gear: -> déconnection...")
         setTimeout(() => {
             client.user.setStatus("invisible")
+            console.log("déconection...")
             client.destroy();
             process.exit();
         } ,1000);

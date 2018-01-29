@@ -47,7 +47,7 @@ function changeColor() {
 }
 //online
 client.on('ready', ()=> {
-    client.user.setPresence({game: {name: `${prefix}help | ${client.guilds.size} serveurs| ${client.users.size} utilisateur |${client.channels.size} channels | créé par ❄〄pͪͭͣαfα∂¹〄❄ᶰᵉᵏᵒ#8754`,url: "https://twitch.tv/pafad0gaming",type}})
+    client.user.setPresence({game: {name: `${prefix}help | ${client.guilds.size} serveurs| ${client.users.size} utilisateur |${client.channels.size} channels | créé par @💎🌸〄ṧℏ!ʀo̸〄🌸💎ه#8754`,url: "https://twitch.tv/pafad0gaming",type}})
     console.log(`${client.user.tag} connecté !`)
     if(config.speed < 60000){console.log("The minimum speed is 60.000, if this gets abused your bot might get IP-banned"); process.exit(1);}
   setInterval(changeColor, config.speed);

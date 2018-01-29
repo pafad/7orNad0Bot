@@ -1,5 +1,4 @@
 exports.run = (client,message, args) => {
-  const Discord = require("Discord.js")
         let invite_embed = new Discord.RichEmbed()
         .setColor("RANDOM")
         .setThumbnail(client.user.avatarURL)

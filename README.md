@@ -1,3 +1,3 @@
 # 7orNad0Bot
 
-coucou
+commandes dispo:

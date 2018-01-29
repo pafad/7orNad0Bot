@@ -125,4 +125,4 @@ client.on('message', message =>{
   }
 });
 
-client.login("mdr tu le vois pas noraj");
+client.login(process.env.Discord_token || process.argv[2]);

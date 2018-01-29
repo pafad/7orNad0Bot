@@ -125,4 +125,4 @@ client.on('message', message =>{
   }
 });
 
-client.login("MzYwNzY4MzE2ODMyNDgxMjg0.DTenAQ.q8-HmIM8_9g4xc74ebDgEJAMg0M");
+client.login("mdr tu le vois pas noraj");

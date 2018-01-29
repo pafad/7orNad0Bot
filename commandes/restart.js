@@ -5,7 +5,7 @@ exports.run = (client, message, args) => {
           console.log("déconnection")
           client.destroy();
            console.log("redémarrage")
-            client.login(config.token)
+            client.login(process.env.Discord_token || process.argv[2]);
   }else{
     message.channel.send(`:x: ${message.author} tu n'est pas mon developpeur.`)
   }

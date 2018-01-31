@@ -1,11 +1,9 @@
 const config = require("./config.json");
 const Discord = require("discord.js");
 const path = require("path");
-const botmention = "<@360768316832481284>"
       
 const prefix = "7"
 let type = 1;
-let reaction = false;
 const client = new Discord.Client({disableEveryone: true});
 //rainbow
 const size    = config.colors;
@@ -62,7 +60,7 @@ client.on('message', message =>{
     if(message.content === "ping"){
         message.channel.send("Pong !")
         setTimeout(() => {
-            message.channel.lastMessage.edit(`:ping_pong: __${Math.round(message.author.ping)}__ ms !`)
+            message.channel.lastMessage.edit(`:ping_pong: __${Math.round(client.ping)}__ ms !`)
         }, 600);
       if(message.content === `${botmention}`){
         message.channel.send("c'est moi")

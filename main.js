@@ -62,9 +62,6 @@ client.on('message', message =>{
         setTimeout(() => {
             message.channel.lastMessage.edit(`:ping_pong: __${Math.round(client.ping)}__ ms !`)
         }, 600);
-      if(message.content === `${botmention}`){
-        message.channel.send("c'est moi")
-      }
     }
     if(message.content === "prefix"){
             message.channel.send(`:tada: mon prefix est ${prefix}`);

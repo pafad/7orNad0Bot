@@ -1,4 +1,4 @@
-exports.run = (client, message) => {
+exports.run = (client, message, send) => {
     let embed = new Discord.RichEmbed()
         .setTitle("voici les commandes.")
         .setColor("RANDOM")

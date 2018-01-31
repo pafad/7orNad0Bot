@@ -1,4 +1,4 @@
-exports.run = (message, client, send) => {
+exports.run = (client, message, args) => {
    let input_vchan = message.content.substr(12)
     if(!message.member.hasPermission("MANAGE_CHANNELS")){
         message.channel.send(`<:7orNad0_negative_check_mark:400045843287375873> ${message.author} tu n'as pas la permission de gérer les salons`)

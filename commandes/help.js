@@ -9,7 +9,5 @@ exports.run = (message, client, send) => {
         .addField(":gear: -> Commandes de modérations",`7ban, 7kick, 7lockdown, 7createrole, 7createvoice, 7createchannel, 7purge, 7setnick`)
         .addField(":gear: -> Commandes informations", `7serverinfo, 7uptime`)
         .addField(":gear: -> Commandes useless c:", `7roll`)
-    message.author.send(embed);
-    message.channel.send(":withe_check_mark: aide envoyée en mp")
     console.log("aide envoyé")
 }

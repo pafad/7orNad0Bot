@@ -100,7 +100,7 @@ client.on('message', message =>{
   // The list of if/else is replaced with those simple 2 lines:
   try {
     let commandFile = require(`./commandes/${command}.js`);
-    commandFile.run(message, client ,send);
+    commandFile.run(client, message, args);
   } catch (err){
   return;
   }

@@ -1,4 +1,4 @@
-exports.run = (message, client, send) => {
+exports.run = (client, message, args) => {
   let usermention = message.mentions.users.first();
         if(!usermention){
             message.channel.send(`:x: ${message.author} veuillez spécifier un utilisateur.`)

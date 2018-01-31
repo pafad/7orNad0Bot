@@ -1,4 +1,4 @@
-exports.run = (message, client, send) => {
+exports.run = (client, message, args) => {
   let imput = message.content.substr(11)
     if(!message.member.hasPermission("MANAGE_ROLES")){
         message.channel.send(`<:7orNad0_negative_check_mark:400045843287375873> Tu n'as pas la permission de gérer les rôles`)

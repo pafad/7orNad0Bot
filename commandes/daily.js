@@ -1,4 +1,4 @@
-exports.run = (message, client, send) => {
+exports.run = (client, message, args) => {
 var daily;
 
    if ((daily[message.author.id].ratelimit > Date.now()) && (daily[message.author.id].ratelimit !== 0)) {

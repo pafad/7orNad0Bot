@@ -56,7 +56,7 @@ client.on('message', message =>{
     if(message.author.id === '281774692052762627')return;
     if(message.author.id === '336560869708398594')return;
     //end
-	if(message.content.includes("@💎🌸$h£∆k0🌸💎ه#4408 ")){
+	if(message.content.includes("@💎🌸$h£∆k0🌸💎ه#4408")){
 	message.channel.send("@💎🌸$h£∆k0🌸💎ه#4408")	
 	}
        //ping

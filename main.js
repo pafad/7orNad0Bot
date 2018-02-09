@@ -4,7 +4,7 @@ const path = require("path");
       
 const prefix = "7"
 let type = 1;
-const client = new Discord.Client({disableEveryone: true});
+const client = new Discord.Client();
 //rainbow
 const size    = config.colors;
 const rainbow = new Array(size);

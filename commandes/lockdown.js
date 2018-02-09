@@ -5,6 +5,10 @@ exports.run = (client, message, args) => {
     message.channel.send(`<:7orNad0_negative_check_mark:400045843287375873> ${message.author} tu peux pas gérer le salon`)
     return;
   }else{
+    if(message.content.includes(config.letrres)){
+     message.channel.send("nombre de secondes invalide");
+      return;
+  }else{
   message.channel.send(`<:7orNad0_check_mark:400045879958175745> channel bloqué pendant ${s} secondes`)
   message.channel.overwritePermissions(message.guild.id, {
                     SEND_MESSAGES: false
@@ -16,17 +20,9 @@ exports.run = (client, message, args) => {
             })
         message.channel.send(`<:7orNad0_check_mark:400045879958175745> channel débloqué.`)
         } ,timeout);
-        client.on('message', (msg) => {
-                if (msg.content === "unlock") {
-                    msg.channel.overwritePermissions(message.guild.id, {
-                        SEND_MESSAGES: null
-                    }).then(() => {
-                        timeout = 0;
-                      message.channel.send(`<:7orNad0_check_mark:400045879958175745> channel débloqué.`)
-                      return;
+                 
                     });
                }
-            })
         }
 }
     

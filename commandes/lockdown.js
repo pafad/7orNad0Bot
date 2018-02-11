@@ -1,13 +1,9 @@
-exports.run = (client, message, args) => {
+ exports.run = (client, message, args) => {
         let timeout = args[0]*1000
         var s = timeout/1000;
         if(!message.member.hasPermission("MANAGE_CHANNELS")){
           message.channel.send(`<:7orNad0_negative_check_mark:400045843287375873> ${message.author} tu peux pas gérer le salon`)
           return;
-        }else{
-          if(message.content.includes(config.letrres)){
-           message.channel.send("nombre de secondes invalide");
-            return;
         }else{
         message.channel.send(`<:7orNad0_check_mark:400045879958175745> channel bloqué pendant ${s} secondes`)
         message.channel.overwritePermissions(message.guild.id, {
@@ -23,4 +19,3 @@ exports.run = (client, message, args) => {
                        
              }
        }
- }

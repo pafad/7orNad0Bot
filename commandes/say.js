@@ -3,7 +3,12 @@ exports.run = (client, message, args) => {
    message.channel.send("t'es qui pour me dire quoi dire? xD")
     return;
   }else{
-    const sayMessage = args.join(" ");
+if(message.author.id === "310474739766394882"){
+     const sayMessage = args.join();
     message.delete().catch(O_o=>{});
     message.channel.send(sayMessage);
+  }else{
+  
   }
+  }
+}

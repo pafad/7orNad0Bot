@@ -1,5 +1,5 @@
 exports.run = (client, message, args) => {
-    const sayMessage = args.join();
+    const sayMessage = message.content.substr(4);
   if(message.author.id !== "306119836503900161"){
    message.channel.send("t'es qui pour me dire quoi dire? xD")
     return;

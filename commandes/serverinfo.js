@@ -1,4 +1,4 @@
-exports.run = (client, message, args) => {
+exports.run = (client, message) => {
   message.channel.send({embed:{
     color: 0x9101ff,
      author: {

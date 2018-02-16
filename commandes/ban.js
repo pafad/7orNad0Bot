@@ -1,5 +1,5 @@
 exports.run = (client, message, args)  => {
-        let raison = message.content.substr(25);
+        let raison = message.content.substr(27);
         let banMember = message.guild.member(message.mentions.users.first());
         if(!message.member.hasPermissions("BAN_MEMBERS")){
             message.channel.send(`<:7orNad0_negative_check_mark:400045843287375873> ${message.author} Tu n'as pas la permission de ban les membres.`)

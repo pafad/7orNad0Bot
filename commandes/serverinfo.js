@@ -33,11 +33,6 @@ name: ':gear: -> liste de rôles',
 value: `${message.guild.roles.map(r => r.name)}`,
 inline: false
 },
-{
-name: ":gear: -> liste des emojis",
-value: message.guild.emojis.map(e => `<:${e.name}:${e.id}>`),
-inline: false
-},
 ],
 footer: {
 icon_url: client.user.avatarURL,

@@ -10,7 +10,7 @@ exports.run = (client, message, args) => {
       if (typeof evaled !== "string")
         evaled = require("util").inspect(evaled);
 
-      message.channel.send({embed:{color: 0x030303, description: ` \`\`\`${clean(evaled)}\`\`\``}});
+      message.channel.send({embed:{color: 0x030303,title: 'résultat', description: ` \`\`\`${clean(evaled)}\`\`\``}});
     } catch (err) {
       message.channel.send({embed:{
         color: 0x030303,
@@ -22,7 +22,7 @@ title: 'érreur',
 description: `\`\`\`xl\n${clean(err)}\n\`\`\``,
 footer: {
 icon_url: client.user.avatarURL,
-text: client.user.username
+text: client.user.name
 },
 }})
     }

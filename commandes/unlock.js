@@ -1,4 +1,4 @@
-exports.run = 8client, message, args) => {
+exports.run = (client, message, args) => {
  msg.channel.overwritePermissions(message.guild.id, {
                         SEND_MESSAGES: null
                     }).then(() => {

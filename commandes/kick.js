@@ -1,5 +1,5 @@
 exports.run = (client, message, args) => {
-        let raison = message.content.substr(26);
+        let raison = message.content.substr(28);
         let kickMember = message.guild.member(message.mentions.users.first());
         if(!message.member.hasPermissions("KICK_MEMBERS")){
             message.channel.send(`<:7orNad0_negative_check_mark:400045843287375873> ${message.author}, Tu n'as pas la permission de kick les membres.`)

@@ -14,8 +14,15 @@
                   message.channel.overwritePermissions(message.guild.id, {
                           SEND_MESSAGES: null
                   })
+              if(message.content === "7unlock"){
+               
+              }
               message.channel.send(`<:7orNad0_check_mark:400045879958175745> channel débloqué.`)
               } ,timeout);
-                       
+                message.channel.overwritePermissions(message.guild.id, {
+                          SEND_MESSAGES: false
+                        
+        })
+         return;
              }
        }

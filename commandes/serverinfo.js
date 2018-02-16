@@ -34,9 +34,8 @@ value: `${message.guild.channels.size}`,
 inline: false
 },
 {
-name: ':gear: -> liste de rôles',
-value: `${message.guild.roles.map(r => r.name)}`,
-inline: false
+name: 'liste des rôles',
+value: "fait 7serverroles pour savoir tout les rôles qu'il y a."
 },
 ],
 footer: {

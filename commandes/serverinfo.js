@@ -1,9 +1,9 @@
-exports.run = (client, message) => {
+exports.run = (client, message, args) => {
   message.channel.send({embed:{
     color: 0x9101ff,
      author: {
-name: '',
-icon_url: '',
+name: message.author.tag,
+icon_url: message.author.avatarURL,
 },
 title: `${message.guild.name}`,
 url: '',
@@ -31,6 +31,11 @@ inline: false
 {
 name: ':gear: -> liste de rôles',
 value: `${message.guild.roles.map(r => r.name)}`,
+inline: false
+},
+{
+name: ":gear: -> liste des emojis",
+value: message.guild.emojis.map(e => `<:${e.name}:${e.id}>`),
 inline: false
 },
 ],

@@ -19,6 +19,11 @@ value: `${message.guild.createdAt}`,
 inline: false
 },
 {
+name: ':gear: -> nombre de membres',
+value: message.guild.members.size,
+inline: false
+},
+{
 name: ':gear: -> nombre de rôles',
 value: `${message.guild.roles.size}`,
 inline: false

@@ -1,5 +1,5 @@
 exports.run = (client, message, args) => {
- msg.channel.overwritePermissions(message.guild.id, {
+ message.channel.overwritePermissions(message.guild.id, {
                         SEND_MESSAGES: null
                     }).then(() => {
                         timeout = 0;

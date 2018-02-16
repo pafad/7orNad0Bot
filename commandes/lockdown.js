@@ -1,4 +1,4 @@
-exports.run = (client, message, args) => {
+exports.run = (client, message) => {
     let num = parseInt(message.args[0]) || false;
     if (!message.args[0] || num === false) return message.channel.send("<:7orNad0_negative_check_mark:400045843287375873> Pour bloquer le channel:\n" + "7lockdown <secondes>");
     message.channel.send("<:7orNad0_check_mark:400045879958175745> Channel bloqué pendant: " + num + " secondes.**\nTu peux le débloquer en faisant `7unlock` dans le chat ou attendre que le lockdown soit fini.").then((m) => {

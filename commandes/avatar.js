@@ -1,4 +1,4 @@
-exports.run = (client, message, args) => {
+exports.run = (client, message) => {
     let user_avatar = message.mentions.users.first();
     if(!user_avatar){
         message.channel.send(`:tada: ${message.author}, ${message.author.avatarURL}`)

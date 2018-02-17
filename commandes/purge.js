@@ -8,5 +8,5 @@ exports.run = (client, message, args) => {
   .then(messages => {
     let msg_array = messages.array();
     message.channel.bulkDelete( msg_array.length = messagecount + 1;).catch(console.error));
-  };
+  }
 }

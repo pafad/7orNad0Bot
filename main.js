@@ -53,7 +53,7 @@ client.on('ready', ()=> {
 
 client.on('message', message =>{
     //blacklist du bot
-    if(message.author.client)return;
+    if(message.author.bot)return;
     if(message.author.id === '281774692052762627')return;
     if(message.author.id === '336560869708398594')return;
     //end

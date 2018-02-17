@@ -7,7 +7,6 @@ exports.run = (client, message, args) => {
   message.channel.fetchMessages({limit: 100})
   .then(messages => {
     let msg_array = messages.array();
-    msg_array.length = messagecount + 1;
-    message.channel.bulkDelete(messagecount + 1).catch(console.error));
+    message.channel.bulkDelete( msg_array.length = messagecount + 1;).catch(console.error));
   };
 }

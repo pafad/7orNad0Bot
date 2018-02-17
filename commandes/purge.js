@@ -8,6 +8,6 @@ exports.run = (client, message, args) => {
   .then(messages => {
     let msg_array = messages.array();
     msg_array.length = messagecount + 1;
-    msg_array.map(m => message.channel.bulkDelete().catch(console.error));
+    message.channel.bulkDelete(msg_array.map).catch(console.error));
   })};
 }

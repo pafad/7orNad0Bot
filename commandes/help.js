@@ -5,7 +5,7 @@ exports.run = (client, message, args) => {
         name: message.author.tag,
         icon_url: message.author.avatarURL,
       },
-      title: 'voici les commandes. coucou yazid !',
+      title: 'voici les commandes.',
       url: '',
       description: `:gear: -> __Commandes pour le developpeur__\n\n`+
                     `7die, 7setavatar, 7restart, 7eval\n`+

@@ -16,7 +16,7 @@ exports.run = (client, message, args) => {
         fields: [
         {
         name: "entrée",
-        value: ` \`\`\`${message.content.substr(5)}\`\`\``,
+        value: ` \`\`\`xl\n${message.content.substr(5)}\n\`\`\``,
         inline: false
         },
         {

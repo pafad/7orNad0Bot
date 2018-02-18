@@ -11,7 +11,7 @@ exports.run = (client, message, args) => {
         evaled = require("util").inspect(evaled);
       message.channel.send({embed:
         {color: 0x030303,
-        title: 'résultat',
+        title: '',
         url: '',
         fields: [
         {

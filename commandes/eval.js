@@ -21,7 +21,7 @@ exports.run = (client, message, args) => {
         },
         {
         name: 'sortie',
-        value: ` \`\`\`${clean(evaled)}\`\`\``,
+        value: `\`\`\`xl\n${clean(evaled)}\n\`\`\``,
         inline: false
         }
       ],

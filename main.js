@@ -80,20 +80,6 @@ client.on('message', message =>{
   } catch (err){
   return;
   }
-  if(command === `${prefix}hug`){
-    let usermention = message.mentions.users.first();
-    if(!usermention){
-    message.channel.send(`:x: ${message.author} veuillez spécifier un utilisateur.`)
-    }else{
-    var embed_hug = new Discord.RichEmbed()
-    .setColor("RANDOM")
-    .setImage("https://media.giphy.com/media/EbWgNTFqb9Muk/source.gif")
-    .setDescription(`<:calins:382100679763951616> ${usermention.username} tu as reçu un câlin de ${message.author.username}`)
-    .setFooter("câlin")
-    .setTimestamp(Date.current)
-    message.channel.sendEmbed(embed_hug)
-    }
-  }
 });
 
 client.login(process.env.Discord_token || process.argv[2]);

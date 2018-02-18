@@ -9,20 +9,34 @@ exports.run = (client, message, args) => {
 
       if (typeof evaled !== "string")
         evaled = require("util").inspect(evaled);
-
-      message.channel.send({embed:{color: 0x030303,title: 'résultat', description: ` \`\`\`${clean(evaled)}\`\`\``}});
+      message.channel.send({embed:
+        {color: 0x030303,
+        title: 'résultat',
+        url: '',
+        fields: [
+        {
+        name: "entrée",
+        value: `${message.content.substr(5)}`,
+        inline: false
+        },
+        {
+        name: 'sortie',
+        value: ` \`\`\`${clean(evaled)}\`\`\``,
+        inline: false
+        }
+      ],
+      footer:{
+        icon_url: client.user.avatarURL,
+        text: 'eval by shiro', 
+        }}});
     } catch (err) {
       message.channel.send({embed:{
         color: 0x030303,
-         author: {
-name: message.author.tag,
-icon_url: message.author.avatarURL,
-},
 title: 'érreur',
 description: `\`\`\`xl\n${clean(err)}\n\`\`\``,
 footer: {
 icon_url: client.user.avatarURL,
-text: client.user.name
+text: 'eval by shiro'
 },
 }})
     }

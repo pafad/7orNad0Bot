@@ -10,7 +10,7 @@ url: '',
 fields: [
 {
 name: ':gear: -> liste de rôles',
-value: `${message.guild.roles.map(r => r.name)}\n`,
+value: `${message.guild.roles.map(r => r.name)}`,
 inline: false
 },
 

@@ -67,31 +67,6 @@ client.on('message', message =>{
     if(message.content === "prefix"){
             message.channel.send(`:tada: mon prefix est ${prefix}`);
     }
-    //reaction
-    if(message.content === 'ok'){
-        message.react("🆗")
-    }
-    if(message.content === 'test'){
-        message.react("✅")
-    }
-    if(message.content === 'cool'){
-        message.react("❄")
-    }
-    if(message.content.includes('xd' ||message.content.includes('XD'))){
-        message.react("😂")
-    }
-    if(message.content.includes('omg' || message.content.includes('omfg'))){
-        message.react("😱")
-    }
-    if(message.content === "manger"){
-        message.react("🍔")
-    }
-    if(message.content === 'vu' || message.content === "trouvé"){
-        message.react("👀")
-    }
-    if(message.content === 'chut'){
-        message.react("381794751437078528")
-    }
   //double arguments du turfu
   if(!message.content.startsWith(prefix))return;
   // This is the best way to define args. Trust me.

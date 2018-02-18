@@ -57,13 +57,6 @@ client.on('message', message =>{
     if(message.author.id === '281774692052762627')return;
     if(message.author.id === '336560869708398594')return;
     //end
-       //ping
-    if(message.content === "ping"){
-        message.channel.send("Pong !")
-        setTimeout(() => {
-            message.channel.lastMessage.edit(`:ping_pong: __${Math.round(client.ping)}__ ms !`)
-        }, 600);
-    }
     if(message.content === "prefix"){
             message.channel.send(`:tada: mon prefix est ${prefix}`);
     }

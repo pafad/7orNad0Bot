@@ -14,7 +14,8 @@
     "request": "^2.81.0",
     "youtube-search": "^1.0.9",
     "ytdl-core": "^0.14.0",
-    "random-number": "^0.0.9"
+    "random-number": "^0.0.9",
+    "spotify": "^0.3.0"
   },
   "devDependencies": {},
   "scripts": {

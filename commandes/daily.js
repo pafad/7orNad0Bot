@@ -10,5 +10,7 @@ var daily;
                 var seconds = Math.floor((distance % (1000 * 60)) / 1000);
                 message.channel.send(":x: Vous ne pouvez utiliser cette commande qu'une fois toutes les 12h, temps restant: " + hours + "h " + minutes + "m " + seconds + "s");
                 return;
+            }else{
+             message.channel.send("tu as eu ton daily à dans 12 heures !")  
             }
 }

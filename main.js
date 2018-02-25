@@ -56,10 +56,6 @@ client.on('message', message =>{
     if(message.author.bot)return;
     if(message.author.id === '281774692052762627')return;
     if(message.author.id === '336560869708398594')return;
-    //end
-    if(message.content === "prefix"){
-            message.channel.send(`:tada: mon prefix est ${prefix}`);
-    }
   //double arguments du turfu
   if(!message.content.startsWith(prefix))return;
   // This is the best way to define args. Trust me.

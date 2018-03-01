@@ -1,4 +1,5 @@
 expotrs.run = (client, message, args) => {
+if(!args) return message.channel.send(`:x: ${message.author}, écrit une question`);
 const rn = require('random-number');
 const response = [
   "oui.",
@@ -20,7 +21,6 @@ const response = [
   "pas du tout.",
   "à coté de la plaque."
 ]
-if(!args) return message.channel.send(`:x: ${message.author}, écrit une question`)
 let r = rn({
                min: 0,
                max: response.length - 1,

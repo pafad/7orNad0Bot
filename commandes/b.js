@@ -1,6 +1,7 @@
 expotrs.run = (client, message, args) => {
 if(!args){
-  message.channel.send(`:x: ${message.author}, écrit une question`);
+  message.channel.send(`:x: ${message.author}, écrit une question`)
+  return;
 }else{
 const rn = require('random-number');
 const response = [

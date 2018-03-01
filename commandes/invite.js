@@ -1,11 +1,12 @@
-exports.run = (client,message, args) => {
-        let invite_embed = new Discord.RichEmbed()
-        .setColor("RANDOM")
-        .setThumbnail(client.user.avatarURL)
-        .setTitle("Tu veux m'inviter voici le lien:")
-        .setDescription("https://discordapp.com/oauth2/authorize?client_id=360768316832481284&scope=bot&permissions=-1")
-        .setFooter("un bot developpé par pafad !")
-    message.channel.sendEmbed(invite_embed);     
-    
-
+exports.run = (client,message) => {
+  message.channel.send('', { embed: {
+    color: 0x9101ff,
+    title: "Tu veux m'inviter voici le lien:",
+    url: '',
+    description: "https://discordapp.com/oauth2/authorize?client_id=360768316832481284&scope=bot&permissions=-1",
+    footer: {
+      icon_url: client.user.avatarURL,
+      text: `${client.user.username} by shiro`
+    },
+  }})
 }

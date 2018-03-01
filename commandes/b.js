@@ -8,5 +8,5 @@ let r = rn({
            });
        if(!args)return message.channel.send(`:x: ${message.author}, pose une question.`)
        let ball = response[r];
-       message.channel.send(`:gem: ${message.author}, ${ball}`)
+       message.channel.send(`:gem: ${message.author}` + ` ${ball}`)
 }

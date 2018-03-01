@@ -23,7 +23,7 @@ const response = [
 if(!args) return message.channel.send(`:x: ${message.author}, écrit une question`)
 let r = rn({
                min: 0,
-               max: hug.length - 1,
+               max: response.length - 1,
                integer: true
            });
        let ball = response[r];

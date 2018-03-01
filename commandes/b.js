@@ -1,5 +1,5 @@
 expotrs.run = (client, message, args) => {
-const rn = require('random-number')
+const rn = require('random-number');
 const response = [
   "oui.",
   "non.",

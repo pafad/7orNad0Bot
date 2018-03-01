@@ -6,7 +6,7 @@ let r = rn({
                max: response.length - 1,
                integer: true
            });
-       if(!args)return message.channel.send(`:x: ${message.author}, pose une question.`)
+       if(!args || args.size < 1) return message.channel.send(`:x: ${message.author}, pose une question.`)
        let ball = response[r];
        message.channel.send(`:gem: ${message.author}` + ` ${ball}`)
 }

@@ -1,5 +1,5 @@
 expotrs.run = (client, message, args) => {
-if(!args){
+if(!message.content){
   message.channel.send(`:x: ${message.author}, écrit une question`)
   return;
 }else{

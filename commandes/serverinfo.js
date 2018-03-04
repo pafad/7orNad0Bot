@@ -35,7 +35,7 @@ inline: false
 },
 {
 name: 'liste des rôles',
-value: message.guild.roles.map(r => r.name).length > 900 ? "Trop de rôle, fait `7serverroles` pour avoir une liste compète" : message.guild.roles.map(r => r.name))
+value: `${message.guild.roles.map(r => r.name).length > 900 ? "Trop de rôle, fait `7serverroles` pour avoir une liste compète" : message.guild.roles.map(r => r.name))}`
 },
 ],
 footer: {

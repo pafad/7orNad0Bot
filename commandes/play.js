@@ -1,5 +1,5 @@
 exports.run = (client, message,args) => {
-  if(!args[1]){
+  if(!args){
     message.channel.send(`<:7orNad0_negative_check_mark:400045843287375873> ${message.author}, spécifiez un lien.`)
     return;
   }

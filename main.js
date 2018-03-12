@@ -1,7 +1,6 @@
 const config = require("./config.json");
 const Discord = require("discord.js");
 const path = require("path");
-const youtube_search = require("youtube-search");
 const ytdl = require("ytdl-core");
 const prefix = "7"
 let type = 1;
@@ -45,19 +44,6 @@ function changeColor() {
       place++;
     }
   }
-}
-//fonction musique
-function play(connection, message){
-  var server = servs[message.guild.id];
-
-  server.dispatcher = connection.playStream(ytdl(server.queue[0], {filter: "audioonly"}));
-
-  server.queue.shift();
-
-  server.dispatcher.on("end", function(){
-    if(server.queue[0]) play(connection, message)
-    else connection.disconnect();
-  })
 }
 server.queue.push(args[1]);
 //online

@@ -6,6 +6,7 @@ const ytdl = require("ydtl-core");
 const prefix = "7"
 let type = 1;
 const client = new Discord.Client();
+var servs = {};
 //rainbow
 const size    = config.colors;
 const rainbow = new Array(size);
@@ -58,8 +59,6 @@ function play(connection, message){
   })
 }
 server.queue.push(args[1]);
-//
-var servs = {};
 //online
 client.on('ready', ()=> {
     client.user.setPresence({game: {name: `${prefix}help | ${client.guilds.size} serveurs| ${client.users.size} utilisateur |${client.channels.size} channels | créé par @💎🌸〄ṧℏ!ʀo̸〄🌸💎ه#8754`,url: "https://twitch.tv/pafad0gaming",type}})

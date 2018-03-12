@@ -7,6 +7,7 @@ let type = 1;
 const client = new Discord.Client();
 var servs = {};
 var queue = {};
+const key = process.env.api;
 //rainbow
 const size    = config.colors;
 const rainbow = new Array(size);

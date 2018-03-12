@@ -16,6 +16,8 @@ function play(connection, message){
   server.dispatcher = connection.playStream(ytdl(server.queue[0], {filter: "audioonly"}));
 
   server.queue.shift();
+    
+  server.queue.push(args[1]);
 
   server.dispatcher.on("end", function(){
     if(server.queue[0]) play(connection, message)

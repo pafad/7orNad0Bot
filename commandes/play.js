@@ -14,13 +14,12 @@ queue: []
 var server = servs[message.guild.id];
 
 server.dispatcher = connection.playStream(ytdl(server.queue[0], {filter: "audioonly"}));
-
-server.queue.push(args[1]);
   
 server.queue.shift();
 
+server.queue.push(args[1]);
   
-  server.queue.playing === true;
+server.queue.playing === true;
 server.dispatcher.on("end", function(){
   if(server.queue[0]) play(connection, message)
   else connection.disconnect();

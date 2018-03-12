@@ -7,6 +7,7 @@ const prefix = "7"
 let type = 1;
 const client = new Discord.Client();
 var servs = {};
+var queue = {};
 //rainbow
 const size    = config.colors;
 const rainbow = new Array(size);

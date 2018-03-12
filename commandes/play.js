@@ -20,7 +20,7 @@ server.queue.shift();
 server.queue.push(args[1]);
 
 server.dispatcher.on("end", function(){
-  if(server.queue[0]) server.queue.playing === true;
+  if(server.queue[0]) server[message.guild.id].queue.playing === true;
   else connection.disconnect();
 })
 }

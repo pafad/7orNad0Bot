@@ -19,6 +19,8 @@ server.queue.push(args[1]);
   
 server.queue.shift();
 
+  
+  server.queue.playing === true;
 server.dispatcher.on("end", function(){
   if(server.queue[0]) play(connection, message)
   else connection.disconnect();

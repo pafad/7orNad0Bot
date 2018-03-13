@@ -12,7 +12,7 @@ exports.run = (client, message) => {
         footer: {
             name: "chat by shiro",
             icon_url: message.author.avatarUrl,
-            time: Date.now()
+            time: new Date.now()
         }
-    }})
+    }}).catch(console.log.error)
 }

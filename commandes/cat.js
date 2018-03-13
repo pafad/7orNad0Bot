@@ -14,5 +14,5 @@ exports.run = (client, message) => {
             icon_url: message.author.avatarUrl,
             time: new Date.now()
         }
-    }}).catch(console.log.error)
+    }})
 }

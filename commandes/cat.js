@@ -1,11 +1,14 @@
 exports.run = (client, message) => {
-    const random_cat = require("random-cat");
-    var url = random_Cat.get();
+    const randomCat = require("random-cat");
+    var urlWithSize = randomCat.get({
+  width: 120,
+  height: 600
+});
     message.channel.send({embed:{
         color: 0x732db7,
         title: `${message.author.tag} chaaaaat ! :smile_cat:`,
         url: '',
-        image: url,
+        image: urlWithSize,
         footer: {
             name: "chat by shiro",
             icon_url: message.author.avatarUrl,

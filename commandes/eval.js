@@ -15,12 +15,7 @@ exports.run = (client, message, args) => {
         url: '',
         fields: [
         {
-        name: "entrée",
-        value: ` \`\`\`xl\n${message.content.substr(5)}\n\`\`\``,
-        inline: false
-        },
-        {
-        name: 'sortie',
+        name: 'résultat',
         value: `\`\`\`xl\n${clean(evaled)}\n\`\`\``,
         inline: false
         }

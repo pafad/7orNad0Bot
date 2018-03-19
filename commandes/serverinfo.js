@@ -35,8 +35,8 @@ inline: false
 },
 {
 name: 'liste des rôles',
-value: message.guild.roles.map(r => r.name).length > 900 ? "fait __7serverroles__ pour avoir une liste compète": message.guild.roles.map(r => r.name),
-inline: true
+value:  "fait __7serverroles__ pour avoir une liste complète",
+inline: false
 },
 ],
 footer: {

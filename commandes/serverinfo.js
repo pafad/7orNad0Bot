@@ -9,6 +9,11 @@ title: `${message.guild.name}`,
 url: '',
 fields: [
 {
+name: ':gear: -> ID du serveur',
+value: `${message.guild.id}`,
+inline: false
+},
+{
 name: ':gear: -> propriétaire du serveur',
 value: `${message.guild.owner.user.username}`,
 inline: false

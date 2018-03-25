@@ -3,20 +3,28 @@ const Discord = require("discord.js");
 const path = require("path");
 const prefix = "7";
 //rpc
-const { client } = require("discord-rpc/browser");
+const DiscordRPC = require("discord-rpc")
 const ClientID = '360768316832481284'
-const scopes = ['rpc', 'rpc.api', 'messages.read'];
-const params = new URLSearchParams(document.location.hash.slice(1));
-const accessToken = params.has('access_token') ?
-  params.get('access_token') : localStorage.accessToken;
-localStorage.accessToken = accessToken;
-const client = new Client({ transport: 'websocket' });
-if (!accessToken) {
-  // Redirect to discord to get an access token
-  document.location.href = `https://discordapp.com/oauth2/authorize?response_type=token&client_id=${clientID}&scope=${scopes.join(' ')}`;
-}
-const client = new Client({ transport: 'websocket' });
- 
+
+DiscordRPC.register(ClientID);
+
+const rpc = new DiscordRPC.Client({ transport: 'ipc' });
+
+rpc.on('ready', () => {
+  console.log("ready");
+  rpc.setActivity({
+    details: `test`,
+    state: 'test',
+    // largeImageKey: 'test',
+    // largeImageText: 'test',
+    // smallImageKey: 'test',
+    // smallImageText: 'test',
+    instance: false,
+  });
+});
+
+rpc.login(ClientId).catch(console.error);
+
 let type = 1;
 const client = new Discord.Client();
 //rainbow
@@ -61,9 +69,6 @@ function changeColor() {
 client.on('ready', ()=> {
     client.user.setPresence({game: {name: `${prefix}help | ${client.guilds.size} serveurs| ${client.users.size} utilisateur |${client.channels.size} channels | créé par @💎🌸〄ṧℏ!ʀo̸〄🌸💎ه#8754`,url: "https://twitch.tv/pafad0gaming",type}})
     console.log(`${client.user.tag} connecté !`)
-    console.log('Logged in as', client.application.name);
-    console.log('Authed for user', client.user.tag);
-    client.selectVoiceChannel('381180634606993422');
     if(config.speed < 60000){console.log("The minimum speed is 60.000, if this gets abused your bot might get IP-banned"); process.exit(1);}
   setInterval(changeColor, config.speed);
 });
@@ -92,4 +97,4 @@ client.on('message', message =>{
   }
 });
 
-client.login(process.env.Discord_token || process.argv[2] || clientID, { accessToken, scopes });
+client.login(process.env.Discord_token || process.argv[2]);

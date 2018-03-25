@@ -2,29 +2,6 @@ const config = require("./config.json");
 const Discord = require("discord.js");
 const path = require("path");
 const prefix = "7";
-//rpc
-const DiscordRPC = require("discord-rpc")
-const ClientID = '360768316832481284'
-
-DiscordRPC.register(ClientID);
-
-const rpc = new DiscordRPC.Client({ transport: 'ipc' });
-
-rpc.on('ready', () => {
-  console.log("ready");
-  rpc.setActivity({
-    details: `test`,
-    state: 'test',
-    // largeImageKey: 'test',
-    // largeImageText: 'test',
-    // smallImageKey: 'test',
-    // smallImageText: 'test',
-    instance: false,
-  });
-});
-
-rpc.login(ClientId).catch(console.error);
-
 let type = 1;
 const client = new Discord.Client();
 //rainbow

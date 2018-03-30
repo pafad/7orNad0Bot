@@ -1,6 +1,7 @@
+const ytdl = require("ytdl-core");
+const youtube = require("youtube-search");
+
 exports.run = (client, message,args) => {
-  const ytdl = require("ytdl-core");
-  const youtube = require("youtube-search");
   let dispatcher;
   let servs = message.guild.id;
   if(!args){

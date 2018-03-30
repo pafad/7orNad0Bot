@@ -1,5 +1,5 @@
+const randomCat = require("random-cat");
 exports.run = (client, message) => {
-    const randomCat = require("random-cat");
     var urlWithSize = randomCat.get({
   width: 120,
   height: 600

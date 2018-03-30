@@ -1,6 +1,5 @@
 const config = require("./config.json");
 const Discord = require("discord.js");
-const eris = require("eris");
 const path = require("path");
 const prefix = "7";
 let type = 1;

@@ -61,16 +61,6 @@ client.on("guildDelete", guild => {
   client.user.setPresence({game: {name: `${prefix}help | ${client.guilds.size} serveurs| ${client.users.size} utilisateur |${client.channels.size} channels | créé par @๖̶̶̶ۣۣۜۜ͜ζ͜͡ᾰк!кᾰϟῠ『💎』#8754`,url: "https://twitch.tv/pafad0gaming",type}})
 	
 })
-//un utilisateur rejoins
-client.on("guildMemberAdd", member => {
-  client.channels.get("409671028848066570").send(`${member} bienvenue sur le serveur ${member.guild.name} tu es le ${member.guild.members.size}ème membre.`)
-  client.user.setPresence({game: {name: `${prefix}help | ${client.guilds.size} serveurs| ${client.users.size} utilisateur |${client.channels.size} channels | créé par @๖̶̶̶ۣۣۜۜ͜ζ͜͡ᾰк!кᾰϟῠ『💎』#8754`,url: "https://twitch.tv/pafad0gaming",type}})
-})
-//un utilisateur part
-client.on("guildMemberAdd", member => {
-  client.channels.get("409671028848066570").send(`**${member.user.tag}** a quitté le serveur, au revoir ${member.tag} au plaisir de te revoir...`)
-  client.user.setPresence({game: {name: `${prefix}help | ${client.guilds.size} serveurs| ${client.users.size} utilisateur |${client.channels.size} channels | créé par @๖̶̶̶ۣۣۜۜ͜ζ͜͡ᾰк!кᾰϟῠ『💎』#8754`,url: "https://twitch.tv/pafad0gaming",type}})
-})
 //définir message
 client.on('message', message =>{
     //blacklist du bot

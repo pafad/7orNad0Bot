@@ -1,4 +1,4 @@
-exports.run = (client, message) => {
+exports.run = (client, message, args) => {
     let num = parseInt(message.args[0]) || false;
     if (!message.args[0] || num === false){
         message.channel.send("<:7orNad0_negative_check_mark:400045843287375873> Pour bloquer le channel:\n" + "7lockdown <secondes>");

@@ -17,7 +17,7 @@
     "random-number": "^0.0.9",
     "spotify": "^0.3.0",
     "random-cat": "^1.0.1",
-    "discord-rpc": "^3.0.0-beta.9"
+    "eris": "^0.8.5"
   },
   "devDependencies": {},
   "scripts": {

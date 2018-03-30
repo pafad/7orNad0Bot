@@ -4,6 +4,7 @@ exports.run = (client, message, args) => {
     }else{
      message.channel.overwritePermissions(message.guild.id, {
             SEND_MESSAGES: false
-        })   
+        })
+        message.channel.send("channel bloqué tape 7unlock pour le débloquer")
     }
 }

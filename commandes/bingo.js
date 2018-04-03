@@ -7,12 +7,12 @@ exports.run = (client, message, args) => {
         let collect = message.channel.createCollector(ms => ms.author.id === message.author.id, {
                         time: 300000
                     });
-        collect.on('message', msg => {
-            if(msg.content.substr(1) === nombre){
-                msg.reply(`gg tu as trouvé le nombre: ${nombre}`)
+        collect.on('message', message => {
+            if(message.content.substr(1) === nombre){
+                message.reply(`gg tu as trouvé le nombre: ${nombre}`)
                 bingo = false;
             }else{
-            msg.channel.send(`vous êtes des noobs le nombre était: ${nombre}`)
+            message.channel.send(`vous êtes des noobs le nombre était: ${nombre}`)
             bingo = false;
             }
         })       

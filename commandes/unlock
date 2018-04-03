@@ -1,11 +1,12 @@
-exports.run = (client, message, args) => { 
- if(!message.member.hasPermission("MANAGE_CHANNEL"))return;
- if(message.channel.overwritePermissions({SEND_MESSAGES: null})){
- message.channel.send("le channel est déjà débloqué")
- }else{
- message.channel.overwritePermissions({
-        SEND_MESSAGES: null
-    })
-    message.channel.send("channel débloqué")
- }
-}
+if(!message.member.hasPermission("MANAGE_CHANNEL")){
+      return;
+    }else{
+    if(message.channel.permissionOverwrites({SEND_MESSAGES: null})){
+    message.channel.send("le channel est déjà débloqué")
+    }else{
+    message.channel.overwritePermissions({
+           SEND_MESSAGES: null
+       })
+       message.channel.send("channel débloqué")
+      }
+    }

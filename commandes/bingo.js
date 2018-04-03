@@ -8,7 +8,7 @@ exports.run = (client, message, args) => {
                         time: 300000
                     });
         collect.on('message', message => {
-            if(message.content === nombre){
+            if(message.content.substr(1) === nombre){
                 message.reply(`gg tu as trouvé le nombre: ${nombre}`)
                 bingo = false;
             }else{

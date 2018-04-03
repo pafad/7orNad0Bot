@@ -56,7 +56,7 @@ client.on("guildCreate", guild => {
 })
 //part d'un serv
 client.on("guildDelete", guild => {
-  client.channels.get("429210276815175682").send(`j'ai rejoin le serveur ${guild.name}[${guild.id}] ayant ${guild.members.size} membres!`)
+  client.channels.get("429210276815175682").send(`j'ai quitté le serveur ${guild.name}[${guild.id}] ayant ${guild.members.size} membres!`)
   client.user.setPresence({game: {name: `${prefix}help | ${client.guilds.size} serveurs| ${client.users.size} utilisateur |${client.channels.size} channels | créé par @๖̶̶̶ۣۣۜۜ͜ζ͜͡ᾰк!кᾰϟῠ『💎』#8754`,url: "https://twitch.tv/pafad0gaming",type}})
 	
 })

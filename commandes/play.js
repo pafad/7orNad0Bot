@@ -2,7 +2,6 @@ const ytdl = require("ytdl-core");
 const youtube = require("youtube-search");
 
 exports.run = (client, message,args) => {
-  let dispatcher;
   let servs = message.guild.id;
   if(!args){
     message.channel.send(`<:7orNad0_negative_check_mark:400045843287375873> ${message.author}, spécifiez un lien.`)
@@ -19,7 +18,7 @@ queue: []
 function play(connection, message){
 var server = servs[message.guild.id];
 
-server.dispatcher = connection.playStream(ytdl(server.queue[0], {filter: "audioonly"}));
+const dispatcher = connection.playStream(ytdl(server.queue[0], {filter: "audioonly"}));
 
 server.queue.push(args);
   

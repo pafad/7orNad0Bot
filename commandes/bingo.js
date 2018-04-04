@@ -7,8 +7,8 @@ exports.run = (client, message, args) => {
     message.author.send(`le nombre est: ${nombre}`)
     bingo =true;
     }
-    if(message.content === "stop"){
-     message.channel.send(`le bingo a été stopé, le nombre était: ${nombre}`)
+    if(message.args[0] === "stop"){
+     message.channel.send(`le bingo a été stoppé, le nombre était: ${nombre}`)
      bingo = false;
     }
 }

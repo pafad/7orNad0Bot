@@ -84,7 +84,7 @@ client.on('message', message =>{
   return;
   }
   //test
-if(command === `bingo`){
+if(message.content === `7bingo`){
       let bingo = false;
       if(bingo = true){
           message.channel.send("le bingo est déjà lancé.")
@@ -100,7 +100,7 @@ if(command === `bingo`){
           message.channel.send(`gg ${message.author} tu as trouvé le nombre: ${nombre}`)
           bingo = false;
         }
-        if(message.content === "bingo stop"){
+        if(message.content === "7bingo stop"){
           message.channel.send(`le bingo a été stoppé, le nombre était: ${nombre}`)
           bingo = false;
          } 

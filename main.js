@@ -97,11 +97,6 @@ if(command === `bingo`){
         time: 300000
       })
       }
-      collect.on("message", message => {
-        if(message.content === nombre){
-          message.channel.send(`gg ${message.author} tu as trouvé le nombre: ${nombre}`)
-          bingo = false;
-        }
       })
       if(message.content === "bingo stop"){
        message.channel.send(`le bingo a été stoppé, le nombre était: ${nombre}`)

@@ -83,30 +83,32 @@ client.on('message', message =>{
   } catch (err){
   return;
   }
-  //test
-if(message.content === `7bingo`){
-      let bingo = false;
-      if(bingo = true){
-          message.channel.send("le bingo est déjà lancé.")
-      }else{
-      let nombre = Math.floor(Math.random() * 100)
-      message.author.send(`le nombre est: ${nombre}`)
-      bingo = true;
-      let collect = message.channel.createCollector({
-        time: 300000
-      })
-      collect.on("message", message => {
-        if(parseInt(message.args[0]) === nombre){
-          message.channel.send(`gg ${message.author} tu as trouvé le nombre: ${nombre}`)
-          bingo = false;
-        }
-        if(message.content === "7bingo stop"){
-          message.channel.send(`le bingo a été stoppé, le nombre était: ${nombre}`)
-          bingo = false;
-         } 
-      })
-    }
+  //bingo
+  if(message.content === `7bingo`){
+    let bingo = false;
+    let num = parseInt(message.args[0]);
+    if(bingo = true){
+        message.channel.send("le bingo est déjà lancé.")
+    }else{
+    let nombre = Math.floor(Math.random() * 100)
+    message.author.send(`le nombre est: ${nombre}`)
+    bingo = true;
+    let collect = message.channel.createCollector({
+      time: 300000
+    })
+    collect.on("message", message => {
+      if(num === nombre){
+        message.channel.send(`gg ${message.author} tu as trouvé le nombre: ${nombre}`)
+        bingo = false;
+      }
+      if(message.content === "7bingo stop"){
+        message.channel.send(`le bingo a été stoppé, le nombre était: ${nombre}`)
+        bingo = false;
+       } 
+    })
   }
+}
+
 });
 
 client.login(process.env.Discord_token || process.argv[2]);

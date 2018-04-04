@@ -96,7 +96,7 @@ if(message.content === `7bingo`){
         time: 300000
       })
       collect.on("message", message => {
-        if(message.content === nombre){
+        if(parseInt(message.args[0]) === nombre){
           message.channel.send(`gg ${message.author} tu as trouvé le nombre: ${nombre}`)
           bingo = false;
         }

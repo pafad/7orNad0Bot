@@ -84,7 +84,7 @@ client.on('message', message =>{
   return;
   }
   //bingo
-  if(message.content === `7bingo`){
+	if(message.content === `7bingo`){
     let bingo = false;
     let num = parseInt(message.args[0]);
     if(bingo = true){
@@ -92,23 +92,24 @@ client.on('message', message =>{
     }else{
     let nombre = Math.floor(Math.random() * 100)
     message.author.send(`le nombre est: ${nombre}`)
-    bingo = true;
-    let collect = message.channel.createCollector({
-      time: 300000
-    })
-    collect.on("message", message => {
+    bingo = true; 
+    setTimeout(() => {
       if(num === nombre){
         message.channel.send(`gg ${message.author} tu as trouvé le nombre: ${nombre}`)
         bingo = false;
+        clearTimeout();
+      }else{
+        message.channel.send(`vous êtes des noobs le nombre était: ${nombre}`)
+        bingo = false;
       }
+    }, 300000);   
       if(message.content === "7bingo stop"){
         message.channel.send(`le bingo a été stoppé, le nombre était: ${nombre}`)
         bingo = false;
-       } 
-    })
+        clearTimeout();
+      }
   }
 }
-
 });
 
 client.login(process.env.Discord_token || process.argv[2]);

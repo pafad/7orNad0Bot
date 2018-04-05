@@ -10,7 +10,7 @@ message.channel.send({embed:{
       fields: [
         {
           name: 'Liste des utilisateurs',
-          value: `${message.guild.members.map(g => g.user.username)}\n`,
+          value: `${message.guild.members.map(g => g.user.username)}\n\n`,
           inline: false
         },
       ],

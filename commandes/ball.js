@@ -1,5 +1,4 @@
-const rn = require('random-number');
-expotrs.run = (client, message, args) => {
+expotrs.run = (client, message, args, rn) => {
   if(!args){
          message.channel.send(`:x: ${message.author}, pose une question.`)
        }else{

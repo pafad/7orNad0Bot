@@ -1,7 +1,6 @@
 const config = require("./config.json");
 const Discord = require("discord.js");
 const path = require("path");
-const rn = require('random-number');
 const prefix = "7";
 let type = 1;
 const client = new Discord.Client();

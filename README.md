@@ -1,7 +1,7 @@
 # 7orNad0Bot:
 
 <ul>
-  <h2>commandes du bot:</h2>
+  <h1>commandes du bot:</h1>
   <h3>commande de base:</h3>
   <li>7help</li>
   <h3>Commande de modération:</h3>

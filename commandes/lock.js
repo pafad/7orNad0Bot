@@ -3,7 +3,7 @@ exports.run = (client, message) => {
         message.channel.send("Tu n'as pas la permission de gérer le salon");
     }else{
     message.channel.overwritePermissions({
-        SEND_MESSAGES: false    
+        'SEND_MESSAGES': false    
     })
     message.channel.send("channel bloqué tape 7unlock pour le débloquer") 
         } 

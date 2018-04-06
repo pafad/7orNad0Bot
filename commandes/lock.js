@@ -1,14 +1,11 @@
-exports.run = (client, message, args) => {
+exports.run = (client, message) => {
     if(!message.member.hasPermission("MANAGE_CHANNELS")){
         message.channel.send("Tu n'as pas la permission de gérer le salon");
     }else{
-    try {
     message.channel.overwritePermissions({
         SEND_MESSAGES: false    
     })
-    message.channel.send("channel bloqué tape 7unlock pour le débloquer")
-    } catch (err) {
-    message.channel.send(`une erreur sauvage apparraît: ${err}`)  
+    message.channel.send("channel bloqué tape 7unlock pour le débloquer") 
         } 
     }
 }

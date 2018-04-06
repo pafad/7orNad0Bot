@@ -1,3 +1,5 @@
 # 7orNad0Bot
 
-commandes dispo:
+<ul>
+  <li>7help</li>
+</ul>

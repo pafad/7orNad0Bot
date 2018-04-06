@@ -4,7 +4,7 @@ exports.run = (client, message, args) => {
     }else{
     try {
     message.channel.overwritePermissions({
-        deny: "SEND_MESSAGE"    
+        SEND_MESSAGES: false    
     })
     message.channel.send("channel bloqué tape 7unlock pour le débloquer")
     } catch (err) {

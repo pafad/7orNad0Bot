@@ -1,9 +1,10 @@
 # 7orNad0Bot:
 
 <ul>
-  <h2>commandes de base:</h2>
+  <h2>commandes du bot:</h2>
+  <h3>commande de base:</h3>
   <li>7help</li>
-  <h2>Commande de modération:</h2>
+  <h3>Commande de modération:</h3>
   <li>7ban</li>
   <li>7kick</li>
   <li>7createrole</li>
@@ -12,11 +13,11 @@
   <li>7lock(en cours !)</li>
   <li>7unlock(en cours !)</li>
   <li>7warn(pas dispo !)</li>
-  <h2>commandes infos:</h2>
+  <h3>commandes infos:</h3>
   <li>7serverinfo</li>
   <li>7userinfo(pas dispo !)</li>
   <li>7serverroles</li>
-  <h2>commandes de type "jeu":</h2>
+  <h3>commandes de type "jeu":</h3>
   <li>7roll</li>
   <li>7ball</li>
   <li>7ping</li>

@@ -6,6 +6,5 @@ exports.run = (client, message) => {
          {'SEND_MESSAGES': false    
     })
         message.channel.send("channel bloqué tape 7unlock pour le débloquer")
-        } 
-    }
+        }
 }

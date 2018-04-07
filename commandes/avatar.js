@@ -1,5 +1,5 @@
-exports.run = (client, message, args) => {
-  const Discord = require("Discord.js")
+exports.run = (client, message) => {
+  const Discord = require("discord.js");
     let user_avatar = message.mentions.users.first();
     if(!user_avatar){
        var selfavatar = new Discord.RichEmbed()

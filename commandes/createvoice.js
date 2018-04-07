@@ -6,7 +6,7 @@ exports.run = (client, message, args) => {
          message.channel.send(`<:7orNad0_negative_check_mark:400045843287375873> ${message.author} Spécifiez le nom du channel.`)
          return;
     }else{
-       message.guild.createChannel(args, "voice")
+       message.guild.createChannel(args[0], "voice")
        message.channel.send(`<:7orNad0_check_mark:400045879958175745> Channel créé avec succès !`)
         }
       }

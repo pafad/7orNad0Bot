@@ -10,7 +10,7 @@ exports.run = (client, message) => {
   fields: [
   {
   name: ':gear: -> liste de rôles',
-  value: message.guild.emojis.map(e => `:${e.name}:`),
+  value: message.guild.emojis.map(e => e.toString()).join(" "),
   inline: false
   },
   ],

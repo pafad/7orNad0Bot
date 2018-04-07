@@ -5,8 +5,8 @@ exports.run = (client, message) => {
         if(message.channel.permissionOverwrites({SEND_MESSAGES: null})){
         message.channel.send("le channel est déjà débloqué")
         }else{
-        message.channel.overwritePermissions({
-               SEND_MESSAGES: null
+        message.channel.overwritePermissions(message.guild.id,
+                              {'SEND_MESSAGES': null
            })
            message.channel.send("channel débloqué")
            }

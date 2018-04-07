@@ -10,5 +10,4 @@ exports.run = (client, message) => {
            })
            message.channel.send("channel débloqué")
            }
-        }
      }

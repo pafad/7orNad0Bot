@@ -1,30 +1,24 @@
 exports.run = (client, message, args) => {
+  const Diecord = require("Discord.js")
     let user_avatar = message.mentions.users.first();
     if(!user_avatar){
-        message.channel.send({embed:{
-            color: 0x030303,
-            title: `:tada: ton avatar ${message.author}`,
-            url: `${message.author.avatarURL}`,
-            image: `${message.author.avatarURL}`,
-            footer:{
-             icon_url: client.user.avatarURL,
-             text: `©Avatar: ${message.author.tag}`,
-             timestamp: new Date.now()
-            }
-          }
-          })
+       var selfavatar = new Discord.RichEmbed()
+            .setColor("RANDOM")
+            .setTitle(`:tada: ton avatar ${message.author.username}`)
+            .setURL(`${message.author.avatarURL}`)
+            .setImage(`${message.author.avatarURL}`)
+            .setFooter({text: `©Avatar:${message.author.username}`, icon: client.user.avatarURL})
+            .setTimestamp(new Date.now())
+            message.channel.sendEmbed(selfavatar)
+          
     }else{
-         message.channel.send({embed:{
-            color: 0x030303,
-            title: `:tada: avatar de: ${user_avatar.tag}`,
-            url: `${user_avatar.avatarURL}`,
-            image: `${user_avatar.avatarURL}`,
-            footer:{
-             icon_url: client.user.avatarUrl,
-             text: `©Avatar: ${user_avatar.tag}`,
-             timestamp: new Date.now()
-            }
-          }
-    })
+      var mentionavatar = new Discord.RichEmbed()
+            .setColor("RANDOM")
+            .setTitle(`:tada: Avatar de: ${user_avatar.tag}`)
+            .setURL(`${user_avatar.avatarURL}`)
+            .setImage(`${user_avatar.avatarURL}`)
+            .setFooter({text: `©Avatar: ${user_avatar.tag}`, icon: client.user.avatarURL})
+            .setTimestamp(new Date.now())
+            message.channel.sendEmbed(mentionavatar)
   }
 }

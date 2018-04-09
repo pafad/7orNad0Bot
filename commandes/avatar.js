@@ -31,5 +31,6 @@ icon_url: client.user.avatarURL,
 text: `avatar`,
 timestamp: new Date.now()
 },
+}})
 }
 }

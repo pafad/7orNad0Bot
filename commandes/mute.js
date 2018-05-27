@@ -1,5 +1,5 @@
 exports.run = (client, message, args) => {
-  var mute = message.guild.roles.find("name", "mute")
+  var mute = message.guild.roles.exists("name", "mute")
   if(!mute){
     message.guild.createRole({
       name: "mute",

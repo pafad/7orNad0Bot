@@ -81,7 +81,7 @@ client.on('message', message =>{
   if(!message.content.startsWith(prefix))return;
   if(!message.content.startsWith(mentionprefix))return;
   // This is the best way to define args. Trust me.
-  const args = message.content.slice(prefix.length || mentionprefix.length).trim().split(/ +/g);
+  const args = message.content.slice(prefix.length).trim().split(/ +/g) || message.content.slice(mentionprefix.length).trim().split(/ +/g);
   const command = args.shift().toLowerCase();
 
   // The list of if/else is replaced with those simple 2 lines:

@@ -2,6 +2,7 @@ exports.run = (client, message, args) => {
   let usermention = message.guild.member(message.mentions.users.first());
   let toAdd = message.content.slice(message.content.indexOf(message.content.split(" ")[2]));
   let userRole = message.guild.roles.find("name", `${toAdd}`);
+     if(!message.guild.member({user: message.author}).hasPermission("MANAGE_ROLES")) return message.channel.send(`${message.author}, tu n'as pas la permission de gérer les rôles.`);
   if(!usermention){
       message.channel.send(`:x: ${message.author}, mentionnez un utilisateur valide`)
       return;
@@ -11,7 +12,7 @@ exports.run = (client, message, args) => {
      return;
     }else{
       if(usermention.roles.exists("name", `${toAdd}`)){
-        usermention.removeRole(toAdd, {reason: `demandé par: ${message.author.tag}`})
+        usermention.removeRole(userRole, {reason: `demandé par: ${message.author.tag}`})
         message.channel.send(`j'ai retiré le rôle: ${toAdd} à ${usermention.user.tag} fait la même commende pour lui rajouter ce rôle`)
         return;
       }else{

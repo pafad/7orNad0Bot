@@ -3,7 +3,7 @@ exports.run = (client, message, args) => {
     message.channel.send(`<:7orNad0_negative_check_mark:400045843287375873> ${message.author} Tu n'as pas les permission de gérer les messages`)
     return;
 }else{
-if(args.length = 0){
+if(args.length < 1){
   message.channel.send("entrez un nombre entre 1 et 100")
   return;
 }else{

@@ -10,7 +10,7 @@ exports.run = (client, message, args) => {
       message.channel.send("je trouve pas ce role");
      return;
     }else{
-      if(usermention.roles.has.exists("name", `${toAdd}`)){
+      if(usermention.roles.exists("name", `${toAdd}`)){
         usermention.removeRole(toAdd, {reason: `demandé par: ${message.author.tag}`})
         message.channel.send(`j'ai retiré le rôle: ${toAdd} à ${usermention.user.tag} fait la même commende pour lui rajouter ce rôle`)
         return;

@@ -10,7 +10,7 @@ exports.run = (client, message, args) => {
       return;
     }
     let toAdd = message.guild.roles.find("name", toSearch);
-    if(toSearch !== toAdd){
+    if(!toAdd){
       message.channel.send(`:x: ${message.author} je ne trouve pas ce rôle`)
       return;
     }

@@ -6,7 +6,7 @@ exports.run = (client, message, args) => {
         message.channel.send(`:x: ${message.author}, mentionnez un utilisateur valide`)
         return;
     }
-   if(!toAdd){
+   if(!message.guild.roles.exists("name", `${toAdd}`)){
         message.channel.send("je trouve pas ce role");
        return;
       }else{

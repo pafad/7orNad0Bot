@@ -78,7 +78,6 @@ client.on('message', message =>{
     }
   //double arguments du turfu
   if(!message.content.startsWith(prefix))return;
-  if(!message.content.startsWith(mentionprefix))return;
   // This is the best way to define args. Trust me.
   const args = message.content.slice(prefix.length).trim().split(/ +/g);
   const command = args.shift().toLowerCase();

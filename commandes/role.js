@@ -6,7 +6,7 @@ exports.run = (client, message, args) => {
       message.channel.send(`:x: ${message.author}, mentionnez un utilisateur valide`)
       return;
   }
-  if(!message.member.hasPermission("MANAGE_ROLES")){
+  if(!message.member(message.author).hasPermission("MANAGE_ROLES")){
     message.channel.send(`${message.author}, tu n'as pas la permisson de gérer les rôles.`)
     return;
   }else{

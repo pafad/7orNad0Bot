@@ -6,15 +6,15 @@ exports.run = (client, message, args) => {
         message.channel.send(`:x: ${message.author}, mentionnez un utilisateur valide`)
         return;
     }
-   if(!toAdd)) {
+   if(!toAdd){
         message.channel.send("je trouve pas ce role");
        return;
       }else{
           if(message.member.roles.has(toAdd)){
-           message.member.removeRole(toAdd)
+           message.member.removeRole(toAdd, {reason: ` demandé par ${message.author.tag}`})
            message.chnnel.send(`j'ai retiré le role: *${toAdd}** à **{usermention.tag}**`)
           }else{
-    usermention.addRole(toAdd);
+    usermention.addRole(toAdd, {reason: ` demandé par ${message.author.tag}`});
     message.channel.send(`j'ai ajouté le role **${toAdd}** à **${usermention.tag}** fait la même commande pour lui retirer ce rôle.`)
       }
    }

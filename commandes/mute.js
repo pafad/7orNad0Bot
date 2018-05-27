@@ -20,4 +20,3 @@ exports.run = (client, message, args) => {
     message.channel.send(`**${usermute.user.tag}** à été mute`)
   }
 }
-}

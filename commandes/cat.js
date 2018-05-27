@@ -8,6 +8,6 @@ exports.run = (client, message) => {
         integer: true
     }
   var random_msg = rn(options);
-    message.channel.sendCode("",url[random_msg])
+    message.channel.sendFile("",url[random_msg])
     }})
 }

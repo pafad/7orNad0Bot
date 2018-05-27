@@ -5,7 +5,7 @@ exports.run = (client, message, args) => {
   if(!usermention){
       message.channel.send(`:x: ${message.author}, mentionnez un utilisateur valide`)
       return;
-  }
+  }else{
   if(!message.member(message.author).hasPermission("MANAGE_ROLES")){
     message.channel.send(`${message.author}, tu n'as pas la permisson de gérer les rôles.`)
     return;
@@ -21,6 +21,7 @@ exports.run = (client, message, args) => {
       }else{
   usermention.addRole(userRole, {reason: ` demandé par ${message.author.tag}`});
   message.channel.send(`j'ai ajouté le role **${toAdd}** à **${usermention.user.tag}** fait la même commande pour lui retirer ce rôle.`)
+        }
       }      
     }
   }

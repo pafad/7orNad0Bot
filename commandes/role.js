@@ -1,5 +1,5 @@
 exports.run = (client, message, args) => {
-    let usermention = message.mentions.users.first();
+    let usermention = message.guild.member(message.mentions.users.first());
     let toAdd = message.content.slice(message.content.indexOf(message.content.split(" ")[2]));
     let userRole = message.guild.roles.find("name", `${toAdd}`);
     if(!usermention){

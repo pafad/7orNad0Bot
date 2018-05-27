@@ -1,7 +1,7 @@
 exports.run = (client, message, args) => {
     let usermention = message.mentions.users.first();
-    let toSearch = message.content.slice(message.content.indexOf(message.content.split(" ")[2]));
-    let toAdd = message.guild.roles.find("name", `${toSearch}`);
+    let toAdd = message.content.slice(message.content.indexOf(message.content.split(" ")[2]));
+    let userRole = message.guild.roles.find("name", `${toAdd}`);
     if(!usermention){
         message.channel.send(`:x: ${message.author}, mentionnez un utilisateur valide`)
         return;
@@ -10,7 +10,7 @@ exports.run = (client, message, args) => {
         message.channel.send("je trouve pas ce role");
        return;
       }else{
-    usermention.addRole(toAdd, {reason: ` demandé par ${message.author.tag}`});
+    usermention.addRole(userRole, {reason: ` demandé par ${message.author.tag}`});
     message.channel.send(`j'ai ajouté le role **${toAdd}** à **${usermention.tag}** fait la même commande pour lui retirer ce rôle.`)
    }
 }

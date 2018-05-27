@@ -16,7 +16,8 @@
     "ytdl-core": "^0.14.0",
     "random-number": "^0.0.9",
     "spotify": "^0.3.0",
-    "random-cat": "^1.0.1"
+    "random-cat": "^1.0.1",
+    "flip-text": "^1.1.0"
   },
   "devDependencies": {},
   "scripts": {

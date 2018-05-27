@@ -1,5 +1,5 @@
 const randomCat = require("random-cat");
-const rn = require("random-number")
+const rn = require("random-number");
 exports.run = (client, message) => {
   var options = {
         min: 0,

@@ -2,7 +2,6 @@ const config = require("./config.json");
 const Discord = require("discord.js");
 const path = require("path");
 const prefix = "7";
-const mentionprefix = "@7orNad0Bot#9715";
 let type = 1;
 const client = new Discord.Client();
 //rainbow
@@ -81,7 +80,7 @@ client.on('message', message =>{
   if(!message.content.startsWith(prefix))return;
   if(!message.content.startsWith(mentionprefix))return;
   // This is the best way to define args. Trust me.
-  const args = message.content.slice(prefix.length).trim().split(/ +/g) || message.content.slice(mentionprefix.length).trim().split(/ +/g);
+  const args = message.content.slice(prefix.length).trim().split(/ +/g);
   const command = args.shift().toLowerCase();
 
   // The list of if/else is replaced with those simple 2 lines:

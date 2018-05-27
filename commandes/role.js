@@ -1,5 +1,5 @@
 exports.run = (client, message, args) => {
-     let usermention = message.guild.member(message.mentions.users.first());
+  let usermention = message.guild.member(message.mentions.users.first());
   let toAdd = message.content.slice(message.content.indexOf(message.content.split(" ")[2]));
   let userRole = message.guild.roles.find("name", `${toAdd}`);
   if(!usermention){
@@ -10,7 +10,7 @@ exports.run = (client, message, args) => {
       message.channel.send("je trouve pas ce role");
      return;
     }else{
-      if(usermention.roles.has(toAdd)){
+      if(usermention.roles.has.exists("name", `${toAdd}`)){
         usermention.removeRole(toAdd, {reason: `demandé par: ${message.author.tag}`})
         message.channel.send(`j'ai retiré le rôle: ${toAdd} à ${usermention.user.tag} fait la même commende pour lui rajouter ce rôle`)
         return;

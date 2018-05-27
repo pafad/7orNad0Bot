@@ -6,16 +6,7 @@ exports.run = (client, message) => {
         max: randomCat().length - 1,
         integer: true
     }
-  var random_msg = rn(options)
-    message.channel.send({embed:{
-        color: 0x732db7,
-        title: `${message.author.tag} chaaaaat ! :smile_cat:`,
-        url: randomCat()[random_msg],
-        image: '',
-        footer: {
-            name: "chat by shiro",
-            icon_url: message.author.avatarUrl,
-            time: new Date.now()
-        }
+  var random_msg = rn(options);
+    message.channel.sendCode("",randomCat()[random_msg])
     }})
 }

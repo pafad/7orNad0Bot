@@ -5,10 +5,6 @@ exports.run = (client, message, args) => {
         message.channel.send(`:x: ${message.author}, mentionnez un utilisateur valide`)
         return;
     }
-    if(!toSearch){
-    message.channel.send("veuillez un nom de rôle valide.")
-      return;
-    }
     let toAdd = message.guild.roles.find("name", toSearch);
     if(!toAdd){
       message.channel.send(`:x: ${message.author} je ne trouve pas ce rôle`)

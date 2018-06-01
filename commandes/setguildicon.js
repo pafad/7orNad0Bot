@@ -1,5 +1,5 @@
 exports.run = (client, message, args) => {
-if(!message.member.hasPermission("MANAGE_SERVER"){
+if(!message.member.hasPermission("MANAGE_SERVER")){
    message.channel.send(":x: tu n'as pas la permission de gérer le serveur")
   }else{
   if(args.length < 1){

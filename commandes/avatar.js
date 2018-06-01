@@ -1,4 +1,4 @@
-exports.run = (client, message) => {
+exports.run = (client, message, args) => {
     let user_avatar = message.mentions.users.first();
     if(!user_avatar){
       message.channel.send({embed:{

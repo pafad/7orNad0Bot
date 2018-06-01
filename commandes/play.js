@@ -8,7 +8,7 @@ exports.run = (client, message,args) => {
     return;
   }
 if(!message.member.voiceChannel){
-message.channel.send(`<:7orNad0_negative_check_mark:400045843287375873> ${message.author} tu n'est pas dans un channel vocal.`)
+message.channel.send(`:x: ${message.author} tu n'est pas dans un channel vocal.`)
 return;
 }
 if(!message.guild.voiceConnection) message.member.voiceChannel.join().then(function (){
@@ -18,7 +18,7 @@ queue: []
 function play(connection, message){
 var server = servs[message.guild.id];
 
-const dispatcher = connection.play(ytdl(args));
+const dispatcher = connection.play(ytdl(args.join()));
 
 server.queue.join(args);
   

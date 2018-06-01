@@ -9,7 +9,9 @@ icon_url: message.author.avatarURL,
 },
 title: `avatar de ${message.author.tag}`,
 url: message.author.avatarURL,
-image: message.author.displayaAvatarURL,
+image: {
+    url: message.author.avatarURL
+    },
 footer: {
 icon_url: client.user.avatarURL,
 text: `avatar`,
@@ -25,7 +27,9 @@ icon_url: message.author.avatarURL,
 },
 title: `avatar de ${user_avatar.tag}`,
 url: user_avatar.avatarURL,
-image: user_avatar.displayAvatarURL,
+image: {
+    url: user_avatar.avatarURL
+    },
 footer: {
 icon_url: client.user.avatarURL,
 text: `avatar`,

@@ -8,4 +8,5 @@ if(!message.member.hasPermission("MANAGE_SERVER"){
 message.guild.setIcon(args.join());
       }
     }
+   }
 }

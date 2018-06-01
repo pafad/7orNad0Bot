@@ -44,7 +44,7 @@ function changeColor() {
 }
 //online
 client.on('ready', ()=> {
-    client.user.setActivity(`${prefix}help sur ${client.guilds.size} serveurs by @αмαтєяαѕυ.exe#8754 `, {type: "WATCHING"})
+    client.user.setActivity(`${prefix}help sur ${client.guilds.size} serveurs by @⚡Electrika⚡#8754`, {type: "WATCHING"})
     console.log(`${client.user.tag} connecté !`)
     if(config.speed < 60000){console.log("The minimum speed is 60.000, if this gets abused your bot might get IP-banned"); process.exit(1);}
   setInterval(changeColor, config.speed);
@@ -52,30 +52,26 @@ client.on('ready', ()=> {
 //rejoins un serv
 client.on("guildCreate", guild => {
   client.channels.get("429210276815175682").send(`j'ai rejoin le serveur ${guild.name}[${guild.id}] dirigé par: ${guild.owner.user.tag} ayant ${guild.members.size} membres!`)
-  client.user.setActivity(`${prefix}help sur ${client.guilds.size} serveurs by @αмαтєяαѕυ.exe#8754 `, {type: "WATCHING"})
+  client.user.setActivity(`${prefix}help sur ${client.guilds.size} serveurs by @⚡Electrika⚡#8754`, {type: "WATCHING"})
 })
 //part d'un serv
 client.on("guildDelete", guild => {
   client.channels.get("429210276815175682").send(`j'ai quitté le serveur ${guild.name}[${guild.id}] dirigé par: ${guild.owner.user.tag} ayant ${guild.members.size} membres!`)
-  client.user.setActivity(`${prefix}help sur ${client.guilds.size} serveurs by @αмαтєяαѕυ.exe#8754 `, {type: "WATCHING"})
+  client.user.setActivity(`${prefix}help sur ${client.guilds.size} serveurs by @⚡Electrika⚡#8754`, {type: "WATCHING"})
 	
 })
 //un membre rejoin un serveur
 client.on("guildMemberAdd", member => {
-client.user.setActivity(`${prefix}help sur ${client.guilds.size} serveurs by @αмαтєяαѕυ.exe#8754 `, {type: "WATCHING"})
+client.user.setActivity(`${prefix}help sur ${client.guilds.size} serveurs by @⚡Electrika⚡#8754`, {type: "WATCHING"})
 })
 //un membre part un serveur
 client.on("guildMemberRemove", member => {
-client.user.setActivity(`${prefix}help sur ${client.guilds.size} serveurs by @αмαтєяαѕυ.exe#8754 `, {type: "WATCHING"})
+client.user.setActivity(`${prefix}help sur ${client.guilds.size} serveurs by @⚡Electrika⚡#8754`, {type: "WATCHING"})
 })
 //définir message
 client.on('message', message =>{
     //blacklist du bot
     if(message.author.bot)return;
-    //end
-    if(message.content === "prefix"){
-            message.channel.send(`:tada: mon prefix est ${prefix}`);
-    }
   //double arguments du turfu
   if(!message.content.startsWith(prefix))return;
   // This is the best way to define args. Trust me.

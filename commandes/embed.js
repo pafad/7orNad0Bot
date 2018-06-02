@@ -9,7 +9,8 @@ exports.run = (client, message, args) => {
     description : args.join(),
     footer:{
     text: "embed",
-    timestamp: Date.now()
+    timestamp: Date(),
+    icon_url: client.user.avatarURL
     }
     })
 }

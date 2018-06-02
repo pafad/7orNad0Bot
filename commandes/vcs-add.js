@@ -1,4 +1,4 @@
-exports.run = (client, message) => {
+exports.run = (client, message, args) => {
    if(!message.guild.member.hasPermission("MANAGE_CHANNELS")){
    message.channel.send("tu n'as pas la permission")
       return;

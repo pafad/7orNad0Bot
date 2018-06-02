@@ -6,14 +6,18 @@ client.channels.get("name", "vcs").send({embed:{color: Math.floor(Math.random() 
 author:{
 name: message.author.tag
 },
-title: message.guild.name,
-image:{
+thumbnail:{
 url: message.author.avatarURL
 },
-description: message.content.substr(5),
+fields:[{
+name: message.guild.name,
+value: message.content.substr(5)
+}],
 timestamp: new Date(),
 footer:{
 text: "vcs"
 }
+}
+})
 })
 }

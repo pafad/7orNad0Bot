@@ -1,6 +1,7 @@
 exports.run = (client, message) => {
    if(!message.member.hasPermission("MANAGE_CHANNELS")){
    message.channel.send("tu n'as pas la permission")
+      return;
    }else{
    if(!message.member(client.user).hasPermission("MANAGE_CHANNELS")){
    message.channel.send("je n'ai pas la permission de gérer les salons")

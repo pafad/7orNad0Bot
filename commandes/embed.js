@@ -1,5 +1,5 @@
 exports.run = (client, message, args) => {
-    if(!args) return message.channel.send("tu n'as rien écrit.")
+    if(args.length > 1) return message.channel.send("tu n'as rien écrit.")
     message.delete();
     message.channel.send('', {embed:{
     author:{
@@ -9,7 +9,7 @@ exports.run = (client, message, args) => {
     description : args.join(),
     footer:{
     text: "embed",
-    timestamp: new Date.now()
+    timestamp: Date.now()
     }
     })
 }

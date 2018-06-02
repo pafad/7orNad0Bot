@@ -1,5 +1,5 @@
 exports.run = (client, message, args) => {
-    if(args.length = 0) return message.channel.send("tu n'as rien écrit.")
+    if(!args) return message.channel.send("tu n'as rien écrit.")
     message.delete();
     message.channel.send({embed:{
     author:{

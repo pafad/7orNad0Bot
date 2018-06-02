@@ -12,7 +12,8 @@ value: message.content.substr(5)
  timestamp: new Date(), 
 footer:{ 
 text: "vcs"
+  } 
  } 
-} 
+}                                        }
 }))
 }

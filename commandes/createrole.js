@@ -7,8 +7,8 @@ exports.run = (client, message, args) => {
         message.channel.send(`Spécifiez le nom du rôle`)
         return;
     }else{
-    message.guild.createRole({name: args.join()})
-    message.channel.send(`Role créé avec succès. nom du rôle: ${args}`)
+    message.guild.createRole({name: message.content.substr(12)})
+    message.channel.send(`Role créé avec succès. nom du rôle: ${message.content.substr(12)}`)
         }
     }
 }

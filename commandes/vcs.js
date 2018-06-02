@@ -12,12 +12,12 @@ exports.run = (client, message, args) => {
             url: message.author.avatarURL 
         }, 
         fields:[{
-        name: ":gear: -> Seveur:",
-        value: message.guild.name
-        },
-        {    
         name: `${message.author.tag}(${message.author.id})`, 
         value: message.content.substr(5)
+        },
+        { 
+        name: ":gear: -> Seveur:",
+        value: message.guild.name 
          }],
         timestamp: new Date(), 
         footer:{ 

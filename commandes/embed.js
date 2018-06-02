@@ -7,7 +7,7 @@ author:{
 name: message.author.tag,
 icon_url: message.author.avatarURL
 }, 
-description : args.join(),
+description : message.content.split(" ").join(),
 timestamp: new Date(),
 footer:{ 
 text: "embed ", 

@@ -3,7 +3,6 @@ exports.run = (client, message, args) => {
   let toAdd = message.content.slice(message.content.indexOf(message.content.split(" ")[2]));
   let userRole = message.guild.roles.find("name", `${toAdd}`);
      if(!message.guild.member(message.author).hasPermission("MANAGE_ROLES")) return message.channel.send(`${message.author}, tu n'as pas la permission de gérer les rôles.`);
-   if(!message.guild.member(client.user).hasPermission("MANAGE:ROLES")) return message.channel.send(`${message.author}, je n'ai pas la permission de lui ajouter ce rôle.`)
   if(!usermention){
       message.channel.send(`:x: ${message.author}, mentionnez un utilisateur valide`)
       return;

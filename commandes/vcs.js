@@ -14,11 +14,6 @@ exports.run = (client, message, args) => {
                 description :`1: Pas de spam\n2: Pas de pub dedans\n3:Pas d'insultes ou toute formes de racisme\n4:Ne soyez pas sexistes\ncommuniquez bien entre vous^^ \n cordialement: @⚡Electrika⚡`
                }}))
             return;
-            }else{
-            if(!message.guild.member(client.user).hasPermission("MANAGE_CHANNELS")){
-            message.channel.send("he n'ai pas la permission de gérer les salon")
-                return;
-            }
             }
         if(message.channel.name !== "vcs"){
         return;

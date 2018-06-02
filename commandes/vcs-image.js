@@ -10,14 +10,14 @@ exports.run = (client, message, args) => {
         thumbnail:{ 
             url: message.author.avatarURL 
         }, 
+        image:{
+            url: message.content.substr(10)
+        },                                                              
         fields:[{
         name: ":gear: -> Seveur:",
         value: message.guild.name
         }],
         name: `${message.author.tag}(${message.author.id})`,
-        image:{
-            url: message.content.substr(10)
-        }, 
         timestamp: new Date(), 
         footer:{ 
         text: "vcs"

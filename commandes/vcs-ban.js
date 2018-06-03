@@ -2,7 +2,7 @@ const fs = require("fs")
 const superagent = require("superagent")
 exports.run = (client, message, args) => {
 if (message.channel.type === "dm") return;
-if(args.length < 1){
+if(!args){
     message.channel.send(":x: entrez une id d'utilisateur valide.")
     return;
 }else{

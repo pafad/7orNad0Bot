@@ -91,8 +91,7 @@ client.on('message', message =>{
     let curLvl = xp[message.author.id].level;
     let nextLvl = xp[message.author.id].level * 250;
     if(nextLvl <= xp[message.author.id].xp){
-      xp[message.author.id].level = curLvl + 1;
-     console.log(`le level est: ${xp[message.author.id].level}`)
+     xp[message.author.id].level = curLvl + 1;
     }
   //double arguments du turfu
   if(!message.content.startsWith(prefix))return;

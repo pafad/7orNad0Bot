@@ -79,7 +79,7 @@ client.on('message', message =>{
      //sytème de xp
     let xpAdd = Math.floor(Math.random() * 7) + 8;
     console.log(`${xpAdd}`)
-}
+	
   //double arguments du turfu
   if(!message.content.startsWith(prefix))return;
   // This is the best way to define args. Trust me.

@@ -76,10 +76,23 @@ client.on('message', message =>{
     if(message.content === "prefix"){
             message.channel.send(`:tada: mon prefix est ${prefix}`);
     }
-     //sytème de xp
+      //sytème de xp
     let xpAdd = Math.floor(Math.random() * 7) + 8;
-    console.log(`${xpAdd}`)
-	
+
+    if(!xp[message.author.id]){
+      xp[message.author.id] = {
+        xp: 0,
+        level: 1
+      };
+    }
+    xp[message.author.id] = xp[message.author.id] + xpAdd;
+    let curxp = xp[message.author.id].xp;
+    let curLvl = xp[message.author.id].level;
+    let nextLvl = xp[message.author.id].level * 250;
+    console.log(`le level est: ${curLvl}`)
+    if(nextLvl <= xp[message.author.id].xp){
+      xp[message.author.id].level = curLvl + 1;
+    }
   //double arguments du turfu
   if(!message.content.startsWith(prefix))return;
   // This is the best way to define args. Trust me.

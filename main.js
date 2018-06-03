@@ -92,9 +92,11 @@ client.on('message', message =>{
     xp[message.author.id] = curxp + xpAdd;
     if(nextLvl <= curxp){
      xp[message.author.id].level = curLvl + 1;
-     message.channel.send(`Bien joué ${message.author}, tu passes au level ${curLvl}`)
+     message.channel.send(`Bien joué ${message.author}, tu passes au level ${curLvl}`)then(msg => msg.delete)
     }
-    
+    fs.writeFile("./xp.json", JSON.stringify(xp), (err) => {
+	    if(err) console.log(err)
+    });
   //double arguments du turfu
   if(!message.content.startsWith(prefix))return;
   // This is the best way to define args. Trust me.

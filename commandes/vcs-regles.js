@@ -27,9 +27,11 @@ exports.run = (client, message) => {
             {
                 name:":gear: -> Règle 5:",
                 value:"Toute formes de rascime y sont interdit."
-            }], 
-            description :`voilà j'ai fait un peu le tour du règlement, communiquez bien entre vous^^ \nCordialement: @⚡Electrika⚡`
-           },
+            },
+            {
+              name:"Amusez-vous bien !",
+              value: "Cordialement: @⚡Electrika⚡"
+            }],
            timestamp: new Date(),
            footer:{
                text:"règlement by @⚡Electrika⚡"

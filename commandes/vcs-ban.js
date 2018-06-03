@@ -2,10 +2,6 @@ const fs = require("fs")
 const superagent = require("superagent")
 exports.run = (client, message, args) => {
 if (message.channel.type === "dm") return;
-if(!args){
-    message.channel.send(":x: entrez une id d'utilisateur valide.")
-    return;
-}else{
 if(message.author.id == "306119836503900161"){
 var url = "https://api.myjson.com/bins/gguwi";
 request(url, (err, res, body) => {
@@ -40,6 +36,5 @@ text: `vcs-ban`,
     }else{
     message.channel.send("tu n'est pas un modérateur du vcs")
     return;
-        }
     }
 }

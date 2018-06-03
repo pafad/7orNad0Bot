@@ -86,14 +86,15 @@ client.on('message', message =>{
         level: 1
       };
     }
-    xp[message.author.id] = xp[message.author.id] + xpAdd;
     let curxp = xp[message.author.id].xp;
     let curLvl = xp[message.author.id].level;
     let nextLvl = xp[message.author.id].level * 250;
-    if(nextLvl <= xp[message.author.id].xp){
+    xp[message.author.id] = curxp + xpAdd;
+    if(nextLvl <= curxp){
      xp[message.author.id].level = curLvl + 1;
+     message.channel.send(`Bien joué ${message.author}, tu passes au level ${curLvl}`)
     }
-    console.log(`le level est: ${xp[message.author.id].level}`)
+    
   //double arguments du turfu
   if(!message.content.startsWith(prefix))return;
   // This is the best way to define args. Trust me.

@@ -93,6 +93,7 @@ client.on('message', message =>{
     if(nextLvl <= xp[message.author.id].xp){
       xp[message.author.id].level = curLvl + 1;
     }
+     console.log(`le level est: ${xp[message.author.id].level}`)
   //double arguments du turfu
   if(!message.content.startsWith(prefix))return;
   // This is the best way to define args. Trust me.

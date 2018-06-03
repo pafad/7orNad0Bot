@@ -2,8 +2,11 @@ const fs = require("fs")
 const superagent = require("superagent")
 exports.run = (client, message, args) => {
 if (message.channel.type === "dm") return;
-if(args.length > 1) return message.channel.send(":x: entrez une id d'utilisateur valide.")
-if(message.author.id == "306119836503900161" || "300896265078571009"){
+if(args.length > 1){
+    message.channel.send(":x: entrez une id d'utilisateur valide.")
+    return;
+}else{
+if(message.author.id == "306119836503900161"){
 var url = "https://api.myjson.com/bins/gguwi";
 request(url, (err, res, body) => {
     
@@ -25,7 +28,7 @@ fields:[{
     },
     {
     name: `Depuis le serveur: ${message.guild.name}`,
-    value: ":gear: -> Raison:"
+    value: ":gear: -> Raison:" + args[1]
 }],
 timestamp: new Date(),
 footer: {
@@ -35,6 +38,8 @@ text: `vcs-ban`,
             }));
         })
     }else{
+    message.channel.send("tu n'est pas un modérateur du vcs")
     return;
-}
+        }
+    }
 }

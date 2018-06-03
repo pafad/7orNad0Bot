@@ -35,8 +35,8 @@ exports.run = (client, message) => {
            timestamp: new Date(),
            footer:{
                text:"règlement by @⚡Electrika⚡"
-           }
-       })
-
+            }    
+            }
+        })
     }
 }

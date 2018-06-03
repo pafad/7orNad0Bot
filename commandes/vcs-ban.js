@@ -1,7 +1,6 @@
 const fs = require("fs")
 const superagent = require("superagent")
 exports.run = (client, message, args) => {
-if (message.channel.type === "dm") return;
 if(message.author.id == "306119836503900161"){
 var url = "https://api.myjson.com/bins/gguwi";
 request(url, (err, res, body) => {

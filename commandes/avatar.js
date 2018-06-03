@@ -2,7 +2,7 @@ exports.run = (client, message, args) => {
     let user_avatar = message.mentions.users.first();
     if(!user_avatar){
       message.channel.send({embed:{
-    color: 0x9101ff,
+    color: Math.floor(Math.random() * 16777214) + 1,
      author: {
 name: message.author.tag,
 icon_url: message.author.avatarURL,
@@ -12,15 +12,15 @@ url: message.author.avatarURL,
 image: {
     url: message.author.avatarURL
     },
+    timestamp: new Date(),
 footer: {
 icon_url: client.user.avatarURL,
 text: `avatar`,
-timestamp: new Date.now()
 },
 }})     
     }else{
          message.channel.send({embed:{
-    color: 0x9101ff,
+    color: Math.floor(Math.random() * 16777214) + 1,
      author: {
 name: message.author.tag,
 icon_url: message.author.avatarURL,
@@ -30,10 +30,10 @@ url: user_avatar.avatarURL,
 image: {
     url: user_avatar.avatarURL
     },
+    timestamp: new Date(),
 footer: {
 icon_url: client.user.avatarURL,
 text: `avatar`,
-timestamp: new Date.now()
 },
 }})
 }

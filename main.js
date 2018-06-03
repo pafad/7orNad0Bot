@@ -2,8 +2,7 @@ const config = require("./config.json");
 const Discord = require("discord.js");
 const path = require("path");
 const fs = require("fs");
-const prefix = "7";
-let type = 1;
+const prefix = config.prefix;
 const client = new Discord.Client();
 //rainbow
 const size    = config.colors;

@@ -10,7 +10,7 @@ exports.run = (client, message) => {
         value:"pour partager une image dans les channels `vcs`"
         },
         {
-        name: "vcs-regle",
+        name: "vcs-regles",
         value:"règlement du vcs"
         },
         {

@@ -2,6 +2,7 @@ const config = require("./config.json");
 const Discord = require("discord.js");
 const path = require("path");
 const fs = require("fs");
+const xp = require("./xp.json");
 const prefix = config.prefix;
 const client = new Discord.Client();
 //rainbow
@@ -80,7 +81,7 @@ client.on('message', message =>{
     let xpAdd = Math.floor(Math.random() * 7) + 8;
 
     if(!xp[message.author.id]){
-     let xp[message.author.id] = {
+     xp[message.author.id] = {
         xp: 0,
         level: 1
       };

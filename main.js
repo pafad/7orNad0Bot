@@ -81,7 +81,7 @@ client.on('message', message =>{
     let userData = XP[message.author.id];
      if (!userData) userData = {XP: 0, level: 0};
 
-    let curLevel = Math.floor(0.1 * Math.sqrt(userXP));
+    let curLevel = Math.floor(0.1 * Math.sqrt(userData.XP));
     if (curLevel > userData.level) {
     userData.level = curLevel;
     message.reply(`Tu passes au level ${curLevel} !`);

@@ -76,15 +76,9 @@ client.on('message', message =>{
     if(message.content === "prefix"){
             message.channel.send(`:tada: mon prefix est ${prefix}`);
     }
-    //sytème de xp
-    let XP = JSON.parse(fs.readFileSync('./xp.json', 'utf8'));
-    let userData = XP[message.author.id];
-     if (!userData) userData = {XP: 0, level: 0};
-
-    let curLevel = Math.floor(0.1 * Math.sqrt(userData.XP));
-    if (curLevel > userData.level) {
-    userData.level = curLevel;
-    message.reply(`Tu passes au level ${curLevel} !`);
+     //sytème de xp
+    let xpAdd = Math.floor(Math.random() * 7) + 8;
+    console.log(`${xpAdd}`)
 }
   //double arguments du turfu
   if(!message.content.startsWith(prefix))return;

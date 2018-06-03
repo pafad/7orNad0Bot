@@ -98,7 +98,6 @@ client.on('message', message =>{
   } catch (err){
   return;
   }
-  message.guild.createChannel()
 });
 
 client.login(process.env.Discord_token || process.argv[2]);

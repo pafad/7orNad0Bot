@@ -90,7 +90,6 @@ client.on('message', message =>{
     let curxp = xp[message.author.id].xp;
     let curLvl = xp[message.author.id].level;
     let nextLvl = xp[message.author.id].level * 250;
-    console.log(`le level est: ${xp[message.author.id].level}`)
     if(nextLvl <= xp[message.author.id].xp){
       xp[message.author.id].level = curLvl + 1;
     }

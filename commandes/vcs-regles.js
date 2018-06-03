@@ -1,5 +1,5 @@
 exports.run = (client, message) => {
-    if(!message.channel.name === "vcs"){
+    if(message.channel.name !== "vcs"){
         return;
     }else{
         message.channel.send({embed:{ 

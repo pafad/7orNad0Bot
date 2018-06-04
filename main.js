@@ -80,8 +80,7 @@ client.on('message', message =>{
       //sytème de xp
     let xpAdd = Math.floor(Math.random() * 7) + 8;
 
-    if(!xp[message.author.id]){
-     xp[message.author.id] = {
+    if(!xp[message.author.id]) xp[message.author.id] = {
         xp: 0,
         level: 1
       };

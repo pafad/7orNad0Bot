@@ -2,7 +2,6 @@ const config = require("./config.json");
 const Discord = require("discord.js");
 const path = require("path");
 const fs = require("fs");
-const xp = require("./xp.json");
 const prefix = config.prefix;
 const client = new Discord.Client();
 //rainbow
@@ -77,30 +76,6 @@ client.on('message', message =>{
     if(message.content === "prefix"){
             message.channel.send(`:tada: mon prefix est ${prefix}`);
     }
-      //sytème de xp
-    let xpAdd = Math.floor(Math.random() * 7) + 8;
-
-    if(!xp[message.author.id]) xp[message.author.id] = {
-        xp: 0,
-        level: 1
-      };
-    }
-    let curxp = xp[message.author.id].xp;
-    let curLvl = xp[message.author.id].level;
-    let nextLvl = xp[message.author.id].level * 250;
-    xp[message.author.id] = curxp + xpAdd;
-    if(nextLvl <= curxp){
-     xp[message.author.id].level = curLvl + 1;
-    const lvlup = Discord.RichEmbed()
-    .setTitle("Niveau supérieur !")
-    .setColor("RANDOM")
-    .addField(`GG ${message.author} tu passes au niveau:`,curLvl + 1 )
-    
-    message.channel.sendEmbed(lvlup).then(msg => {msg.delete(5000)});
-    }
-    fs.writeFile("./xp.json", JSON.stringify(xp), (err) => {
-	    if(err) console.log(err)
-    });
   //double arguments du turfu
   if(!message.content.startsWith(prefix))return;
   // This is the best way to define args. Trust me.

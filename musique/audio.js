@@ -1,5 +1,6 @@
 function audio (msg, client){
-const config = require("../config.json")
+const config = require("../config.json");
+const yt = require("ytdl-core");
 let queue = {};
 const commands = {
   'play': (msg) => {
@@ -17,14 +18,14 @@ const commands = {
               msg.member.voiceChannel.leave();
           });
           msg.channel.sendMessage(`Je joue: **${song.title}** demandé par: **${song.requester}**`);
-          dispatcher = msg.guild.voiceConnection.playStream(yt(song.url, { audioonly: true }), { passes : tokens.passes });
+          dispatcher = msg.guild.voiceConnection.playStream(yt(song.url, { audioonly: true }), { passes : config.passes });
           let collector = msg.channel.createCollector(m => m);
           collector.on('message', m => {
-              if (m.content.startsWith(tokens.prefix + 'pause')) {
+              if (m.content.startsWith(config.prefix + 'pause')) {
                   msg.channel.sendMessage('pause').then(() => {dispatcher.pause();});
-              } else if (m.content.startsWith(tokens.prefix + 'resume')){
+              } else if (m.content.startsWith(config.prefix + 'resume')){
                   msg.channel.sendMessage('continue').then(() => {dispatcher.resume();});
-              } else if (m.content.startsWith(tokens.prefix + 'skip')){
+              } else if (m.content.startsWith(config.prefix + 'skip')){
                   msg.channel.sendMessage('skip').then(() => {dispatcher.end();});
               } else if (m.content.startsWith('volume+')){
                   if (Math.round(dispatcher.volume*50) >= 100) return msg.channel.sendMessage(`Volume: ${Math.round(dispatcher.volume*50)}%`);
@@ -34,7 +35,7 @@ const commands = {
                   if (Math.round(dispatcher.volume*50) <= 0) return msg.channel.sendMessage(`Volume: ${Math.round(dispatcher.volume*50)}%`);
                   dispatcher.setVolume(Math.max((dispatcher.volume*50 - (2*(m.content.split('-').length-1)))/50,0));
                   msg.channel.sendMessage(`Volume: ${Math.round(dispatcher.volume*50)}%`);
-              } else if (m.content.startsWith(tokens.prefix + 'time')){
+              } else if (m.content.startsWith(config.prefix + 'time')){
                   msg.channel.sendMessage(`temps: ${Math.floor(dispatcher.time / 60000)}:${Math.floor((dispatcher.time % 60000)/1000) <10 ? '0'+Math.floor((dispatcher.time % 60000)/1000) : Math.floor((dispatcher.time % 60000)/1000)}`);
               }
           });
@@ -59,7 +60,7 @@ const commands = {
   },
   'add': (msg) => {
       let url = msg.content.split(' ')[1];
-      if (url == '' || url === undefined) return msg.channel.sendMessage(`You must add a YouTube video url, or id after ${tokens.prefix}add`);
+      if (url == '' || url === undefined) return msg.channel.sendMessage(`You must add a YouTube video url, or id after ${config.prefix}add`);
       yt.getInfo(url, (err, info) => {
           if(err) return msg.channel.sendMessage('lien youtube invalide: ' + err);
           if (!queue.hasOwnProperty(msg.guild.id)) queue[msg.guild.id] = {}, queue[msg.guild.id].playing = false, queue[msg.guild.id].songs = [];
@@ -68,11 +69,15 @@ const commands = {
       });
   },
   'queue': (msg) => {
-      if (queue[msg.guild.id] === undefined) return msg.channel.sendMessage(`Add some songs to the queue first with ${tokens.prefix}add`);
+      if (queue[msg.guild.id] === undefined) return msg.channel.sendMessage(`Add some songs to the queue first with ${config.prefix}add`);
       let tosend = [];
       queue[msg.guild.id].songs.forEach((song, i) => { tosend.push(`${i+1}. ${song.title} - Requested by: ${song.requester}`);});
       msg.channel.sendMessage(`__**Playlist de ${msg.guild.name}:**__ En cours: **${tosend.length}** Musiques à suivre: ${(tosend.length > 15 ? '*[15 musiques maximum]*' : '')}\n\`\`\`${tosend.slice(0,15).join('\n')}\`\`\``);
   }
 };
+client.on('message', msg => {
+	if (!msg.content.startsWith(config.prefix)) return;
+	if (commands.hasOwnProperty(msg.content.toLowerCase().slice(config.prefix.length).split(' ')[0])) commands[msg.content.toLowerCase().slice(tokens.prefix.length).split(' ')[0]](msg);
+});
 }
 module.exports = audio;

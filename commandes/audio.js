@@ -75,5 +75,9 @@ const commands = {
       msg.channel.sendMessage(`__**Playlist de ${msg.guild.name}:**__ En cours: **${tosend.length}** Musiques à suivre: ${(tosend.length > 15 ? '*[15 musiques maximum]*' : '')}\n\`\`\`${tosend.slice(0,15).join('\n')}\`\`\``);
   }
 };
+  client.on('message', msg => {
+	if (!msg.content.startsWith(config.prefix)) return;
+	if (commands.hasOwnProperty(msg.content.toLowerCase().slice(config.prefix.length).split(' ')[0])) commands[msg.content.toLowerCase().slice(config.prefix.length).split(' ')[0]](msg);
+});
 }
 module.exports = audio;

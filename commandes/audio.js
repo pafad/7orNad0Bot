@@ -1,5 +1,5 @@
 function audio (msg, client){
-const config = require("./config.json");
+const config = require("../config.json");
 const yt = require("ytdl-core");
 let queue = {};
 const commands = {

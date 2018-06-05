@@ -4,6 +4,8 @@ const path = require("path");
 const fs = require("fs");
 const prefix = config.prefix;
 const client = new Discord.Client();
+//audio
+const audio = require("./musique/audio.js")
 //rainbow
 const size    = config.colors;
 const rainbow = new Array(size);

@@ -92,7 +92,4 @@ client.on('message', message =>{
   }
 });
 
-client.on("message", msg => {
-audio(msg, client);	
-})
 client.login(process.env.Discord_token || process.argv[2]);

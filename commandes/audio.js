@@ -51,10 +51,10 @@ const commands = {
           });
       })(queue[message.guild.id].songs.shift());
   },
-  'join': (msg) => {
+  'join': (message) => {
       return new Promise((resolve, reject) => {
-          const voiceChannel = msg.member.voiceChannel;
-          if (!voiceChannel || voiceChannel.type !== 'voice') return msg.reply('Je ne peux pas me connecter dans ton channel vocal...');
+          const voiceChannel = message.member.voiceChannel;
+          if (!voiceChannel || voiceChannel.type !== 'voice') return message.reply('Je ne peux pas me connecter dans ton channel vocal...');
           voiceChannel.join().then(connection => resolve(connection)).catch(err => reject(err));
       });
   },

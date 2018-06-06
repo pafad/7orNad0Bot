@@ -90,6 +90,8 @@ client.on('message', message =>{
   } catch (err){
   return;
   }
+	//Audio
+	audio(message, client);      
 });
 
 client.login(process.env.Discord_token || process.argv[2]);

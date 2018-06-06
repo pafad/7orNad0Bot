@@ -4,8 +4,6 @@ const path = require("path");
 const fs = require("fs");
 const prefix = config.prefix;
 const client = new Discord.Client();
-//audio
-const audio = require("./commandes/audio.js")
 //rainbow
 const size    = config.colors;
 const rainbow = new Array(size);
@@ -82,6 +80,10 @@ client.on('message', message =>{
   if(!message.content.startsWith(prefix))return;
   // This is the best way to define args. Trust me.
   const args = message.content.slice(prefix.length).trim().split(/ +/g);
+	//audio
+const audio = require("./musique/audio.js")
+	//Audio
+	audio(message, client);
   const command = args.shift().toLowerCase();
   // The list of if/else is replaced with those simple 2 lines:
   try {
@@ -90,8 +92,7 @@ client.on('message', message =>{
   } catch (err){
   return;
   }
-	//Audio
-	audio(message, client);      
+
 });
 
 client.login(process.env.Discord_token || process.argv[2]);

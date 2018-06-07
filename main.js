@@ -80,10 +80,7 @@ client.on('message', message =>{
   if(!message.content.startsWith(prefix))return;
   // This is the best way to define args. Trust me.
   const args = message.content.slice(prefix.length).trim().split(/ +/g);
-	//audio
-const audio = require("./musique/audio.js")
-	//Audio
-	audio(message, client);
+	
   const command = args.shift().toLowerCase();
   // The list of if/else is replaced with those simple 2 lines:
   try {

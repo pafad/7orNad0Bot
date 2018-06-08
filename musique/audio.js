@@ -20,12 +20,5 @@ const commands = {
           message.channel.sendMessage(`ajout de: **${info.title}** dans la playlist`);
       });
   },
-  'queue': (message) => {
-      if (queue[message.guild.id] === undefined) return message.channel.sendMessage(`Add some songs to the queue first with ${config.prefix}add`);
-      let tosend = [];
-      queue[message.guild.id].songs.forEach((song, i) => { tosend.push(`${i+1}. ${song.title} - Requested by: ${song.requester}`);});
-      message.channel.sendMessage(`__**Playlist de ${message.guild.name}:**__ En cours: **${tosend.length}** Musiques à suivre: ${(tosend.length > 15 ? '*[15 musiques maximum]*' : '')}\n\`\`\`${tosend.slice(0,15).join('\n')}\`\`\``);
-  }
 };
 }
-module.exports = audio;

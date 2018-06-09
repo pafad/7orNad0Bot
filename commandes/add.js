@@ -1,3 +1,4 @@
+const yt = require("ytdl-core");
 exports.run = (client, message) => {
       let url = message.content.split(' ')[1];
       if (url == '' || url === undefined) return message.channel.sendMessage(`You must add a YouTube video url, or id after ${config.prefix}add`);

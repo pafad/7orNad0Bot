@@ -57,8 +57,7 @@ client.on("guildCreate", guild => {
 //part d'un serv
 client.on("guildDelete", guild => {
   client.channels.get("429210276815175682").send(`j'ai quitté le serveur ${guild.name}[${guild.id}] dirigé par: ${guild.owner.user.tag} ayant ${guild.members.size} membres!`)
-  client.user.setActivity(`${prefix}help sur ${client.guilds.size} serveurs by @αмαтєяαѕυ.exe#8754 `, {type: "WATCHING"})
-	
+  client.user.setActivity(`${prefix}help sur ${client.guilds.size} serveurs by @αмαтєяαѕυ.exe#8754 `, {type: "WATCHING"})	
 })
 //un membre rejoin un serveur
 client.on("guildMemberAdd", member => {
@@ -79,8 +78,7 @@ client.on('message', message =>{
   //double arguments du turfu
   if(!message.content.startsWith(prefix))return;
   // This is the best way to define args. Trust me.
-  const args = message.content.slice(prefix.length).trim().split(/ +/g);
-	
+  const args = message.content.slice(prefix.length).trim().split(/ +/g);	
   const command = args.shift().toLowerCase();
   // The list of if/else is replaced with those simple 2 lines:
   try {
@@ -89,7 +87,6 @@ client.on('message', message =>{
   } catch (err){
   return;
   }
-
 });
 
-client.login(process.env.Discord_token || process.argv[2]);
+client.login(process.env.Discord_token);

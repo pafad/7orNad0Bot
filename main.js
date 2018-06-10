@@ -68,7 +68,7 @@ client.on("guildMemberRemove", member => {
 client.user.setActivity(`${prefix}help sur ${client.guilds.size} serveurs by @αмαтєяαѕυ.exe#8754 `, {type: "WATCHING"})
 })
 //définir message
-client.on('message' async message =>{
+client.on('message', message =>{
     //blacklist du bot
     if(message.author.bot)return;
     //end

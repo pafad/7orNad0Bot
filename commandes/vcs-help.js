@@ -16,6 +16,10 @@ exports.run = (client, message) => {
         {
         name:"vcs-ban",
         value:"pour ban quelqu'un du vcs (uniquement modo !)"  
+        },
+        {
+        name: "vcs-add",
+        value: "ajoute un channel vcs"
         }],
         timestamp: new Date(),
         footer:{

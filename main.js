@@ -5,6 +5,9 @@ const fs = require("fs");
 const yt = require("ytdl-core")
 const prefix = config.prefix;
 const client = new Discord.Client();
+
+let queue = {};
+
 //rainbow
 const size    = config.colors;
 const rainbow = new Array(size);
@@ -46,17 +49,6 @@ function changeColor() {
 //commandes pour musique
 const commands = {
 	"play" : (message) => {
-	let queue = {};
-	let url = message.content.split(' ')[1];
-		if (url == '' || url === undefined) return message.channel.sendMessage(`You must add a YouTube video url, or id after ${prefix}add`);
-		message.channel.sendMessage(`:x: Un lien youtube ou son id est nécéssaire après le ${prefix}add`);
-		yt.getInfo(url, (err, info) => {
-			if(err) return message.channel.sendMessage('Invalid YouTube Link: ' + err);
-			if (!queue.hasOwnProperty(message.guild.id)) queue[message.guild.id] = {}, queue[message.guild.id].playing = false, queue[message.guild.id].songs = [];
-			queue[message.guild.id].songs.push({url: url, title: info.title, requester: message.author.username});
-			message.channel.sendMessage(`added **${info.title}** to the queue`);
-		});
-	
 if (queue[message.guild.id] === undefined) return message.channel.sendMessage(`Ajoute des musiques à la playlist avec ${prefix}play`);
 		if (!message.guild.voiceConnection) return commands.join(message).then(() => commands.play(message));
 		if (queue[message.guild.id].playing) return message.channel.sendMessage(':playing: Déjà en lecture');
@@ -104,6 +96,18 @@ if (queue[message.guild.id] === undefined) return message.channel.sendMessage(`A
 				});
 			});
 		})(queue[message.guild.id].songs.shift());
+	},
+	"add":(message) => {
+		let url = message.content.split(' ')[1];
+		if (url == '' || url === undefined) return message.channel.sendMessage(`You must add a YouTube video url, or id after ${prefix}add`);
+		message.channel.sendMessage(`:x: Un lien youtube ou son id est nécéssaire après le ${prefix}add`);
+		yt.getInfo(url, (err, info) => {
+			if(err) return message.channel.sendMessage('Invalid YouTube Link: ' + err);
+			if (!queue.hasOwnProperty(message.guild.id)) queue[message.guild.id] = {}, queue[message.guild.id].playing = false, queue[message.guild.id].songs = [];
+			queue[message.guild.id].songs.push({url: url, title: info.title, requester: message.author.username});
+			message.channel.sendMessage(`added **${info.title}** to the queue`);
+		});
+	
 	}
 }
 //online

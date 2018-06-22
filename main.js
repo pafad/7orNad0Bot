@@ -65,25 +65,6 @@ if (queue[message.guild.id] === undefined) return message.channel.sendMessage(`A
 			message.channel.sendMessage(`:playing: Je joue: **${song.title}** demandé par: **${song.requester}**`);
 			dispatcher = message.guild.voiceConnection.playStream(yt(song.url, { audioonly: true }), { passes : config.passes });
 			client.user.setPresence({game:{name:`:arrow_forward: Playing: ${song.title}`, url: "https://www.twitch.tv/discordapp",type}})
-			let collector = message.channel.createCollector(m => m);
-			collector.on('message', m => {
-				if (m.content.startsWith(config.prefix + 'pause')) {
-					message.channel.sendMessage('paused').then(() => {dispatcher.pause();});
-				} else if (m.content.startsWith(config.prefix + ':arrow_forward: Reprise')){
-					message.channel.sendMessage('resumed').then(() => {dispatcher.resume();});
-				} else if (m.content.startsWith(config.prefix + 'skip')){
-					message.channel.sendMessage('skipped').then(() => {dispatcher.end();});
-				} else if (m.content.startsWith('volume+')){
-					if (Math.round(dispatcher.volume*50) >= 100) return message.channel.sendMessage(`:arrow_up: Volume: ${Math.round(dispatcher.volume*50)}%`);
-					dispatcher.setVolume(Math.min((dispatcher.volume*50 + (2*(m.content.split('+').length-1)))/50,2));
-					message.channel.sendMessage(`Volume: ${Math.round(dispatcher.volume*50)}%`);
-				} else if (m.content.startsWith('volume-')){
-					if (Math.round(dispatcher.volume*50) <= 0) return message.channel.sendMessage(`:arrow_down: Volume: ${Math.round(dispatcher.volume*50)}%`);
-					dispatcher.setVolume(Math.max((dispatcher.volume*50 - (2*(m.content.split('-').length-1)))/50,0));
-					message.channel.sendMessage(`Volume: ${Math.round(dispatcher.volume*50)}%`);
-				} else if (m.content.startsWith(config.prefix + 'time')){
-					message.channel.sendMessage(`:playing: Temps: ${Math.floor(dispatcher.time / 60000)}:${Math.floor((dispatcher.time % 60000)/1000) <10 ? '0'+Math.floor((dispatcher.time % 60000)/1000) : Math.floor((dispatcher.time % 60000)/1000)}`);
-				}
 			});
 			dispatcher.on('end', () => {
 				collector.stop();
@@ -104,7 +85,7 @@ if (queue[message.guild.id] === undefined) return message.channel.sendMessage(`A
 			if(err) return message.channel.sendMessage('Invalid YouTube Link: ' + err);
 			if (!queue.hasOwnProperty(message.guild.id)) queue[message.guild.id] = {}, queue[message.guild.id].playing = false, queue[message.guild.id].songs = [];
 			queue[message.guild.id].songs.push({url: url, title: info.title, requester: message.author.username});
-			message.channel.sendMessage(`added **${info.title}** to the queue`);
+			message.channel.sendMessage(`Ajout de: **${info.title}** dans la playlist`);
 		});
 	},
 	"queue":(message) => {
@@ -120,6 +101,34 @@ if (queue[message.guild.id] === undefined) return message.channel.sendMessage(`A
 			voiceChannel.join().then(connection => resolve(connection)).catch(err => reject(err));
 		});
 	},
+	"pause":(message)=> {
+	if (!queue[message.guild.id].playing) return message.channel.sendMessage(':x: Aucune musique en cours');
+	message.channel.sendMessage('En pause').then(() => {dispatcher.pause();});
+	},
+	"skip":(message)=> {
+	if (!queue[message.guild.id].playing) return message.channel.sendMessage(':x: Aucune musique en cours');
+	message.channel.sendMessage('Musique passée').then(() => {dispatcher.end();});
+	},
+	"resume":(message)=> {
+	if (!queue[message.guild.id].playing) return message.channel.sendMessage(':x: Aucune musique en cours');
+	message.channel.sendMessage('resumed').then(() => {dispatcher.resume();});
+	},
+	"voulume+":(message)=> {
+	if (!queue[message.guild.id].playing) return message.channel.sendMessage(':x: Aucune musique en cours');
+	if (Math.round(dispatcher.volume*50) >= 100) return message.channel.sendMessage(`:arrow_up: Volume: ${Math.round(dispatcher.volume*50)}%`);
+	dispatcher.setVolume(Math.min((dispatcher.volume*50 + (2*(m.content.split('+').length-1)))/50,2));
+	message.channel.sendMessage(`Volume: ${Math.round(dispatcher.volume*50)}%`);	
+	},
+	"volume-":(message)=>{
+	if (!queue[message.guild.id].playing) return message.channel.sendMessage(':x: Aucune musique en cours');
+	if (Math.round(dispatcher.volume*50) <= 0) return message.channel.sendMessage(`:arrow_down: Volume: ${Math.round(dispatcher.volume*50)}%`);
+	dispatcher.setVolume(Math.max((dispatcher.volume*50 - (2*(m.content.split('-').length-1)))/50,0));
+	message.channel.sendMessage(`Volume: ${Math.round(dispatcher.volume*50)}%`);	
+	},
+	"time":(message)=>{
+	if (!queue[message.guild.id].playing) return message.channel.sendMessage(':x: Aucune musique en cours');
+	message.channel.sendMessage(`:playing: Temps: ${Math.floor(dispatcher.time / 60000)}:${Math.floor((dispatcher.time % 60000)/1000) <10 ? '0'+Math.floor((dispatcher.time % 60000)/1000) : Math.floor((dispatcher.time % 60000)/1000)}`);
+	}
 }
 //online
 client.on('ready', ()=> {

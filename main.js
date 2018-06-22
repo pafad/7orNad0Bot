@@ -67,12 +67,10 @@ if (queue[message.guild.id] === undefined) return message.channel.sendMessage(`A
 			client.user.setPresence({game:{name:`:arrow_forward: Playing: ${song.title}`, url: "https://www.twitch.tv/discordapp",type}})
 			});
 			dispatcher.on('end', () => {
-				collector.stop();
 				play(queue[message.guild.id].songs.shift());
 			});
 			dispatcher.on('error', (err) => {
 				return message.channel.sendMessage('error: ' + err).then(() => {
-					collector.stop();
 					play(queue[message.guild.id].songs.shift());
 				});
 			});

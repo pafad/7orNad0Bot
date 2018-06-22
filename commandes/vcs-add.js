@@ -1,13 +1,10 @@
-
-    const Discord = require("discord.js")
-    const client = new Discord.Client();
-    client.on("message", message => {
+exports.run = (client, message) => {
     if(!message.member.hasPermission("MANAGE_CHANNELS")){
     message.channel.send("tu n'as pas la permission de gérer les salons.")
        return;
     }else{
      message.channel.send("channel #vcs ajouté vous pouvez parler en faisant **3vcs [texte]** sans les [].");
-     message.guild.createChannel("vcs").then(c => c.send({embed:{ 
+     message.guild.createChannel("vcs", "text").then(c => c.send({embed:{ 
         color: Math.floor(Math.random() * 16777214) + 1,
         fields:[{
         name: "règlement",
@@ -44,4 +41,4 @@
         }
         }))
     }
-})
+}

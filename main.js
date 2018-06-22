@@ -48,7 +48,6 @@ const commands = {
 	"play" : (message) => {
 	let queue = {};
 	let url = message.content.split(' ')[1];
-		if (url == '' || url === undefined) return let url = message.content.split(' ')[1];
 		if (url == '' || url === undefined) return message.channel.sendMessage(`You must add a YouTube video url, or id after ${prefix}add`);
 		message.channel.sendMessage(`:x: Un lien youtube ou son id est nécéssaire après le ${prefix}add`);
 		yt.getInfo(url, (err, info) => {

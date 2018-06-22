@@ -14,12 +14,12 @@ exports.run = (client, message) => {
             url: message.author.avatarURL 
         }, 
         fields:[{
-        name: ":gear: -> Seveur:",
-        value: message.guild.name
-        },
-        {
         name: ":star: -> Uilisateur:",
         value: `${message.author.tag}(${message.author.id})`
+        },
+        {
+        name: ":gear: -> Seveur:",
+        value: message.guild.name
         }],
         image:{
             url: message.content.substr(10)

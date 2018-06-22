@@ -1,9 +1,21 @@
 const yt = require("ytdl-core")
-const tokens = require("./config.json)
+const tokens = require("./config.json")
 let type = 1;
-exports.run = (client, message, args) => {
+exports.run = (client, message) => {
+	let queue = {};
+	let url = message.content.split(' ')[1];
+		if (url == '' || url === undefined) return let url = message.content.split(' ')[1];
+		if (url == '' || url === undefined) return message.channel.sendMessage(`You must add a YouTube video url, or id after ${tokens.prefix}add`);
+		message.channel.sendMessage(`:x: Un lien youtube ou son id est nécéssaire après le ${tokens.prefix}add`);
+		yt.getInfo(url, (err, info) => {
+			if(err) return message.channel.sendMessage('Invalid YouTube Link: ' + err);
+			if (!queue.hasOwnProperty(message.guild.id)) queue[message.guild.id] = {}, queue[message.guild.id].playing = false, queue[message.guild.id].songs = [];
+			queue[message.guild.id].songs.push({url: url, title: info.title, requester: message.author.username});
+			message.channel.sendMessage(`added **${info.title}** to the queue`);
+		});
+	
 if (queue[message.guild.id] === undefined) return message.channel.sendMessage(`Add some songs to the queue first with ${tokens.prefix}add`);
-		if (!message.guild.voiceConnection) return args.join(msg).then(() => args.play(msg));
+		if (!message.guild.voiceConnection) return message.member.voiceChannel.join(message).then(() => message.guild.voiceConnection.play(message));
 		if (queue[message.guild.id].playing) return message.channel.sendMessage(':playing: Déjà en lecture');
 		let dispatcher;
 		queue[message.guild.id].playing = true;
@@ -17,7 +29,7 @@ if (queue[message.guild.id] === undefined) return message.channel.sendMessage(`A
 			});
 			message.channel.sendMessage(`:playing: Je joue: **${song.title}** demandé par: **${song.requester}**`);
 			dispatcher = message.guild.voiceConnection.playStream(yt(song.url, { audioonly: true }), { passes : tokens.passes });
-			client.user.setPresence({game:{name::arrow_forward: Playing: song.title, url: "https://www.twitch.tv/discordapp",type}})
+			client.user.setPresence({game:{name:`:arrow_forward: Playing: ${song.title}`, url: "https://www.twitch.tv/discordapp",type}})
 			let collector = message.channel.createCollector(m => m);
 			collector.on('message', m => {
 				if (m.content.startsWith(tokens.prefix + 'pause')) {
@@ -41,13 +53,11 @@ if (queue[message.guild.id] === undefined) return message.channel.sendMessage(`A
 			dispatcher.on('end', () => {
 				collector.stop();
 				play(queue[message.guild.id].songs.shift());
-				client.user.setActivity("rien pour le moment", {type: "LISTENING"})
 			});
 			dispatcher.on('error', (err) => {
-				return msg.channel.sendMessage('error: ' + err).then(() => {
+				return message.channel.sendMessage('error: ' + err).then(() => {
 					collector.stop();
 					play(queue[message.guild.id].songs.shift());
-					client.user.setActivity("rien pour le moment", {type: "LISTENING"})
 				});
 			});
 		})(queue[message.guild.id].songs.shift());

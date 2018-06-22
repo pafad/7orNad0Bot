@@ -49,7 +49,7 @@ function changeColor() {
 //commandes pour musique
 const commands = {
 	"play" : (message) => {
-if (queue[message.guild.id] === undefined) return message.channel.sendMessage(`Ajoute des musiques à la playlist avec ${prefix}play`);
+if (queue[message.guild.id] === undefined) return message.channel.sendMessage(`Ajoute des musiques à la playlist avec ${config.prefix}play`);
 		if (!message.guild.voiceConnection) return commands.join(message).then(() => commands.play(message));
 		if (queue[message.guild.id].playing) return message.channel.sendMessage(':playing: Déjà en lecture');
 		let dispatcher;
@@ -63,7 +63,7 @@ if (queue[message.guild.id] === undefined) return message.channel.sendMessage(`A
 				message.member.voiceChannel.leave();
 			});
 			message.channel.sendMessage(`:playing: Je joue: **${song.title}** demandé par: **${song.requester}**`);
-			dispatcher = message.guild.voiceConnection.playStream(yt(song.url, { audioonly: true }), { passes : tokens.passes });
+			dispatcher = message.guild.voiceConnection.playStream(yt(song.url, { audioonly: true }), { passes : config.passes });
 			client.user.setPresence({game:{name:`:arrow_forward: Playing: ${song.title}`, url: "https://www.twitch.tv/discordapp",type}})
 			let collector = message.channel.createCollector(m => m);
 			collector.on('message', m => {
@@ -100,14 +100,19 @@ if (queue[message.guild.id] === undefined) return message.channel.sendMessage(`A
 	"add":(message) => {
 		let url = message.content.split(' ')[1];
 		if (url == '' || url === undefined) return message.channel.sendMessage(`You must add a YouTube video url, or id after ${prefix}add`);
-		message.channel.sendMessage(`:x: Un lien youtube ou son id est nécéssaire après le ${prefix}add`);
+		message.channel.sendMessage(`:x: Un lien youtube ou son id est nécéssaire après le ${config.prefix}add`);
 		yt.getInfo(url, (err, info) => {
 			if(err) return message.channel.sendMessage('Invalid YouTube Link: ' + err);
 			if (!queue.hasOwnProperty(message.guild.id)) queue[message.guild.id] = {}, queue[message.guild.id].playing = false, queue[message.guild.id].songs = [];
 			queue[message.guild.id].songs.push({url: url, title: info.title, requester: message.author.username});
 			message.channel.sendMessage(`added **${info.title}** to the queue`);
 		});
-	
+	},
+	"queue":(message) => {
+		if (queue[message.guild.id] === undefined) return message.channel.sendMessage(`Add some songs to the queue first with ${config.prefix}add`);
+		let tosend = [];
+		queue[message.guild.id].songs.forEach((song, i) => { tosend.push(`${i+1}. ${song.title} - Requested by: ${song.requester}`);});
+		message.channel.sendMessage(`__**${message.guild.name}'s Music Queue:**__ Currently **${tosend.length}** songs queued ${(tosend.length > 15 ? '*[Only next 15 shown]*' : '')}\n\`\`\`${tosend.slice(0,15).join('\n')}\`\`\``);	
 	}
 }
 //online

@@ -1,4 +1,4 @@
-  const config = require("../config.json")
+const config = require("../config.json")
 exports.run = (client, message, args) => {
     if(message.author.id !== "306119836503900161"){
       message.channel.send({ embed: {
@@ -43,7 +43,7 @@ exports.run = (client, message, args) => {
       },
     }})
     }else{
-            message.channel.send({ embed: {
+       message.channel.send({ embed: {
       color: 0x9101ff,
       author: {
         name: message.author.tag,
@@ -51,11 +51,7 @@ exports.run = (client, message, args) => {
       },
       title: `Commandes de ${client.user.tag}`,
       url: '',
-       fields:[{
-       name: `:gear: Développeur`,
-       value: `${config.prefix}die, ${config.prefix}setavatar, ${config.prefix}restart, ${config.prefix}eval`,
-       inline: true
-       },
+       fields:[
        {
        name: `:gear: Modération`,
        value: `${config.prefix}ban, ${config.prefix}kick, ${config.prefix}lock, ${config.prefix}createrole, ${config.prefix}createvoice, ${config.prefix}createchannel, ${config.prefix}purge, ${config.prefix}setnick`,
@@ -69,7 +65,7 @@ exports.run = (client, message, args) => {
        {
        name: `:gear: Fun`,
        value: `${config.prefix}roll, ${config.prefix}ball`,
-       inline: false
+       inline: true
        },
        {
        name: `:gear: Vcs`,

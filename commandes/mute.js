@@ -18,7 +18,7 @@ exports.run = (client, message, args) => {
 
     let temps = Math.floor(60000 * Math.sqrt(Targs));
    setTimeout(Timer, temps);
-    memberMute.addRole(role).catch(console.error);
+    message.guild.member(memberMute).addRole(role).catch(console.error);
           message.channel.send(`**${memberMute.tag}** a été mute pour ${Targs} minutes`);
     function Timer() {
 
@@ -33,7 +33,7 @@ exports.run = (client, message, args) => {
      message.channel.send(`**${memberMute.tag}** a été mute pour ${Targs} heures`);
     function Timer() {
 
- member.removeRole(role).catch(console.error)
+ message.guild.member(memberMute).removeRole(role).catch(console.error)
   console.log(`DONE ! `);
 }
     }

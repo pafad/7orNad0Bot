@@ -16,7 +16,7 @@ exports.run = (client, message) =>{
       url: '',
       fields: [
         {
-          name: 'UpTime de 7orNad0Bot',
+          name: `UpTime de ${client.user.tag}`,
           value: `${h} Heures ${m} Minutes ${s} Secondes`,
           inline: true
         },

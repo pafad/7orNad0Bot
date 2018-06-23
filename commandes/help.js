@@ -7,7 +7,7 @@ exports.run = (client, message, args) => {
         name: message.author.tag,
         icon_url: message.author.avatarURL,
       },
-      title: `Commandes de ${client.user.displayName}`,
+      title: `Commandes de ${client.user.tag}`,
       url: '',
        fields:[{
        name: `:gear: Modération`,
@@ -47,7 +47,7 @@ exports.run = (client, message, args) => {
         name: message.author.tag,
         icon_url: message.author.avatarURL,
       },
-      title: `Commandes de ${client.user.displayName}`,
+      title: `Commandes de ${client.user.tag}`,
       url: '',
        fields:[{
        name: `:gear: Développeur`,

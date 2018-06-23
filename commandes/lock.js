@@ -1,3 +1,4 @@
+const config = require("./config.json")
 exports.run = (client, message) => {
     if(!message.member.hasPermission("MANAGE_CHANNELS")){
         message.channel.send("Tu n'as pas la permission de gérer le salon");
@@ -5,6 +6,6 @@ exports.run = (client, message) => {
     message.channel.overwritePermissions(message.guild.id,
          {'SEND_MESSAGES': false    
     })
-        message.channel.send("channel bloqué tape 7unlock pour le débloquer")
+        message.channel.send(`channel bloqué tape ${config.prefix}unlock pour le débloquer`)
         }
 }

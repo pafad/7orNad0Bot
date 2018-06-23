@@ -19,7 +19,7 @@ exports.run = (client, message, args) => {
     let temps = Math.floor(60000 * Math.sqrt(Targs));
    setTimeout(Timer, temps);
     memberMute.addRole(role).catch(console.error);
-          message.channel.send(member + "a été mute pour " + Targs + "minutes");
+          message.channel.send(`**${memberMute.tag}** a été mute pour ${Targs} minutes`);
     function Timer() {
 
     member.removeRole(role).catch(console.error)
@@ -30,7 +30,7 @@ exports.run = (client, message, args) => {
     {
     let hr = Math.floor(600000 * Math.sqrt(Targs));
    setTimeout(Timer, hr);
-     message.channel.send( member + "a été mute pour"+ Targs + " heures ");
+     message.channel.send(`**${memberMute.tag}** a été mute pour ${Targs} heures`);
     function Timer() {
 
  member.removeRole(role).catch(console.error)

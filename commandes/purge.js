@@ -9,7 +9,7 @@ if(args.length < 1){
 }else{
 let messagecount = parseInt(args[0]) ? parseInt(args[0]) : 1;
     const msg_array = new Array({arraylenght: 500})
-    message.channel.bulkDelete( msg_array.length = messagecount + 1).then.catch(console.error);
+    message.channel.bulkDelete( msg_array.length = messagecount + 1).then(m => m).catch(console.error);
     })
     }
 }

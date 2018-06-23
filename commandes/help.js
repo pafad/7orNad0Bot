@@ -38,7 +38,7 @@ exports.run = (client, message, args) => {
       footer: {
         icon_url: client.user.avatarURL,
         text: client.user.username
-      },
+      }
     }})
     }else{
             message.channel.send('', { embed: {
@@ -83,7 +83,7 @@ exports.run = (client, message, args) => {
       footer: {
         icon_url: client.user.avatarURL,
         text: client.user.username
-      },
+      }
     }})
     }
 }

@@ -9,7 +9,8 @@ exports.run = (client, message, args) => {
       },
       title: `Commandes de ${client.user.tag}`,
       url: '',
-       fields:[{
+       fields:[
+       {
        name: `:gear: Modération`,
        value: `${config.prefix}ban, ${config.prefix}kick, ${config.prefix}lock, ${config.prefix}createrole, ${config.prefix}createvoice, ${config.prefix}createchannel, ${config.prefix}purge, ${config.prefix}setnick`,
        inline: true
@@ -33,12 +34,13 @@ exports.run = (client, message, args) => {
        name: `:gear: Musique`,
        value: `${config.prefix}add, ${config.prefix}play, ${config.prefix}join, ${config.prefix}time, ${config.prefix}skip, ${config.prefix}pause, ${config.prefix}resume, ${config.prefix}queue, volume+, voulme-`,
        inline: true
-       }],
+       },
+       ],
       timestamp: new Date,
       footer: {
         icon_url: client.user.avatarURL,
         text: client.user.username
-      }
+      },
     }})
     }else{
             message.channel.send({ embed: {
@@ -78,12 +80,13 @@ exports.run = (client, message, args) => {
        name: `:gear: Musique`,
        value: `${config.prefix}add, ${config.prefix}play, ${config.prefix}join, ${config.prefix}time, ${config.prefix}skip, ${config.prefix}pause, ${config.prefix}resume, ${config.prefix}queue, volume+, voulme-`,
        inline: true
-       }],
+       },
+       ],
       timestamp: new Date,
       footer: {
         icon_url: client.user.avatarURL,
         text: client.user.username
-      }
+      },
     }})
     }
 }

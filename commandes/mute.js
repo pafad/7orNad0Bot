@@ -1,8 +1,8 @@
 exports.run = (client, message, args) => {
   let memberMute = message.mentions.members.first();
    let role = message.guild.roles.find("name", "Mute");
-   let Targs = args[1];
-   let Hargs = args[2];
+   let Targs = args[2];
+   let Hargs = args[3];
    if (message.member.hasPermission("MANAGE_MESSAGES"))
    {
 

@@ -42,7 +42,6 @@ exports.run = (client, message, args) => {
     else
    {
     message.guild.createRole({name: "Mute"})
-    let role = message.guild.roles.find("name", "Mute")
     message.guild.channels.map(c => c.overwritePermissions(role, {
       "SEND_MESSAGES":false,
       "ADD_REACTIONS": false,

@@ -1,7 +1,7 @@
-  const config = require("./config.json")
+  const config = require("../config.json")
 exports.run = (client, message, args) => {
     if(message.author.id !== "306119836503900161"){
-           message.channel.send({ embed: {
+      message.channel.send({ embed: {
       color: 0x9101ff,
       author: {
         name: message.author.tag,
@@ -23,7 +23,7 @@ exports.run = (client, message, args) => {
        {
        name: `:gear: Fun`,
        value: `${config.prefix}roll, ${config.prefix}ball`,
-       inline: false
+       inline: true
        },
        {
        name: `:gear: Vcs`,
@@ -69,7 +69,7 @@ exports.run = (client, message, args) => {
        {
        name: `:gear: Fun`,
        value: `${config.prefix}roll, ${config.prefix}ball`,
-       inline: true
+       inline: false
        },
        {
        name: `:gear: Vcs`,

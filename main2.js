@@ -89,3 +89,5 @@ client.on('message', msg => {
 	if (!msg.content.startsWith(config.prefix)) return;
 	if (commands.hasOwnProperty(msg.content.toLowerCase().slice(config.prefix.length).split(' ')[0])) commands[msg.content.toLowerCase().slice(config.prefix.length).split(' ')[0]](msg);
 });
+client.login(process.env.Discord_token);
+

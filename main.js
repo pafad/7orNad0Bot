@@ -5,7 +5,6 @@ const fs = require("fs");
 const yt = require("ytdl-core")
 const prefix = config.prefix;
 const client = new Discord.Client();
-const main2 = require("./main2.js")
 let type = 1;
 //rainbow
 const size    = config.colors;

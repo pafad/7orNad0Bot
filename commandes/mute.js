@@ -1,5 +1,5 @@
 exports.run = (client, message, args) => {
-   let memberMute = message.mentions.users.first();
+     let memberMute = message.mentions.users.first();
      let role = message.guild.roles.find("name", "Mute");
      let Targs = args[1];
      let Hargs = args[2];
@@ -33,12 +33,12 @@ exports.run = (client, message, args) => {
   }
       }
        }else{
-      message.guild.createRole({name: "Mute"})
-      message.guild.channels.map(c => c.overwritePermissions(role, {
+      message.guild.createRole({name: "Mute"}).then(r => { message.guild.channels.map(c => c.overwritePermissions(r.id, {
         "SEND_MESSAGES":false,
         "ADD_REACTIONS": false,
         "CONNECT": false
       }))
+    })
          message.channel.send("Un rôle Mute a été créé pour vous je dois également avoir la permissions de gérer les messages")
      }
     }

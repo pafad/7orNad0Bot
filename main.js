@@ -50,7 +50,7 @@ let queue = {};
 const commands = {
 	'play': (message) => {
 		if (queue[message.guild.id] === undefined) return message.channel.sendMessage(`:x: D'abord ajoute de la musique avec ${config.prefix}add`);
-		if (!msg.guild.voiceConnection) return commands.join(message).then(() => commands.play(message));
+		if (!message.guild.voiceConnection) return commands.join(message).then(() => commands.play(message));
 		if (queue[message.guild.id].playing) return message.channel.sendMessage('<a:playing:459769160679948305> Déjà en lecture.');
 		let dispatcher;
 		queue[message.guild.id].playing = true;

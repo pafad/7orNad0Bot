@@ -141,7 +141,7 @@ client.on("guildDelete", guild => {
 })
 //définir message
 client.on("message", msg => {
-	if(msg.author.bot)return:
+	if(msg.author.bot)return;
 	if(!msg.content.startWith(prefix))return;
 	if (commands.hasOwnProperty(msg.content.toLowerCase().slice(config.prefix.length).split(' ')[0])) commands[msg.content.toLowerCase().slice(config.prefix.length).split(' ')[0]](msg);
 })

@@ -63,12 +63,6 @@ client.on("guildDelete", guild => {
   client.user.setPresence({game:{name:`${config.prefix}help sur ${client.guilds.size} serveurs`,url: "https://www.twitch.tv/discordapp",type}})	
 })
 //définir message
-client.on("message", msg => {
-	if(msg.author.bot)return;
-	if(!msg.content.startsWith(prefix))return;
-	if (commands.hasOwnProperty(msg.content.toLowerCase().slice(config.prefix.length).split(' ')[0])) commands[msg.content.toLowerCase().slice(config.prefix.length).split(' ')[0]](msg);
-})
-//commands file
 client.on('message', message =>{
     //blacklist du bot
     if(message.author.bot)return;

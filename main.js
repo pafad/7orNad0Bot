@@ -48,78 +48,78 @@ function changeColor() {
 let queue = {};
 
 const commands = {
-	'play': (message) => {
-		if (queue[message.guild.id] === undefined) return message.channel.sendMessage(`Add some songs to the queue first with ${config.prefix}add`);
-		if (!message.guild.voiceConnection) return commands.join(message).then(() => commands.play(message));
-		if (queue[message.guild.id].playing) return message.channel.sendMessage('<a:playing:459769160679948305> Déjà en lecture.');
+	'play': (msg) => {
+		if (queue[msg.guild.id] === undefined) return msg.channel.sendMessage(`Add some songs to the queue first with ${config.prefix}add`);
+		if (!msg.guild.voiceConnection) return commands.join(msg).then(() => commands.play(msg));
+		if (queue[msg.guild.id].playing) return msg.channel.sendMessage('<a:playing:459769160679948305> Déjà en lecture.');
 		let dispatcher;
-		queue[message.guild.id].playing = true;
+		queue[msg.guild.id].playing = true;
 
 		console.log(queue);
 		(function play(song) {
 			console.log(song);
-			if (song === undefined) return message.channel.sendMessage(':x: La playlist est vide.').then(() => {
-				queue[message.guild.id].playing = false;
+			if (song === undefined) return msg.channel.sendMessage(':x: La playlist est vide.').then(() => {
+				queue[msg.guild.id].playing = false;
 				message.member.voiceChannel.leave();
 				client.user.setPresence({game:{name:`${config.prefix}help sur ${client.guilds.size} serveurs`,url: "https://www.twitch.tv/discordapp",type}})
 			});
-			message.channel.sendMessage(`Je joue: **${song.title}** demandé par: **${song.requester}**`);
-			dispatcher = message.guild.voiceConnection.playStream(yt(song.url, { audioonly: true }), { passes : config.passes });
+			msg.channel.sendMessage(`Je joue: **${song.title}** demandé par: **${song.requester}**`);
+			dispatcher = msg.guild.voiceConnection.playStream(yt(song.url, { audioonly: true }), { passes : config.passes });
 			client.user.setPresence({game:{name:`▶️ Je joue maintenant: ${song.title}`, url: "https://www.twitch.tv/discordapp",type}})
-			let collector = message.channel.createCollector(m => m);
+			let collector = msg.channel.createCollector(m => m);
 			collector.on('message', m => {
 				if (m.content.startsWith(config.prefix + 'pause')) {
-					message.channel.sendMessage(':pause_button: En pause.').then(() => {dispatcher.pause();});
+					msg.channel.sendMessage(':pause_button: En pause.').then(() => {dispatcher.pause();});
 				} else if (m.content.startsWith(config.prefix + 'resume')){
-					message.channel.sendMessage(':arrow_forward: Reprise.').then(() => {dispatcher.resume();});
+					msg.channel.sendMessage(':arrow_forward: Reprise.').then(() => {dispatcher.resume();});
 				} else if (m.content.startsWith(config.prefix + 'skip')){
-					message.channel.sendMessage(':arrow_right_hook: on skip.').then(() => {dispatcher.end();});
+					msg.channel.sendMessage(':arrow_right_hook: on skip.').then(() => {dispatcher.end();});
 				} else if (m.content.startsWith('volume+')){
-					if (Math.round(dispatcher.volume*50) >= 100) return message.channel.sendMessage(`Volume: ${Math.round(dispatcher.volume*50)}%`);
+					if (Math.round(dispatcher.volume*50) >= 100) return msg.channel.sendMessage(`Volume: ${Math.round(dispatcher.volume*50)}%`);
 					dispatcher.setVolume(Math.min((dispatcher.volume*50 + (2*(m.content.split('+').length-1)))/50,2));
-					message.channel.sendMessage(`:arrow_up: Volume: ${Math.round(dispatcher.volume*50)}%`);
+					msg.channel.sendMessage(`:arrow_up: Volume: ${Math.round(dispatcher.volume*50)}%`);
 				} else if (m.content.startsWith('volume-')){
 					if (Math.round(dispatcher.volume*50) <= 0) return msg.channel.sendMessage(`Volume: ${Math.round(dispatcher.volume*50)}%`);
 					dispatcher.setVolume(Math.max((dispatcher.volume*50 - (2*(m.content.split('-').length-1)))/50,0));
-					message.channel.sendMessage(`:arrow_donw: Volume: ${Math.round(dispatcher.volume*50)}%`);
+					msg.channel.sendMessage(`:arrow_donw: Volume: ${Math.round(dispatcher.volume*50)}%`);
 				} else if (m.content.startsWith(config.prefix + 'time')){
-					message.channel.sendMessage(`<a:playing:459769573311512576> Time: ${Math.floor(dispatcher.time / 60000)}:${Math.floor((dispatcher.time % 60000)/1000) <10 ? '0'+Math.floor((dispatcher.time % 60000)/1000) : Math.floor((dispatcher.time % 60000)/1000)}`);
+					msg.channel.sendMessage(`<a:playing:459769573311512576> Time: ${Math.floor(dispatcher.time / 60000)}:${Math.floor((dispatcher.time % 60000)/1000) <10 ? '0'+Math.floor((dispatcher.time % 60000)/1000) : Math.floor((dispatcher.time % 60000)/1000)}`);
 				}
 			});
 			dispatcher.on('end', () => {
 				collector.stop();
-				play(queue[message.guild.id].songs.shift());
+				play(queue[msg.guild.id].songs.shift());
 			});
 			dispatcher.on('error', (err) => {
-				return message.channel.sendMessage('error: ' + err).then(() => {
+				return msg.channel.sendMessage('error: ' + err).then(() => {
 					collector.stop();
-					play(queue[message.guild.id].songs.shift());
+					play(queue[msg.guild.id].songs.shift());
 				});
 			});
-		})(queue[message.guild.id].songs.shift());
+		})(queue[msg.guild.id].songs.shift());
 	},
-	'join': (message) => {
+	'join': (msg) => {
 		return new Promise((resolve, reject) => {
-			const voiceChannel = message.member.voiceChannel;
-			if (!voiceChannel || voiceChannel.type !== 'voice') return message.reply("Je n'ai pas la permission de me connecter dans ton channel vocal...");
+			const voiceChannel = msg.member.voiceChannel;
+			if (!voiceChannel || voiceChannel.type !== 'voice') return msg.reply("Je n'ai pas la permission de me connecter dans ton channel vocal...");
 			voiceChannel.join().then(connection => resolve(connection)).catch(err => reject(err));
 		});
 	},
-	'add': (message) => {
-		let url = message.content.split(' ')[1];
-		if (url == '' || url === undefined) return message.channel.sendMessage(`:x: Spécifier un lien youtube après le ${config.prefix}add`);
+	'add': (msg) => {
+		let url = msg.content.split(' ')[1];
+		if (url == '' || url === undefined) return msg.channel.sendMessage(`:x: Spécifier un lien youtube après le ${config.prefix}add`);
 		yt.getInfo(url, (err, info) => {
-			if(err) return message.channel.sendMessage('Invalid YouTube Link: ' + err);
-			if (!queue.hasOwnProperty(message.guild.id)) queue[message.guild.id] = {}, queue[message.guild.id].playing = false, queue[message.guild.id].songs = [];
-			queue[message.guild.id].songs.push({url: url, title: info.title, requester: message.author.username});
-			message.channel.sendMessage(`Ajout de:  **${info.title}** dans la playlist`);
+			if(err) return msg.channel.sendMessage('Invalid YouTube Link: ' + err);
+			if (!queue.hasOwnProperty(msg.guild.id)) queue[msg.guild.id] = {}, queue[msg.guild.id].playing = false, queue[msg.guild.id].songs = [];
+			queue[msg.guild.id].songs.push({url: url, title: info.title, requester: msg.author.username});
+			msg.channel.sendMessage(`Ajout de:  **${info.title}** dans la playlist`);
 		});
 	},
-	'queue': (message) => {
-		if (queue[message.guild.id] === undefined) return message.channel.sendMessage(`:x: Ajoute de la musique avec ${config.prefix}add`);
+	'queue': (msg) => {
+		if (queue[msg.guild.id] === undefined) return msg.channel.sendMessage(`:x: Ajoute de la musique avec ${config.prefix}add`);
 		let tosend = [];
-		queue[message.guild.id].songs.forEach((song, i) => { tosend.push(`${i+1}. ${song.title} - Requested by: ${song.requester}`);});
-		message.channel.sendMessage(`__Playlist de **${message.guild.name}:**__ Il y a **${tosend.length}** dans la playlist ${(tosend.length > 15 ? '*[Only next 15 shown]*' : '')}\n\`\`\`${tosend.slice(0,15).join('\n')}\`\`\``);
+		queue[msg.guild.id].songs.forEach((song, i) => { tosend.push(`${i+1}. ${song.title} - Requested by: ${song.requester}`);});
+		msg.channel.sendMessage(`__Playlist de **${msg.guild.name}:**__ Il y a **${tosend.length}** dans la playlist ${(tosend.length > 15 ? '*[Only next 15 shown]*' : '')}\n\`\`\`${tosend.slice(0,15).join('\n')}\`\`\``);
 	}
 }
 //online
@@ -140,8 +140,8 @@ client.on("guildDelete", guild => {
   client.user.setPresence({game:{name:`${config.prefix}help sur ${client.guilds.size} serveurs`,url: "https://www.twitch.tv/discordapp",type}})	
 })
 //définir message
-client.on("message", message => {
-	if (commands.hasOwnProperty(message.content.toLowerCase().slice(config.prefix.length).split(' ')[0])) commands[message.content.toLowerCase().slice(config.prefix.length).split(' ')[0]](message);
+client.on("message", msg => {
+	if (commands.hasOwnProperty(msg.content.toLowerCase().slice(config.prefix.length).split(' ')[0])) commands[msg.content.toLowerCase().slice(config.prefix.length).split(' ')[0]](msg);
 })
 //commands file
 client.on('message', message =>{

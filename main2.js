@@ -7,7 +7,7 @@ let queue = {};
 
 const commands = {
 	'play': (msg) => {
-		if (queue[msg.guild.id] === undefined) return msg.channel.sendMessage(`Add some songs to the queue first with ${config.prefix}add`);
+		if (queue[msg.guild.id] === undefined) return msg.channel.sendMessage(`:x: D'abord ajoute de la musique avec ${config.prefix}add`);
 		if (!msg.guild.voiceConnection) return commands.join(msg).then(() => commands.play(msg));
 		if (queue[msg.guild.id].playing) return msg.channel.sendMessage('<a:playing:459769160679948305> Déjà en lecture.');
 		let dispatcher;
@@ -74,10 +74,10 @@ const commands = {
 		});
 	},
 	'queue': (msg) => {
-		if (queue[msg.guild.id] === undefined) return msg.channel.sendMessage(`Add some songs to the queue first with ${tokens.prefix}add`);
+		if (queue[msg.guild.id] === undefined) return msg.channel.sendMessage(`:x: Ajoute de la musique avec ${config.prefix}add`);
 		let tosend = [];
-		queue[msg.guild.id].songs.forEach((song, i) => { tosend.push(`${i+1}. ${song.title} - Requested by: ${song.requester}`);});
-		msg.channel.sendMessage(`__**${msg.guild.name}'s Music Queue:**__ Currently **${tosend.length}** songs queued ${(tosend.length > 15 ? '*[Only next 15 shown]*' : '')}\n\`\`\`${tosend.slice(0,15).join('\n')}\`\`\``);
+		queue[msg.guild.id].songs.forEach((song, i) => { tosend.push(`${i+1}. ${song.title} - Demandé par: ${song.requester}`);});
+		msg.channel.sendMessage(`__Playlist de **${msg.guild.name}:**__ Il y a **${tosend.length}** dans la playlist ${(tosend.length > 15 ? '*[Only next 15 shown]*' : '')}\n\`\`\`${tosend.slice(0,15).join('\n')}\`\`\``);
 	},
 	'reboot': (msg) => {
 		if (msg.author.id == "306119836503900161") process.exit(); //Requires a node module like Forever to work.

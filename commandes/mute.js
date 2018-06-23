@@ -1,5 +1,5 @@
 exports.run = (client, message, args) => {
-  let memberMute = message.mentions.members.first();
+  let memberMute = message.mentions.users.first();
    let role = message.guild.roles.find("name", "Mute");
    let Targs = args[1];
    let Hargs = args[2];

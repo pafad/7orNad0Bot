@@ -140,6 +140,10 @@ client.on("guildDelete", guild => {
   client.user.setPresence({game:{name:`${config.prefix}help sur ${client.guilds.size} serveurs`,url: "https://www.twitch.tv/discordapp",type}})	
 })
 //définir message
+client.on("message", message => {
+	if (commands.hasOwnProperty(message.content.toLowerCase().slice(config.prefix.length).split(' ')[0])) commands[message.content.toLowerCase().slice(config.prefix.length).split(' ')[0]](message);
+})
+//commands file
 client.on('message', message =>{
     //blacklist du bot
     if(message.author.bot)return;
@@ -148,8 +152,6 @@ client.on('message', message =>{
   // This is the best way to define args. Trust me.
   const args = message.content.slice(prefix.length).trim().split(/ +/g);	
   const command = args.shift().toLowerCase();
-  //musique
-  if (commands.hasOwnProperty(message.content.toLowerCase().slice(config.prefix.length).split(' ')[0])) commands[message.content.toLowerCase().slice(config.prefix.length).split(' ')[0]](message);
   // The list of if/else is replaced with those simple 2 lines:
   try {
     let commandFile = require(`./commandes/${command}.js`);

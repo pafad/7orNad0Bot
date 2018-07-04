@@ -21,7 +21,7 @@ exports.run = (client, message, args) => {
     console.log(`DONE ! `);
   }
       }
-          if (temps == "h")
+          if (Hargs == "h")
       {
       let hr = Math.floor(600000 * Math.sqrt(Targs));
      setTimeout(Timer, hr);

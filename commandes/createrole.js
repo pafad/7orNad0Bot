@@ -1,14 +1,18 @@
-exports.run = (client, message, args) => {
+module.exports.run = async (client, message, args) => {
     if(!message.member.hasPermission("MANAGE_ROLES")){
-        message.channel.send(`Tu n'as pas la permission de gérer les rôles`)
+        message.channel.send(`:x: Tu n'as pas la permission de gérer les rôles`)
         return;
     }else{
     if(!args || args.length < 1){
-        message.channel.send(`Spécifiez le nom du rôle`)
+        message.channel.send(`:x: Spécifiez le nom du rôle`)
         return;
     }else{
-    message.guild.createRole({name: message.content.substr(12)})
-    message.channel.send(`Role créé avec succès. nom du rôle: ${message.content.substr(12)}`)
+    message.guild.createRole({name: args[0]})
+    message.channel.send(`:heavy_check_mark: Role créé avec succès. nom du rôle: ${args}`)
         }
     }
 }
+
+module.exports.help = {
+    name: "createrole"
+  }

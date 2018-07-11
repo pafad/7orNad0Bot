@@ -1,4 +1,4 @@
-exports.run = (client, message, args) => {
+module.exports.run = async (client, message, args) => {
     let user_avatar = message.mentions.users.first();
     if(!user_avatar){
       message.channel.send({embed:{
@@ -37,4 +37,8 @@ text: `avatar`,
 },
 }})
 }
+}
+
+module.exports.help = {
+name: "avatar"   
 }

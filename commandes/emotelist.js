@@ -1,4 +1,4 @@
-exports.run = (client, message) => {
+module.exports.run = async (client, message, args) => {
     message.channel.send({embed:{
       color: 0x9101ff,
        author: {
@@ -19,4 +19,8 @@ exports.run = (client, message) => {
   text: `serverinfo by shiro`
   },
   }})
+  }
+
+  module.exports.help = {
+    name: "emotelist"
   }

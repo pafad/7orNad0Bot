@@ -1,5 +1,5 @@
 const rn = require('random-number');
-exports.run = (client, message, args) => {
+module.exports.run = async (client, message, args) => {
   if(!args || args.length < 1){
          message.channel.send(`:x: ${message.author}, pose une question.`)
        }else{
@@ -12,4 +12,8 @@ let r = rn({
        let ball = response[r];
        message.channel.send(`:gem: ${message.author}` + ` ${ball}`)
        }
+}
+
+module.exports.help = {
+name: "ball"
 }

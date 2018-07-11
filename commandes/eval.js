@@ -1,6 +1,6 @@
-exports.run = (client, message, args) => {
-        if(message.author.id !== '306119836503900161' && message.author.id !=='295908783081914378'){
-            message.channel.send(`<:7orNad0_negative_check_mark:400045843287375873> ${message.author} Tu n'est pas mon developpeur.`)
+module.exports.run = async (client, message, args) => {
+        if(message.author.id !== '306119836503900161'){
+            message.channel.send(`:x: ${message.author} Tu n'est pas mon developpeur.`)
             return;
         }else{
                 try {
@@ -42,4 +42,8 @@ text: 'eval by shiro'
   else
       return text;
   }
+}
+
+module.exports.help = {
+  name: "eval"
 }

@@ -1,4 +1,4 @@
-exports.run = (client, message, args)  => {
+module.exports.run = (client, message, args)  => {
         let raison = message.content.substr(27);
         let banMember = message.guild.member(message.mentions.users.first());
         if(!message.member.hasPermissions("BAN_MEMBERS")){
@@ -26,3 +26,7 @@ exports.run = (client, message, args)  => {
           }
        }
     }
+
+module.exports.help = {
+name: "ban"
+}

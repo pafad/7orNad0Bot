@@ -11,17 +11,10 @@ module.exports.run = async (client, message, args)  => {
                 message.channel.send("**"+toBan.tag+"** a été ban.`");
                 })
                 return;
-            if(!toBan){
-                var toBanId = client.users.find("id", args[0]);
-                message.guild.ban(`${toBanId}`).then(() => {
-                message.channel.send("**"+toBanId.tag+"** a été ban.");
+            }else{
+                if(!toBan){
+                message.channel.send("je ne trouve pas cet utilisateur.");
                 return;
-                })
-                return;
-                if(!toBan || toBanId){
-                message,channel.send("je ne trouve pas cet utilisateur.");
-                return;
-            }
             }else{
               if(!banMember.bannable){
                   message.channel.send(`:x: ${message.author} je peux pas kick cet utilisateur veuillez vérifier mes rôles et permissions.`);
@@ -32,15 +25,15 @@ module.exports.run = async (client, message, args)  => {
                     return; 
                 }else{
         message.delete(message.author);
-        client.users.get(kickMember.id).send(`tu as été ban pour la raison: ${raison}`);
+        client.users.get(banMember.id).send(`tu as été ban pour la raison: ${raison}`);
         message.guild.member(banMember).ban({reason: `${raison}`});
         message.channel.sendMessage(`**${banMember}** a été ban! raison:${raison}`);
                 }
-            }
+             }
           }
        }
     }
 }
-    module.exports.help = {
-        name: "ban"
-      }
+module.exports.help = {
+    name: "ban"
+}

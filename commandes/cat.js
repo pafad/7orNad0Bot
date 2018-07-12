@@ -1,7 +1,6 @@
 const randomPuppy = require("random-puppy");
 module.exports.run = async (client, message, args) => {
-    const event = randomPuppy.all('cat')
-    event.on('data', url => {
+    const event = randomPuppy('cat').then(url =>
     message.channel.send({embed:{
         color: 0x732db7,
         title: `${message.author.tag} chaaaaat !`,
@@ -13,7 +12,7 @@ module.exports.run = async (client, message, args) => {
             name: "chat by shiro",
             icon_url: message.author.avatarUrl,
         }
-    }})
+    }}))
     })
 }
 

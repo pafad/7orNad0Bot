@@ -1,4 +1,4 @@
-exports.run = (client,message) => {
+module.exports.run = (client,message) => {
   message.channel.send('', { embed: {
     color: 0x9101ff,
     title: "Tu veux m'inviter voici le lien:",
@@ -9,4 +9,8 @@ exports.run = (client,message) => {
       text: `${client.user.username} by shiro`
     },
   }})
+}
+
+module.exports.help = {
+  naem:"invite"
 }

@@ -1,5 +1,5 @@
 const config = require("../config.json")
-exports.run = (client, message, args) => {
+module.exports.run = async (client, message, args) => {
     if(message.author.id !== "306119836503900161"){
       message.channel.send({ embed: {
       color: 0x9101ff,
@@ -85,4 +85,7 @@ exports.run = (client, message, args) => {
       },
     }})
     }
+}
+module.exports.help = {
+    name:"help"
 }

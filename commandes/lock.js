@@ -5,18 +5,23 @@ module.exports.run = async (client, message) => {
       
             if (Targs !== ""){
             if (Hargs !== "min" && Hargs !== "h" && Hargs !== ""){
-               message.channel.send("Assurez vous de mettre min pour minute et h pour heure")
+               message.channel.send("il faut mettre **min** pour minute et **h** pour heure\nex: 3lock 1 h")
             }
       
               if(Hargs == "min"){
       
           let temps = Math.floor(60000 * Math.sqrt(Targs));
          setTimeout(Timer, temps);
-          memberMute.addRole(role).catch(console.error);
-                message.channel.send(member + "a été mute pour " + Targs + "minutes");
+          message.channel.overwritePermissions(message.guild.id,
+            {
+                'SEND_MESSAGES': false    
+            }).catch(console.error)
+                message.channel.send("salon bloqué pour :**" + Targs + "minutes**.");
           function Timer() {
-      
-          member.removeRole(role).catch(console.error)
+          message.channel.overwritePermissions(message.guild.id,
+                {
+                    'SEND_MESSAGES': null    
+                }).catch(console.error)
         console.log(`DONE ! `);
       }
           }
@@ -27,9 +32,8 @@ module.exports.run = async (client, message) => {
             {
                 'SEND_MESSAGES': false    
             }).catch(console.error)
-           message.channel.send("salon bloqué pour: "+ Targs + " heures ");
-          function Timer() 
-          {
+           message.channel.send("salon bloqué pour: **"+ Targs + " heures**.");
+          function Timer() {
             message.channel.overwritePermissions(message.guild.id,
                 {
                     'SEND_MESSAGES': null    

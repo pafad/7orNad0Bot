@@ -1,10 +1,10 @@
 const randomPuppy = require("random-puppy");
 module.exports.run = async (client, message, args) => {
-    const event = randomPuppy.all(subreddit)
+    const event = randomPuppy.all('cat')
     event.on('data', url => {
     message.channel.send({embed:{
         color: 0x732db7,
-        title: `${message.author.tag} chaaaaat ! :smile_cat:`,
+        title: `${message.author.tag} chaaaaat !`,
         image:{
         url: url 
         },

@@ -12,7 +12,7 @@ module.exports.run = async (client, message, args) => {
             name: "chat by shiro",
             icon_url: message.author.avatarUrl,
         }
-    }}))
+    }})
     })
 }
 

@@ -1,4 +1,4 @@
-exports.run = (client, message) => {
+module.exports.run = async (client, message) => {
     if(message.channel.name !== "vcs"){
         return;
     }else{
@@ -39,4 +39,8 @@ exports.run = (client, message) => {
             }
         })
     }
+}
+
+module.exports.help = {
+    name: "vcs-regles"
 }

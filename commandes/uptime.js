@@ -1,4 +1,4 @@
-exports.run = (client, message) =>{
+module.exports.run = async (client, message) =>{
     var name = message.author.tag;
     var icon = message.author.avatarURL;
     var s = (Math.round(client.uptime / 1000) % 60)
@@ -27,3 +27,7 @@ exports.run = (client, message) =>{
       },
     }})
     }
+
+module.exports.help = {
+    name:"uptime"
+}

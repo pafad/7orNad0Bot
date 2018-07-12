@@ -1,4 +1,4 @@
-module.exports.run = async (client, message, args) => {
+module.exports.run = async (client, message) => {
     message.channel.send({embed:{
       color: 0x9101ff,
        author: {

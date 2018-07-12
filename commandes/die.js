@@ -5,7 +5,6 @@ if(message.author.id !== '306119836503900161'){
         }else{
             message.channel.send("déconnection !")
             client.destroy();
-            process.exit();
     }
 }
 

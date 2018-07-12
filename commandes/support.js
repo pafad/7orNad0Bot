@@ -1,6 +1,6 @@
-exports.run = (client, message) => {
+module.exports.run = async (client, message, args) => {
 message.channel.send({embed: {
-    color: 3447003,
+    color: Math.floor(Math.random() * 16777214) + 1,
     author: {
       name: client.user.username,
       icon_url: client.user.avatarURL
@@ -20,4 +20,8 @@ message.channel.send({embed: {
     }
   }
 });
+}
+
+module.exports.help = {
+  name: "support"
 }

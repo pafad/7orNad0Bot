@@ -1,4 +1,4 @@
-exports.run = (client, message) => {
+module.exports.run = async (client, message) => {
     message.channel.send({embed:{ color: Math.floor(Math.random() * 16777214) + 1,
     title: "commande de vcs",
     fields:[{
@@ -10,7 +10,7 @@ exports.run = (client, message) => {
         value:"pour partager une image dans les channels `vcs`"
         },
         {
-        name: "vcs-regles",
+        name: "vcs-regle",
         value:"règlement du vcs"
         },
         {
@@ -28,3 +28,6 @@ exports.run = (client, message) => {
         }
     }})
 }
+module.exports.help = {
+    name: "vcs-help"
+  }

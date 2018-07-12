@@ -1,4 +1,4 @@
-exports.run = (client, message) => {
+module.exports.run = async (client, message, args) => {
     if(!message.member.hasPermission("MANAGE_CHANNELS")){
     message.channel.send("tu n'as pas la permission de gérer les salons.")
        return;
@@ -42,3 +42,6 @@ exports.run = (client, message) => {
         }))
     }
 }
+module.exports.help = {
+    name: "vcs-add"
+  }

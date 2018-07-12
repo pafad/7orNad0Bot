@@ -1,4 +1,4 @@
-exports.run = (client, message, args) => {
+module.exports.run = async (client, message, args) => {
      let user_setnick = message.mentions.users.first();
     if(!message.member.hasPermission("MANAGE_NICKNAMES")){
         message.channel.send(`<:7orNad0_negative_check_mark:400045843287375873> ${message.author} tu n'as pas la permission de gérer les pseudo"`)
@@ -13,3 +13,7 @@ exports.run = (client, message, args) => {
         }
     }
 }
+
+module.exports.help = {
+    name: "setnick"
+  }

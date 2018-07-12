@@ -1,4 +1,4 @@
-exports.run = (client, message, args) => {
+module.exports.run = async (client, message, args) => {
     const sayMessage = message.content.substr(4);
   if(message.author.id !== "306119836503900161"){
    message.channel.send("t'es qui pour me dire quoi dire? xD")
@@ -12,4 +12,8 @@ exports.run = (client, message, args) => {
     message.channel.send(sayMessage);
   }
   }
+}
+
+module.exports.help = {
+  name: "say"
 }

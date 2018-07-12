@@ -1,4 +1,5 @@
-exports.run = (client, message, args) => {
+module.exports.run = async (client, message, args) => {
+  const config = require("../config.json")
   message.channel.send({embed:{
     color: 0x9101ff,
      author: {
@@ -11,12 +12,12 @@ fields: [
 {
 name: ':gear: -> ID du serveur',
 value: `${message.guild.id}`,
-inline: false
+inline: true
 },
 {
 name: ':gear: -> propriétaire du serveur',
 value: `${message.guild.owner.user.username}`,
-inline: false
+inline: true
 },
 {
 name: ':gear: -> créé le:',
@@ -40,13 +41,17 @@ inline: false
 },
 {
 name: 'liste des rôles',
-value:  "fait __7serverroles__ pour avoir une liste complète",
+value:  `fait __${config.prefix}serverroles__ pour avoir une liste complète`,
 inline: false
 },
 ],
 footer: {
 icon_url: client.user.avatarURL,
 text: `serverinfo by shiro`
-},
+}
 }})
+}
+
+module.exports.help = {
+  name: "serverinfo"
 }

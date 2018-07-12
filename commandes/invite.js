@@ -1,9 +1,9 @@
-module.exports.run = async (client,message) => {
+module.exports.run = async (client,message, args) => {
   message.channel.send('', { embed: {
     color: 0x9101ff,
     title: "Tu veux m'inviter voici le lien:",
     url: '',
-    description: "https://discordapp.com/oauth2/authorize?client_id=451844957897228288&scope=bot&permissions=-1",
+    description: "https://discordapp.com/oauth2/authorize?client_id=453648303528345611&scope=bot&permissions=-1",
     footer: {
       icon_url: client.user.avatarURL,
       text: `${client.user.username} by shiro`
@@ -12,5 +12,5 @@ module.exports.run = async (client,message) => {
 }
 
 module.exports.help = {
-  naem:"invite"
+  name: "invite"
 }

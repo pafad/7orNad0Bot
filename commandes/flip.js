@@ -1,5 +1,9 @@
 const flip = require("flip-text");
-exports.run = (client, message, args) => {
-  let flip_text = flip(args)
+module.exports.run = async (client, message, args) => {
+  let flip_text = flip(message.content.substr(6))
   message.channel.send(flip_text)
-  }
+ }
+
+ module.exports.help = {
+   name:"flip"
+ }

@@ -22,6 +22,7 @@ module.exports.run = async (client, message, args) => {
                 {
                     'SEND_MESSAGES': null    
                 }).catch(console.error)
+                message.channel.send("salon débloqué")
         console.log(`DONE ! `);
       }
           }
@@ -38,6 +39,7 @@ module.exports.run = async (client, message, args) => {
                 {
                     'SEND_MESSAGES': null    
                 }).catch(console.error)
+                   message.channel.send("salon débloqué")
         console.log(`DONE ! `);
                 }
             }

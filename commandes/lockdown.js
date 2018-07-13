@@ -1,7 +1,7 @@
 module.exports.run = async (client, message, args) => {
          let Targs = args[0];
          let Hargs = args[1];
-         let lock = false;
+         var lock = false;
          if (message.member.hasPermission("MANAGE_CHANNELS")){
             if(lock = true) return message.channel.send ("le channel est déjà bloqué.")
             if (Targs !== ""){

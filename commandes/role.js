@@ -1,17 +1,26 @@
 module.exports.run = async (client, message, args) => {
-    let usermention = message.mentions.users.first();
-    let toSearch = args[2];
+    let usermention = message.guild.member(message.mentions.users.first());
+    let toAdd = message.content.slice(message.content.indexOf(message.content.split(" ")[2]));
+    let userRole = message.guild.roles.find("name", `${toAdd}`);
+       if(!message.guild.member(message.author).hasPermission("MANAGE_ROLES")) return message.channel.send(`${message.author}, tu n'as pas la permission de gérer les rôles.`);
+ -   if(!message.guild.member(client.user).hasPermission("MANAGE:ROLES")) return message.channel.send(`${message.author}, je n'ai pas la permission de lui ajouter ce rôle.`)
     if(!usermention){
         message.channel.send(`:x: ${message.author}, mentionnez un utilisateur valide`)
         return;
-    }
-    let toAdd = message.guild.roles.find("name", toSearch);
-    if(!toAdd){
-      message.channel.send(`:x: ${message.author} je ne trouve pas ce rôle`)
+   }
+  if(!message.guild.roles.exists("name", toAdd)) {
+       message.channel.send("je trouve pas ce role");
       return;
-    }
-    message.member.addRole(toAdd);
-    message.channel.send(`j'ai ajouté le role ${toAdd} à ${usermention.tag}`)
+     }else{
+       if(usermention.roles.exists("name", `${toAdd}`)){
+         usermention.removeRole(userRole)
+         message.channel.send(`j'ai retiré le rôle: ${toAdd} à ${usermention.user.tag} fait la même commende pour lui rajouter ce rôle`)
+         return;
+       }else{
+   usermention.addRole(userRole);
+   message.channel.send(`j'ai ajouté le role **${toAdd}** à **${usermention.user.tag}** fait la même commande pour lui retirer ce rôle.`)
+     }
+   }
 }
 
 module.exports.help = {

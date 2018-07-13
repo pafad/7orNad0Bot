@@ -1,19 +1,19 @@
 const randomPuppy = require("random-puppy");
-module.exports.run = async (client, message, args) => {
-    const event = randomPuppy('cat').then(url =>
+module.exports.run = async (client, message) => {
+    randomPuppy('cat').then(url => {
     message.channel.send({embed:{
-        color: 0x732db7,
-        title: `${message.author.tag} chaaaaat !`,
+        color: Math.floor(Math.random() * 16777214) + 1,
+        title: `${message.author.tag} chat !`,
         image:{
-        url: url 
+        url: url
         },
         timestamp: new Date(),
         footer: {
             name: "chat by shiro",
             icon_url: message.author.avatarUrl,
         }
-    }})
-    })
+}})
+})
 }
 
 module.exports.help = {

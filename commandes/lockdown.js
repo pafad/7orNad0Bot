@@ -3,7 +3,7 @@ module.exports.run = async (client, message, args) => {
          let Hargs = args[1];
          var lock = false;
          if (message.member.hasPermission("MANAGE_CHANNELS")){
-            if(lock = true) return message.channel.send ("le channel est déjà bloqué.")
+            if(lock !== undefined) return message.channel.send ("le channel est déjà bloqué.")
             if (Targs !== ""){
             if (Hargs !== "min" && Hargs !== "h" && Hargs !== ""){
                message.channel.send("il faut mettre **min** pour minute et **h** pour heure\nex: 3lock 1 h")

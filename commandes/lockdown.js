@@ -12,7 +12,7 @@ module.exports.run = async (client, message, args) => {
       
           let temps = Math.floor(60000 * Math.sqrt(Targs));
          setTimeout(Timer, temps);
-          message.channel.send("salon bloqué pour :**" + Targs + "minutes**.");)
+          message.channel.send("salon bloqué pour :**" + Targs + "minutes**.");
           message.channel.overwritePermissions(message.guild.id,
             {
                 'SEND_MESSAGES': false    

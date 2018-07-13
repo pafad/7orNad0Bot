@@ -12,17 +12,17 @@ module.exports.run = async (client, message, args) => {
       
           let temps = Math.floor(60000 * Math.sqrt(Targs));
          setTimeout(Timer, temps);
+          message.channel.send("salon bloqué pour :**" + Targs + "minutes**.");)
           message.channel.overwritePermissions(message.guild.id,
             {
                 'SEND_MESSAGES': false    
-            }).catch(console.error)
-                message.channel.send("salon bloqué pour :**" + Targs + "minutes**.");
+            }).catch(console.error);
           function Timer() {
+          message.channel.send("salon débloqué")
           message.channel.overwritePermissions(message.guild.id,
                 {
                     'SEND_MESSAGES': null    
                 }).catch(console.error)
-                message.channel.send("salon débloqué")
         console.log(`DONE ! `);
       }
           }

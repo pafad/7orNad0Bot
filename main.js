@@ -75,12 +75,12 @@ client.on('ready', ()=> {
 //rejoins un serv
 client.on("guildCreate",async guild => {
   client.channels.get("452413263427141632").send(`j'ai rejoin le serveur ${guild.name}[${guild.id}] dirigé par: ${guild.owner.user.tag} ayant ${guild.members.size} membres!`)
-  client.user.setPresence({game:{name:`${config.prefix}help by3help by ⚡Electrika⚡#8754 sur ${client.guilds.size} serveurs`,url: "https://www.twitch.tv/discordapp",type}}
+  client.user.setPresence({game:{name:`${config.prefix}help by3help by ⚡Electrika⚡#8754 sur ${client.guilds.size} serveurs`,url: "https://www.twitch.tv/discordapp",type}})
 })
 //part d'un serv
 client.on("guildDelete",async guild => {
   client.channels.get("452413263427141632").send(`j'ai quitté le serveur ${guild.name}[${guild.id}] dirigé par: ${guild.owner.user.tag} ayant ${guild.members.size} membres!`)
-  client.user.setPresence({game:{name:`${config.prefix}help by3help by ⚡Electrika⚡#8754 sur ${client.guilds.size} serveurs`,url: "https://www.twitch.tv/discordapp",type}}	
+  client.user.setPresence({game:{name:`${config.prefix}help by3help by ⚡Electrika⚡#8754 sur ${client.guilds.size} serveurs`,url: "https://www.twitch.tv/discordapp",type}})	
 })
 //définir message
 client.on('message',async message =>{

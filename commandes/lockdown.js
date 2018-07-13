@@ -2,7 +2,7 @@ module.exports.run = async (client, message, args) => {
          let Targs = args[0];
          let Hargs = args[1];
          if (message.member.hasPermission("MANAGE_CHANNELS")){
-            if(!message.channel.overwritePermissions(message.guild.id,{'SEND_MESSAGES': true})){
+            if(!message.channel.overwritePermissions(message.guild.id,{'SEND_MESSAGES': null})){
                 message.channel.send(":x: le salon est déjà bloqué")
                 return;
               }else{

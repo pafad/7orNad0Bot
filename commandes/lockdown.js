@@ -2,10 +2,6 @@ module.exports.run = async (client, message, args) => {
          let Targs = args[0];
          let Hargs = args[1];
          if (message.member.hasPermission("MANAGE_CHANNELS")){
-            if(!message.channel.overwritePermissions(message.guild.id,{'SEND_MESSAGES': null})){
-                message.channel.send(":x: le salon est déjà bloqué")
-                return;
-              }else{
             if (Targs !== ""){
             if (Hargs !== "min" && Hargs !== "h" && Hargs !== ""){
                message.channel.send("il faut mettre **min** pour minute et **h** pour heure\nex: 3lock 1 h")
@@ -21,8 +17,10 @@ module.exports.run = async (client, message, args) => {
             }).catch(console.error)
                 message.channel.send("Salon bloqué pour :**" + Targs + "minutes**.");
           function Timer() {
-      
-          member.removeRole(role).catch(console.error)
+          message.channel.overwritePermissions(message.guild.id,
+                {
+                    'SEND_MESSAGES': null    
+                }).catch(console.error)
         console.log(`DONE ! `);
       }
           }
@@ -44,7 +42,6 @@ module.exports.run = async (client, message, args) => {
             }
         }
     }
-}
 }
 
 module.exports.help = {

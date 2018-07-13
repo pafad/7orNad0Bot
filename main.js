@@ -86,7 +86,13 @@ client.on("guildDelete",async guild => {
 client.on('message',async message =>{
      //blacklist du bot
     if(message.author.bot)return;
-  //double arguments du turfu
+  //on écrit as dans vcs
+	 if(message.channel.name === "vcs"){
+      if(!message.content.startsWith(prefix + "vcs")){
+        message.delete();
+      }
+    }
+   //double arguments du turfu
   if(!message.content.startsWith(prefix))return;
 
   let messageArray = message.content.split(" ");

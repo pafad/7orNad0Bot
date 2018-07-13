@@ -8,17 +8,10 @@ module.exports.run = async (client, message, args)  => {
         if(!banMember){
             var toBan = client.users.find("username", args[0]);
             message.guild.ban(toBan).then(() => {
-            message.channel.send("**"+toBan.tag+"** a été ban.`");
-            })
-            return;
+            message.channel.send("**"+toBan.tag+"** a été ban.");
+            }).catch(console.error)
         }else{
             if(!toBan){
-            var toBanId = client.users.find("id", args[0])
-            message.guild.ban(toBanId).then(() => {
-            message.channel.send("**"+toBanId.tag+"** a été ban.")
-            })
-            }else{
-            if(!toBan || toBanId){
             message.channel.send("je ne trouve pas cet utilisateur.");
             return;
         }else{
@@ -34,7 +27,6 @@ module.exports.run = async (client, message, args)  => {
     banMember.send(`tu as été ban pour la raison: ${raison}`);
     message.guild.member(banMember).ban({reason: `${raison}`});
     message.channel.sendMessage(`**${banMember}** a été ban! raison:${raison}`);
-                        }
                     }
                 }
             }

@@ -16,13 +16,13 @@ module.exports.run = async (client, message, args) => {
           message.channel.overwritePermissions(message.guild.id,
             {
                 'SEND_MESSAGES': false    
-            }).catch(console.error);
+            });
           function Timer() {
           message.channel.send("salon débloqué")
           message.channel.overwritePermissions(message.guild.id,
                 {
                     'SEND_MESSAGES': null    
-                }).catch(console.error)
+                });
         console.log(`DONE ! `);
       }
           }
@@ -32,14 +32,14 @@ module.exports.run = async (client, message, args) => {
          message.channel.overwritePermissions(message.guild.id,
             {
                 'SEND_MESSAGES': false    
-            }).catch(console.error)
+            });
            message.channel.send("salon bloqué pour: **"+ Targs + " heures**.");
           function Timer() {
                    message.channel.send("salon débloqué")
             message.channel.overwritePermissions(message.guild.id,
                 {
                     'SEND_MESSAGES': null    
-                }).catch(console.error)
+                });
         console.log(`DONE ! `);
                 }
             }

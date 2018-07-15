@@ -12,7 +12,7 @@ module.exports.run = async (client, message, args) =>{
             message.channel.send(":x: utilisateur introuvable")
             return;
     }else{
-    var url = "https://api.myjson.com/bins/9xf5a";
+    var url = "https://api.myjson.com/bins/ytjy6";
     request(url, (err, res, body) => {
 				
         console.log('chargement ! ')

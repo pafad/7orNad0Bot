@@ -5,10 +5,10 @@ module.exports.run = async (client, message, args) => {
         message.channel.send("je n'ai pas trouvé de channel nommé `vcs` fait vcs-add pour en créer un.")
         return;
     }else{
-        if(message.channel.name !== "vcs"){
+        if(message.channel.name !== "piaf-vcs"){
         return;
         }else{
-            const url = "https://api.myjson.com/bins/ytjy6";
+            const url = "https://api.myjson.com/bins/sa00e";
             request(url, (err, res, body) => {
                 
                 console.log('chargement !')

@@ -8,7 +8,7 @@ module.exports.run = async (client, message, args) => {
         if(message.channel.name !== "vcs"){
         return;
         }else{
-            const url = "https://api.myjson.com/bins/9xf5a";
+            const url = "https://api.myjson.com/bins/ytjy6";
             request(url, (err, res, body) => {
                 
                 console.log('chargement !')

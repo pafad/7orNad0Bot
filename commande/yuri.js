@@ -1,6 +1,6 @@
-const lesbian = require("nekos.life")
+const yuri = require("nekos.life")
 module.exports.run = async (client, message, args) => {
-const neko = new lesbian();
+const neko = new yuri();
 if(!message.channel.nsfw)return message.channel.send(":x: tu n'es pas dans un channel nsfw.")
 neko.getNSFWLesbian().then((m) => message.channel.send({embed:{
     color: Math.floor(Math.random() * 16777214) + 1,
@@ -11,11 +11,11 @@ neko.getNSFWLesbian().then((m) => message.channel.send({embed:{
     timestamp:new Date(),
 footer:{
     icon_url:message.author.avatarURL,
-    text:"lesbian"
+    text:"yuri"
 }
 }}))
 } 
 
 module.exports.help = {
-    name:"lesbian"
+    name:"yuri"
 }

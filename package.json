@@ -25,6 +25,7 @@
     "http": "0.0.0",
     "moment": "^2.22.2",
     "mysql": "^2.15.0",
+    "nekos.life": "^1.0.5",
     "node-lolibooru": "0.0.3",
     "node-opus": "^0.2.6",
     "nodemon": "^1.17.5",

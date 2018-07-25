@@ -10,7 +10,7 @@ message.channel.send({embed: {
     description: "",
     fields: [{
         name: "Voici le serveur principal du bot.",
-        value: "https://discord.gg/pTkDXnk"
+        value: "https://discord.gg/UpRZjx9"
       },
     ],
     timestamp: new Date(),

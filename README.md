@@ -1,5 +1,4 @@
 # 7orNad0Bot:
-[[support]("https://discordapp.com/widget?id=451929300598521876&theme=dark")]
 
 <ul>
   <h1>commandes du bot:</h1>

@@ -1,6 +1,5 @@
 # 7orNad0Bot:
-<div class="https://discordapp.com/widget?id=451929300598521876&theme=dark">
-</div>
+[![support]("https://discordapp.com/api/guilds/451929300598521876/widget.json")]
 
 <ul>
   <h1>commandes du bot:</h1>

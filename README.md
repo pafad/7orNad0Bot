@@ -1,5 +1,7 @@
 # 7orNad0Bot:
 
+<iframe src="https://discordapp.com/widget?id=451929300598521876&theme=dark" width="350" height="500" allowtransparency="true" frameborder="0"></iframe>
+
 <ul>
   <h1>commandes du bot:</h1>
   <h3>commande de base:</h3>

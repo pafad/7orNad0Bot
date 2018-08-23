@@ -86,7 +86,7 @@ client.on("guildDelete",async guild => {
 client.on('message',async message =>{
 	//test
 if(message.content.includes("ポイント。")){
-  message.channel.send("<@377925283098918912>)
+  message.channel.send("<@377925283098918912>")
    }
      //blacklist du bot
     if(message.author.bot)return;

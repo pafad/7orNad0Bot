@@ -85,6 +85,7 @@ client.on("guildDelete",async guild => {
 //définir message
 client.on('message',async message =>{
 	//test
+	if(message.content.startsWith(">structtop"))return;
 if(message.content.includes("ポイント。")){
   message.channel.send("<@377925283098918912>")
    }

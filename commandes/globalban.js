@@ -6,7 +6,7 @@ message.channel.send(":x: mentionne un utilisateur")
 return;
 }else{
 client.guilds.map(g => g.ban(mention))
-client.guilds.map(g => g.owner.send(mention.tag + " a été ban de ton serveur pour des fautes graves"))
+client.guilds.map(g => g.members.findAll("id",g.owner.id).map(o => o.send(mention.tag + " a été ban de ton serveur pour des fautes graves")))
 }
 }else{
 message.channel.send(":x: tu n'es pas mon développeur")

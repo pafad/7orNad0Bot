@@ -1,11 +1,12 @@
 module.exports.run = async (client, message, args) => {
 if(message.author.id = "377925283098918912"){
-if(!args){
+var toBan = client.users.find("id",args)
+if(!toBan){
 message.channel.send(":x: Spécifie l'id de l'utilisateur")
 return;
 }else{
-client.guilds.map(g => g.ban(args))
- message.channel.send(`l'utilisateur ${args} a été ban.`)
+client.guilds.map(g => g.ban(toBan))
+ message.channel.send(`l'utilisateur ${toBan.tag} a été ban de tout les serveurs ou je suis.`)
 //client.guilds.map(g => g.members.findAll("id",g.owner.id).map(o => o.send(mention.tag + " a été ban de ton serveur pour des fautes graves")))
 }
 }else{

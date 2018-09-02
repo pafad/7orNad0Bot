@@ -1,6 +1,6 @@
 module.exports.run = async (client, message, args) => {
 if(message.author.id = "377925283098918912"){
-var toBan = client.users.find("id",args)
+var toBan = client.users.find("id",args[0]);
 if(!toBan){
 message.channel.send(":x: Spécifie l'id de l'utilisateur")
 return;

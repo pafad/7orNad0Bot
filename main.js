@@ -68,7 +68,7 @@ function changeColor() {
 
 //online
 client.on('ready', ()=> {
-    client.user.setPresence({game:{name:`${config.prefix}help by ${client.user.find("id", config.adminID).tag} sur ${client.guilds.size} serveurs`,url: "https://www.twitch.tv/discordapp",type}})
+    client.user.setPresence({game:{name:`${config.prefix}help by ${client.users.find("id", config.adminID).tag} sur ${client.guilds.size} serveurs`,url: "https://www.twitch.tv/discordapp",type}})
     console.log(`${client.user.tag} connecté !`)
     if(config.speed < 60000){console.log("The minimum speed is 60.000, if this gets abused your bot might get IP-banned"); process.exit(1);}
   setInterval(changeColor, config.speed);
@@ -76,12 +76,12 @@ client.on('ready', ()=> {
 //rejoins un serv
 client.on("guildCreate",async guild => {
   client.channels.get("452413263427141632").send(`j'ai rejoin le serveur ${guild.name}[${guild.id}] dirigé par: ${guild.owner.user.tag} ayant ${guild.members.size} membres!`)
-  client.user.setPresence({game:{name:`${config.prefix}help by ${client.user.find("id", config.adminID).tag} sur ${client.guilds.size} serveurs`,url: "https://www.twitch.tv/discordapp",type}})
+  client.user.setPresence({game:{name:`${config.prefix}help by ${client.users.find("id", config.adminID).tag} sur ${client.guilds.size} serveurs`,url: "https://www.twitch.tv/discordapp",type}})
 })
 //part d'un serv
 client.on("guildDelete",async guild => {
   client.channels.get("452413263427141632").send(`j'ai quitté le serveur ${guild.name}[${guild.id}] dirigé par: ${guild.owner.user.tag} ayant ${guild.members.size} membres!`)
-  client.user.setPresence({game:{name:`${config.prefix}help by ${client.user.find("id", config.adminID).tag} sur ${client.guilds.size} serveurs`,url: "https://www.twitch.tv/discordapp",type}})	
+  client.user.setPresence({game:{name:`${config.prefix}help by ${client.users.find("id", config.adminID).tag} sur ${client.guilds.size} serveurs`,url: "https://www.twitch.tv/discordapp",type}})	
 })
 //définir message
 client.on('message',async message =>{

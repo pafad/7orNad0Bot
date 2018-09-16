@@ -5,6 +5,7 @@ const yt = require("ytdl-core")
 const prefix = config.prefix;
 const client = new Discord.Client({disableEveryone: true});
 let type = 1;
+bar admin = confit.adminID
 //handler
 
 client.commands = new Discord.Collection();

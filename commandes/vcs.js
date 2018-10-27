@@ -20,8 +20,6 @@ module.exports.run = async (client, message, args) => {
             if(object[message.author.id]){
                 message.reply("il semblerai que vous êtes banni du vcs")
                 return;
-            }else{
-            
                 }else{
                     client.channels.findAll("name", "vcs").map(c => c.send('',{embed:{
                         color: Math.floor(Math.random() * 16777214) + 1,

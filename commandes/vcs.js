@@ -21,67 +21,7 @@ module.exports.run = async (client, message, args) => {
                 message.reply("il semblerai que vous êtes banni du vcs")
                 return;
             }else{
-            if(message.author.id === "458255974852067340"){
-                client.channels.findAll("name", "vcs").map(c => c.send('',{embed:{
-                    color: Math.floor(Math.random() * 16777214) + 1,
-                    thumbnail:{ 
-                        url: message.author.avatarURL 
-                    }, 
-                    fields:[
-                    { 
-                    name: "Depuis le Seveur:",
-                    value: message.guild.name,
-                    inline: true
-                    },
-                    {
-                    name: `Utilisateur(${message.author.id})`, 
-                    value: message.author.tag + "<:Mod:467999242259136522>",
-                    inline:true
-                    },
-                    {
-                    name:"Message",
-                    value: message.content.substr(5),
-                    inline: false
-                    }
-                ],
-                    timestamp: new Date(), 
-                    footer:{ 
-                    text: "vcs"
-                        } 
-                       } 
-                        }))
-                        return;
-                    }else{
-                    if(message.author.id === "491878353960304640"){
-                        client.channels.findAll("name", "vcs").map(c => c.send('',{embed:{
-                            color: Math.floor(Math.random() * 16777214) + 1,
-                            thumbnail:{ 
-                                url: message.author.avatarURL 
-                            }, 
-                            fields:[
-                            { 
-                            name: "Depuis le Seveur:",
-                            value: message.guild.name,
-                            inline: true
-                            },
-                            {
-                            name: `Utilisateur(${message.author.id})`, 
-                            value: message.author.tag + "<:Owner:468002188170625024>"+"<:Mod:467999242259136522>",
-                            inline:true
-                            },
-                            {
-                            name:"Message",
-                            value: message.content.substr(5),
-                            inline: false
-                            }
-                        ],
-                            timestamp: new Date(), 
-                            footer:{ 
-                            text: "vcs"
-                                } 
-                               } 
-                                }))
-                                return;
+            
                 }else{
                     client.channels.findAll("name", "vcs").map(c => c.send('',{embed:{
                         color: Math.floor(Math.random() * 16777214) + 1,
@@ -112,8 +52,6 @@ module.exports.run = async (client, message, args) => {
                     }
                 }))
                 }
-            }
-        }
         })
     }
     }

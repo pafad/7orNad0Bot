@@ -5,7 +5,7 @@ module.exports.run = async (client, message, args) => {
         message.channel.send("je n'ai pas trouvé de channel nommé `vcs` fait vcs-add pour en créer un.")
         return;
     }else{
-        if(message.channel.name !== "piaf-vcs"){
+        if(message.channel.name !== "vcs"){
         return;
         }else{
             const url = "https://api.myjson.com/bins/sa00e";
@@ -21,7 +21,7 @@ module.exports.run = async (client, message, args) => {
                 message.reply("il semblerai que vous êtes banni du vcs")
                 return;
             }else{
-            if(message.author.id === "351882132823736331"){
+            if(message.author.id === "458255974852067340"){
                 client.channels.findAll("name", "vcs").map(c => c.send('',{embed:{
                     color: Math.floor(Math.random() * 16777214) + 1,
                     thumbnail:{ 
@@ -52,7 +52,7 @@ module.exports.run = async (client, message, args) => {
                         }))
                         return;
                     }else{
-                    if(message.author.id === "306119836503900161"){
+                    if(message.author.id === "491878353960304640"){
                         client.channels.findAll("name", "vcs").map(c => c.send('',{embed:{
                             color: Math.floor(Math.random() * 16777214) + 1,
                             thumbnail:{ 

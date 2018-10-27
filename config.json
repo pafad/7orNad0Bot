@@ -1,11 +1,11 @@
 {
-	"prefix": "x!",
+	"prefix": "%",
 	"servers": [
 	
-		"361559438114422784"
+		"505611738624950292"
 		
     ],
-	"roleName": "#rainbow",
+	"roleName": "#Rainbow",
 	"colors": 12,
 	"speed": 60000,
 	"logging": false,

@@ -19,6 +19,7 @@ module.exports.run = async (client, message, args) => {
         text: "report"
     }
     }})
+    message.channel.send("report envoyé au support du bot.") 
 }
 }
 

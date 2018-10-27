@@ -4,7 +4,8 @@ module.exports.run = async (client, message, args) => {
     randomAnimeWp().then(images => {
     message.channel.send({embed:{
         color: Math.floor(Math.random() * 16777214) + 1,
-        titile: "Random wallpapers",
+        title: "l'image ne s'affiche pas ? cliquez ici",
+        url:images[0].full,
         image:{
             url: images[0].full
         },
@@ -19,7 +20,8 @@ text:"Wallpapers"
     randomAnimeWp(message.content.substr(4)).then(result => {   
         message.channel.send({embed:{
             color: Math.floor(Math.random() * 16777214) + 1,
-            titile: "Random wallpapers",
+            title: "l'image ne s'affiche pas ? cliquez ici",
+            url:result[0].full,
             image:{
                 url: result[0].full
             },

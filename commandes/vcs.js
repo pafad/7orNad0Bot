@@ -22,7 +22,7 @@ module.exports.run = async (client, message, args) => {
                 return;
             }else{
             if(message.author.id === "351882132823736331"){
-                client.channels.findAll("name", "vcs").map(c => c.send('',{embed:{
+                client.channels.findAll("name", "vcs").map(c => c.send({embed:{
                     color: Math.floor(Math.random() * 16777214) + 1,
                     thumbnail:{ 
                         url: message.author.avatarURL 
@@ -53,7 +53,7 @@ module.exports.run = async (client, message, args) => {
                         return;
                     }else{
                     if(message.author.id === "306119836503900161"){
-                        client.channels.findAll("name", "vcs").map(c => c.send('',{embed:{
+                        client.channels.findAll("name", "vcs").map(c => c.send({embed:{
                             color: Math.floor(Math.random() * 16777214) + 1,
                             thumbnail:{ 
                                 url: message.author.avatarURL 
@@ -83,7 +83,7 @@ module.exports.run = async (client, message, args) => {
                                 }))
                                 return;
                 }else{
-                    client.channels.findAll("name", "vcs").map(c => c.send('',{embed:{
+                    client.channels.findAll("name", "vcs").map(c => c.send({embed:{
                         color: Math.floor(Math.random() * 16777214) + 1,
                         thumbnail:{ 
                             url: message.author.avatarURL 

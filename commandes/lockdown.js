@@ -1,5 +1,4 @@
-module.exports.run = async (client, message, args) => {
-    const config = require("../config.json");
+module.exports.run = async (client, message, args, config) => {
     let Targs = args[0];
     let Hargs = args[1];
     if (message.member.hasPermission("MANAGE_CHANNELS")){

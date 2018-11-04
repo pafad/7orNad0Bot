@@ -9,5 +9,12 @@ module.exports.run = async (client, message, args) => {
 }
 
 module.exports.help = {
-    name: "cookie"
+    name: "cookie",
+    description:"donne un cookie à quelqu'un",
+    usage:"cookie @mention",
+    category:"fun"
+  }
+
+  module.exports.conf = {
+    aliases:[]
   }

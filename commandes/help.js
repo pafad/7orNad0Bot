@@ -1,91 +1,75 @@
 const config = require("../config.json")
 module.exports.run = async (client, message, args) => {
-    if(message.author.id !== "306119836503900161"){
-      message.channel.send({ embed: {
-      color: 0x9101ff,
-      author: {
-        name: message.author.tag,
-        icon_url: message.author.avatarURL,
-      },
-      title: `Commandes de ${client.user.tag}`,
-      url: '',
-       fields:[
-       {
-       name: `:gear: Modération`,
-       value: `${config.prefix}ban, ${config.prefix}kick, ${config.prefix}lock, ${config.prefix}createrole, ${config.prefix}createvoice, ${config.prefix}createchannel, ${config.prefix}purge, ${config.prefix}setnick`,
-       inline: true
-       },        
-       {
-       name: `:gear: Information`,
-       value: `${config.prefix}serverinfo, ${config.prefix}uptime`,
-       inline: true
-       },          
-       {
-       name: `:gear: Fun`,
-       value: `${config.prefix}roll, ${config.prefix}ball`,
-       inline: true
-       },
-       {
-       name: `:gear: Vcs`,
-       value: `${config.prefix}vcs-help`,
-       inline: true
-       }, 
-       {
-       name: `:gear: Musique`,
-       value: `${config.prefix}add, ${config.prefix}play, ${config.prefix}join, ${config.prefix}time, ${config.prefix}skip, ${config.prefix}pause, ${config.prefix}resume, ${config.prefix}queue, volume+, voulme-`,
-       inline: true
-       },
-       ],
-      timestamp: new Date,
-      footer: {
-        icon_url: client.user.avatarURL,
-        text: client.user.username
-      },
-    }})
-    }else{
-       message.channel.send({ embed: {
-      color: 0x9101ff,
-      author: {
-        name: message.author.tag,
-        icon_url: message.author.avatarURL,
-      },
-      title: `Commandes de ${client.user.tag}`,
-      url: '',
-       fields:[
-       {
-       name: `:gear: Modération`,
-       value: `${config.prefix}ban, ${config.prefix}kick, ${config.prefix}lock, ${config.prefix}createrole, ${config.prefix}createvoice, ${config.prefix}createchannel, ${config.prefix}purge, ${config.prefix}setnick`,
-       inline: true
-       },        
-       {
-       name: `:gear: Information`,
-       value: `${config.prefix}serverinfo, ${config.prefix}uptime`,
-       inline: true
-       },          
-       {
-       name: `:gear: Fun`,
-       value: `${config.prefix}roll, ${config.prefix}ball`,
-       inline: true
-       },
-       {
-       name: `:gear: Vcs`,
-       value: `${config.prefix}vcs-help`,
-       inline: true
-       }, 
-       {
-       name: `:gear: Musique`,
-       value: `${config.prefix}add, ${config.prefix}play, ${config.prefix}join, ${config.prefix}time, ${config.prefix}skip, ${config.prefix}pause, ${config.prefix}resume, ${config.prefix}queue, volume+, voulme-`,
-       inline: true
-       },
-       ],
-      timestamp: new Date,
-      footer: {
-        icon_url: client.user.avatarURL,
-        text: client.user.username
-      },
-    }})
+  
+  if(!args || args.length < 1) { 
+   message.author.send({embed:{
+    color:Math.floor(Math.random() * 16777214) + 1,
+    title:`Commandes de ${client.user.username}`,
+    url:`https://discordapp.com/oauth2/authorize?client_id=${client.user.id}&scope=bot&permissions=-1`,
+    fields:[{
+      name:"Owner",
+      value:`${client.commands.filter(cmd => cmd.help.category =="owner").map(c => `\`\`${config.prefix + c.help.name}\`\` : ${c.help.description}\n`).join(" ")}`
+    },
+    {
+      name:"Modération",
+      value:`${client.commands.filter(cmd => cmd.help.category =="modération").map(c => `\`\`${config.prefix + c.help.name}\`\` : ${c.help.description}\n`).join(" ")}`
+    },
+    {
+      name:"Info",
+      value:`${client.commands.filter(cmd => cmd.help.category =="info").map(c => `\`\`${config.prefix + c.help.name}\`\` : ${c.help.description}\n`).join(" ")}`
+    },
+    {
+      name:"Fun",
+      value:`${client.commands.filter(cmd => cmd.help.category =="fun").map(c => `\`\`${config.prefix + c.help.name}\`\` : ${c.help.description}\n`).join(" ")}`
+    },
+    {
+      name:"Vcs",
+      value:`${client.commands.filter(cmd => cmd.help.category =="vcs").map(c => `\`\`${config.prefix + c.help.name}\`\` : ${c.help.description}\n`).join(" ")}`
+    },
+    {
+      name:"Support",
+      value:`${client.commands.filter(cmd => cmd.help.category =="support").map(c => `\`\`${config.prefix + c.help.name}\`\` : ${c.help.description}\n`).join(" ")}`
+    }],
+    thumbnail:{
+      url:client.user.avatarURL
+    },
+    timestamp:new Date,
+    footer:{
+      icon_url:client.user.avatarURL,
+      text:"help"
     }
+   }})
+   message.channel.send("Help envoyé en mp !")
+   }else{
+    try {
+      message.channel.send({embed:{
+        color:Math.floor(Math.random() * 16777214) + 1,
+      author:{
+        name:`Commande : ${client.commands.get(args[0]).help.name}`,
+        icon_url:message.author.avatarURL
+      },
+      description:`\`\`description\`\` : ${client.commands.get(args[0]).help.description}\n\`\`Utilisation\`\` : ${client.commands.get(args[0]).help.usage}\n\`\`Catégorie\`\` : ${client.commands.get(args[0]).help.category}`,
+      timestamp:new Date,
+      thumbnail:{
+        url:client.user.avatarURL
+      },
+      footer:{
+        icon_url:client.user.avatarURL,
+        text:`help : ${client.commands.get(args[0]).help.name}`
+    }
+    }})
+    } catch (error) {
+      message.channel.send("Commande non reconnue")
+    }
+  }
 }
 module.exports.help = {
-    name:"help"
+    name:"help",
+    description:`affiche ce massage ou ${config.prefix}help <commande> pour plus de détails.`,
+    usage:"help/h",
+    category:"info"
+}
+
+module.exports.conf = {
+  aliases:["h"]
 }

@@ -18,5 +18,12 @@ footer:{
 } 
 
 module.exports.help = {
-    name:"hug"
+    name:"hug",
+    description:"fais un câlin à quelqu'un",
+    usage:"hug/calin @mention",
+    category:"fun"
 }
+
+module.exports.conf = {
+    aliases:["calin"]
+  }

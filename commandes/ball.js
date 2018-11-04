@@ -15,5 +15,12 @@ let r = rn({
 }
 
 module.exports.help = {
-name: "ball"
+  name: "ball",
+  description:"le bot répond aléatoirement à la question posée",
+  usage:"ball/b <texte>",
+  category:"fun"
+}
+
+module.exports.conf = {
+  aliases:["b"]
 }

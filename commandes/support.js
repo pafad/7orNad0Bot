@@ -10,7 +10,7 @@ message.channel.send({embed: {
     description: "",
     fields: [{
         name: "Voici le serveur principal du bot.",
-        value: "https://discord.gg/UpRZjx9"
+        value: "https://discord.gg/FFuMN4h"
       },
     ],
     timestamp: new Date(),
@@ -23,5 +23,12 @@ message.channel.send({embed: {
 }
 
 module.exports.help = {
-  name: "support"
+  name: "support",
+  description:"lien du support",
+  usage:"support/guilde",
+  category:"support"
+}
+
+module.exports.conf = {
+  aliases:["guilde"]
 }

@@ -7,5 +7,12 @@ if(!message.author.id === '306119836503900161')return message.channel.send(":x: 
 };
 
 module.exports.help = {
-  name: "reload"
+  name: "reload",
+  description:"recharge une commande",
+  usage:"reload <commande>",
+  category:"owner"
+}
+
+module.exports.conf = {
+  aliases:[]
 }

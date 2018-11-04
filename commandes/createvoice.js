@@ -6,12 +6,17 @@ module.exports.run = async (client, message, args) => {
          message.channel.send(`:x: ${message.author} Spécifiez le nom du channel.`)
          return;
     }else{
-       message.guild.createChannel(args[0], "voice")
+       message.guild.createChannel(args.join(" "), "voice")
        message.channel.send(`:heavy_check_mark: Channel créé avec succès !`)
         }
       }
 }
 
 module.exports.help = {
-    name: "createvoice"
+    name: "createvoice",
+    description:"le bot crée un channel vocal"
+  }
+
+  module.exports.conf = {
+    aliases:["addvoice"]
   }

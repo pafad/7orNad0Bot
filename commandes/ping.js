@@ -6,5 +6,12 @@ message.channel.send("Pong !")
 }
 
 module.exports.help = {
-        name: "ping"
+        name: "ping",
+        description:"ping du bot en ms",
+        usage:"ping",
+        category:"fun"
 }
+
+module.exports.conf = {
+        aliases:[]
+      }

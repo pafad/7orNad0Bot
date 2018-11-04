@@ -7,12 +7,19 @@ module.exports.run = async (client, message, args) => {
         message.channel.send(`:x: Spécifiez le nom du rôle`)
         return;
     }else{
-    message.guild.createRole({name: args[0]})
+    message.guild.createRole({name: args.join(" ")})
     message.channel.send(`:heavy_check_mark: Role créé avec succès. nom du rôle: ${args}`)
         }
     }
 }
 
 module.exports.help = {
-    name: "createrole"
+    name: "createrole",
+    description:"le bot crée un role",
+    usage:"createrole/addrole <texte>",
+    category:"modération"
+  }
+
+  module.exports.conf = {
+    aliases:["addrole"]
   }

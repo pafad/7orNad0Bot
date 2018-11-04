@@ -1,18 +1,12 @@
-module.exports.run = async (client, message, args)  => {
-    let raison = args[1];
-    let banMember = message.guild.member(message.mentions.users.first());
+module.exports.run = async (client,message,args) => {
+    let raison = args.join(" ").slice(18)
+    let banMember = message.mentions.members.first();
     if(!message.member.hasPermissions("BAN_MEMBERS")){
         message.channel.send(`:x: ${message.author} Tu n'as pas la permission de ban les membres.`);
         return;
     }else{
         if(!banMember){
-            var toBan = client.users.find("username", args[0]);
-            message.guild.ban(toBan).then(() => {
-            message.channel.send("**"+toBan.tag+"** a été ban.");
-            }).catch(console.error)
-        }else{
-            if(!toBan){
-            message.channel.send("je ne trouve pas cet utilisateur.");
+            message.channel.send(":x: Mentionne un utilisateur.")
             return;
         }else{
           if(!banMember.bannable){
@@ -27,12 +21,18 @@ module.exports.run = async (client, message, args)  => {
     banMember.send(`tu as été ban pour la raison: ${raison}`);
     message.guild.member(banMember).ban({reason: `${raison}`});
     message.channel.sendMessage(`**${banMember}** a été ban! raison:${raison}`);
-                    }
                 }
             }
         }
     }
 }
 module.exports.help = {
-name: "ban"
+    name: "ban",
+    description:"bannir un utilisateur du serveur en question",
+    usage:"ban @mention <raison>",
+    category:"modération"
 }
+
+module.exports.conf = {
+    aliases:[]
+  }

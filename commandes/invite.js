@@ -12,5 +12,12 @@ module.exports.run = async (client,message, args) => {
 }
 
 module.exports.help = {
-  name: "invite"
+  name: "invite",
+  description:"invitation du bot",
+  usage:"invite",
+  category:"info"
+}
+
+module.exports.conf = {
+  aliases:[]
 }

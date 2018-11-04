@@ -15,5 +15,12 @@ module.exports.run = async (client, message, args) => {
 }
 
 module.exports.help = {
-    name: "hackban"
+    name: "hackban",
+    description:"bannir un utlisateur qui n'est pas sur le serveur",
+    usage:"hackban/hban <id>",
+    category:"modération"
+  }
+
+  module.exports.conf = {
+    aliases:["hban"]
   }

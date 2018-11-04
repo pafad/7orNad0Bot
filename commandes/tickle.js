@@ -18,5 +18,11 @@ footer:{
 } 
 
 module.exports.help = {
-    name:"tickle"
+    name:"tickle",
+    description:"chatouille quelqu'un",
+    usage:"tickle/chatouille @mention"
 }
+
+module.exports.conf = {
+    aliases:["chatouille"]
+  }

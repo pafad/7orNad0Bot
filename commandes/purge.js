@@ -15,5 +15,12 @@ module.exports.run = async (client, message, args) => {
 }
 
 module.exports.help = {
-  name: "purge"
+  name: "purge",
+  description:"supprime des messages",
+  usage:"purge/clear <nombre de 1 à 100>",
+  category:"modération"
+}
+
+module.exports.conf = {
+  aliases:["clear"]
 }

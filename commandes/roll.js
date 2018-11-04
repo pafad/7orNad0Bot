@@ -3,5 +3,12 @@ module.exports.run = async (client, message, args) => {
 }
 
 module.exports.help = {
-    name: "roll"
+    name: "roll",
+    description:"nombre au hasard de 0 à 100",
+    usage:"roll",
+    category:"fun"
 }
+
+module.exports.conf = {
+    aliases:[]
+  }

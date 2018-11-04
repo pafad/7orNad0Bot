@@ -17,5 +17,12 @@ module.exports.run = async (client, message) => {
 }
 
 module.exports.help = {
-    name: "cat"
+    name: "cat",
+    description:"montre une image de chat tout mignon",
+    usage:"cat/chat",
+    category:"fun"
+  }
+
+  module.exports.conf = {
+    aliases:["chat"]
   }

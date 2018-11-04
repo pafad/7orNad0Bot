@@ -35,5 +35,12 @@ text:"Wallpapers"
 }
 }
 module.exports.help = {
-    name:"wp"
+    name:"wp",
+    description:"wallpaper random ou selon la recheche",
+    usage:"wp <texte>",
+    category:"fun"
 }
+
+module.exports.conf = {
+    aliases:[]
+  }

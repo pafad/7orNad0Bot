@@ -17,5 +17,12 @@ footer:{
 } 
 
 module.exports.help = {
-    name:"yuri"
+    name:"yuri",
+    description:"gif de hentai random (yuri)",
+    usage:"yuri",
+    category:"nsfw"
 }
+
+module.exports.conf = {
+    aliases:[]
+  }

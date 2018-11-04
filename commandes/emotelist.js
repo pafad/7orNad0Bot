@@ -16,11 +16,18 @@ module.exports.run = async (client, message) => {
   ],
   footer: {
   icon_url: client.user.avatarURL,
-  text: `serverinfo by shiro`
+  text: `emotelist by shiro`
   },
   }})
   }
 
   module.exports.help = {
-    name: "emotelist"
+    name: "emotelist",
+    description:"liste des emojis du serveur",
+    usage:"emotelist/elist",
+    category:"info"
+  }
+
+  module.exports.conf = {
+    aliases:["elist"]
   }

@@ -18,5 +18,12 @@ footer:{
 } 
 
 module.exports.help = {
-    name:"kiss"
+    name:"kiss",
+    description:"fais un bisous à quelqu'un",
+    usage:"kiss/bisous @mention",
+    catefory:"fun"
 }
+
+module.exports.conf = {
+    aliases:["bisous"]
+  }

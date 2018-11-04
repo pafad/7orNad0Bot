@@ -7,7 +7,7 @@ module.exports.run = async (client, message, args) => {
             name: message.author.tag,
             icon_url: message.author.avatarURL
         }, 
-        description : message.content.substr(7),
+        description : args.join(" "),
         timestamp: new Date(),
         footer:{ 
             text: "embed ", 
@@ -18,5 +18,12 @@ module.exports.run = async (client, message, args) => {
 }
 
 module.exports.help = {
-    name: "embed"
+    name: "embed",
+    description:"le bot répète votre message dans un embed",
+    usage:"embed/e <texte>",
+    category:"fun"
 }
+
+module.exports.conf = {
+    aliases:["e"]
+  }

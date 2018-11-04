@@ -17,5 +17,12 @@ footer:{
 } 
 
 module.exports.help = {
-    name:"neko"
+    name:"neko",
+    description:"montre une image aléatoire de neko",
+    usage:"neko",
+    category:"fun"
 }
+
+module.exports.conf = {
+    aliases:[]
+  }

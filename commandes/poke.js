@@ -18,5 +18,12 @@ footer:{
 } 
 
 module.exports.help = {
-    name:"poke"
+    name:"poke",
+    description:"donne une pichenette à quelqu'un",
+    usage:"poke @mention",
+    category:"fun"
 }
+
+module.exports.conf = {
+    aliases:[]
+  }

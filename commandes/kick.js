@@ -1,6 +1,6 @@
 module.exports.run = async (client, message, args) => {
-        let raison = message.content.substr(28);
-        let kickMember = message.guild.member(message.mentions.users.first());
+        let raison = args.join(" ").slice(18);
+        let kickMember = message.mentions.members.first();
         if(!message.member.hasPermissions("KICK_MEMBERS")){
             message.channel.send(`:x: ${message.author}, Tu n'as pas la permission de kick les membres.`)
             return;
@@ -19,7 +19,7 @@ module.exports.run = async (client, message, args) => {
                     return; 
                 }else{
         message.delete(message.author);
-        client.users.get(kickMember.id).send(`tu as été kick pour la raison: ${raison}`)
+        client.users.get(kickMember.id).send(`Tu as été kick pour la raison: ${raison}`)
         message.guild.member(kickMember).kick({reason: `${raison}`});
         message.channel.sendMessage(`**${kickMember}** a été kick! raison:${raison}`);
                 }
@@ -29,5 +29,12 @@ module.exports.run = async (client, message, args) => {
 }
 
 module.exports.help = {
-    name: "kick"
+    name: "kick",
+    description:"kick un utilisateur",
+    usage:"kick @mention <texte>",
+    category:"modération"
+  }
+
+  module.exports.conf = {
+    aliases:[]
   }

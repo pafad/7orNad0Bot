@@ -1,17 +1,20 @@
+const config = require("config.json");
 module.exports.run = async (client, message, args) =>{
-  if(message.author.id !== "306119836503900161"){
-      message.reply("T'es pas mon maître alors chut <:chut:381794751437078528>")
+  if(message.author.id !== config.adminID){
+      message.reply("T'es pas mon maître alors chut.")
       return;
     }else{
-      if(message.author.id === "310474739766394882"){
-        message.reply("Coucou ma petite maîtresse <:yayy:391776418981347329>");
-        return;
-      }else{
-      message.reply("Coucou mon petit maître <:yayy:391776418981347329>");
-    }
+      message.reply("Coucou mon petit maître !");
     }
 }
 
 module.exports.help = {
-  name: "master"
+  name: "master",
+  description:"Le bot dit si t'es son maître",
+  usage:"master/maitre",
+  category:"fun"
+}
+
+module.exports.conf = {
+  aliases:["maitre"]
 }

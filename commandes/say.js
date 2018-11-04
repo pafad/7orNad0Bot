@@ -1,19 +1,21 @@
 module.exports.run = async (client, message, args) => {
-    const sayMessage = message.content.substr(4);
-  if(message.author.id !== "306119836503900161"){
-   message.channel.send("t'es qui pour me dire quoi dire? xD")
+    const sayMessage = args.join(" ");
+  if(!message.member.hasPermission("ADMINISTRATOR")){
+    message.channel.send(":x: Tu n'est pas assez puissant pour utiliser cette commande.")
     return;
   }else{
-    if(message.author.id === "310474739766394882"){
     message.delete().catch(O_o=>{});
     message.channel.send(sayMessage);
-  }else{
-    message.delete().catch(O_o=>{});
-    message.channel.send(sayMessage);
-  }
   }
 }
 
 module.exports.help = {
-  name: "say"
+  name: "say",
+  description:"faire parler le bot (l'utilisateur doit avoir la permission: admintrateur)",
+  usage:"say/dit <texte>",
+  category:"fun"
+}
+
+module.exports.conf = {
+  aliases:["dit"]
 }

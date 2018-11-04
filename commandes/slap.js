@@ -18,5 +18,12 @@ footer:{
 } 
 
 module.exports.help = {
-    name:"slap"
+    name:"slap",
+    description:"donne une claque à quelqu'un",
+    usage:"slap @mention",
+    category:"fun"
 }
+
+module.exports.conf = {
+    aliases:["claque"]
+  }

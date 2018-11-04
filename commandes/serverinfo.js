@@ -1,3 +1,4 @@
+const moment = require("moment")
 module.exports.run = async (client, message, args) => {
   const config = require("../config.json")
   message.channel.send({embed:{
@@ -8,6 +9,9 @@ icon_url: message.author.avatarURL,
 },
 title: `${message.guild.name}`,
 url: '',
+thumbnail:{
+url:message.guild.iconURL
+},
 fields: [
 {
 name: ':gear: -> ID du serveur',
@@ -21,7 +25,7 @@ inline: true
 },
 {
 name: ':gear: -> créé le:',
-value: `${message.guild.createdAt}`,
+value: `${moment(message.guild.createdAt).format('D/M/Y HH:mm:ss')}`,
 inline: false
 },
 {
@@ -41,7 +45,7 @@ inline: false
 },
 {
 name: 'liste des rôles',
-value:  `fait __${config.prefix}serverroles__ pour avoir une liste complète`,
+value:  `fait __${config.prefix}roleslist__ pour avoir une liste complète`,
 inline: false
 },
 ],
@@ -53,5 +57,12 @@ text: `serverinfo by shiro`
 }
 
 module.exports.help = {
-  name: "serverinfo"
+  name: "serverinfo",
+  description:"information à propos du serveur",
+  usage:"serverinfo/si",
+  category:"info"
+}
+
+module.exports.conf = {
+  aliases:["si"]
 }

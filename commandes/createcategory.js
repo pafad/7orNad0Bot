@@ -6,11 +6,18 @@ module.exports.run = async (client, message, args) => {
          message.channel.send(`:x: ${message.author} Spécifiez le nom du channel.`)
          return;
     }else{
-       message.guild.createChannel(message.content.substr(15), "text")
+       message.guild.createChannel(args.join(" "), "category")
        message.channel.send(`:heavy_check_mark: Channel créé avec succès !`)
         }
       }
     }
 module.exports.help = {
-    name: "createcategory"
+    name: "createcategory",
+    description:"le bot crée une catégorie",
+    usage:"createcategory/addcat <texte>",
+    category:"modération"
 }
+
+module.exports.conf = {
+    aliases:["addcat"]
+  }

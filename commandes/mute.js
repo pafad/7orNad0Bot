@@ -15,10 +15,10 @@ module.exports.run = async (client, message, args) => {
     let temps = Math.floor(60000 * Math.sqrt(Targs));
    setTimeout(Timer, temps);
     memberMute.addRole(role).catch(console.error);
-          message.channel.send("**" + memberMute.tag + "**a été mute pour**" + Targs + "**minutes");
+          message.channel.send("**" + memberMute.user.tag + "** a été mute pour**" + Targs + "**minutes");
     function Timer() {
 
-    member.removeRole(role).catch(console.error)
+    memberMute.removeRole(role).catch(console.error)
   console.log(`DONE ! `);
 }
     }
@@ -26,7 +26,9 @@ module.exports.run = async (client, message, args) => {
     let hr = Math.floor(600000 * Math.sqrt(Targs));
    setTimeout(Timer, hr);
    memberMute.addRole(role).catch(console.error)
-    message.channel.send("**" + memberMute.tag + "**a été mute pour **"+ Targs + "** heures ");
+    message.channel.send("**" + memberMute.user.tag + "** a été mute pour **"+ Targs + " heures** ");
+
+
     function Timer() 
     {
 
@@ -49,5 +51,12 @@ module.exports.run = async (client, message, args) => {
 }
 
 module.exports.help = {
-    name: "mute"
+    name: "mute",
+    description:"mute un utilisateur",
+    usage:"mute @mention 1 min",
+    category:"modération"
+  }
+
+  module.exports.conf = {
+    aliases:[]
   }

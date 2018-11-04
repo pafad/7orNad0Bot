@@ -1,5 +1,6 @@
+const config = require("../config.json")
 module.exports.run = async (client, message, args) => {
-        if(message.author.id !== '306119836503900161'){
+        if(message.author.id !== config.adminID){
             message.channel.send(`:x: ${message.author} Tu n'est pas mon developpeur.`)
             return;
         }else{
@@ -45,5 +46,12 @@ text: 'eval by shiro'
 }
 
 module.exports.help = {
-  name: "eval"
+  name: "eval",
+  description:"évalue le code donné",
+  usage:"eval <code>",
+  category:"owner"
+}
+
+module.exports.conf = {
+  aliases:[]
 }

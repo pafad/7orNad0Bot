@@ -1,4 +1,4 @@
-const config = require("../config.json")
+const config = require(".../config.json");
 module.exports.run = async (client, message, args) => {
     let Targs = args[0];
     let Hargs = args[1];

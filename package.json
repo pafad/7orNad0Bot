@@ -1,6 +1,6 @@
 {
   "name": "7orNad0Bot",
-  "version": "^1.0.0",
+  "version": "2.0.0",
   "description": "bot discord",
   "main": "main.js",
   "dependencies": {

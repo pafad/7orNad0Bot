@@ -35,6 +35,8 @@ module.exports.run = async (client, message, args) => {
             }
      },120000)
      var timer = setTimeout(() => {
+        delete bingo[message.guild.id]
+        request({ url: BingoUrl, method: 'PUT', json: bingo})
         message.channel.send("Zetes des noob à ne pas trouver le nombre au bout de 2 minutes, la réponse était : **"+nombre+"**")
      }, 120000);
         

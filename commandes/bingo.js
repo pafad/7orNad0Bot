@@ -31,7 +31,7 @@ module.exports.run = async (client, message, args) => {
                 delete bingo[message.guild.id]
                 request({ url: BingoUrl, method: 'PUT', json: bingo})
                 collect.stop();
-                message.channel.send(`GG à ${message.author} qui a trouvé le nombre ${nombre}`)
+                message.channel.send(`GG à ${m.author} qui a trouvé le nombre ${nombre}`)
             }
      },120000)
      var timer = setTimeout(() => {

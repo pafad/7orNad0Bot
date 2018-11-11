@@ -13,7 +13,7 @@ module.exports.run = async (client, message, args) => {
 
         let connection = await message.member.voiceChannel.join();
 
-        let dispatcher = await connection.play(yt(args[0], {filter: "audioonly"}));
+        let dispatcher = await connection.playStream(yt(args[0], {filter: "audioonly"}));
 
         message.channel.send(`Je joue maintenant **${info.title}** demandé par **${message.author.username}**`)
 

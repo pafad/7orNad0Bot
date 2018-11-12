@@ -1,18 +1,21 @@
 const yt = require("ytdl-core")
 
 module.exports.run = async (client, message, args, opt) => {
-         try{
-                     
-        if(!message.member.voiceChannel) return message.channel.send("Tu n'es pas dans un channel vocal.");
+            
+        if(!message.member.voiceChannel) return message.channel.send("Tu n'est pas dans un channel vocal.");
+
+        if(message.guild.me.voiceChannel) return message.channel.send("Je suis déjà connecté en vocal.");
     
         if(!args[0]) return message.channel.send("Il faut un lien youtube à jouer.");
 
-        let info = await yt.getInfo(args[0]);
-                  
-        let data = opt.active.get(message.guild.id) || {};
+        let validate = await yt.validateURL(args[0]);
+
+        if(!validate) return message.channel.send("Entre un lien valide");
+
+        let data = opt.active.get(message.guil.id) || {};
 
         if(!data.connection) data.connection = await message.member.voiceChannel.join();
-         
+
         if(!data.queue) data.queue = [];
 
         data.guildID = message.guild.id;
@@ -24,27 +27,22 @@ module.exports.run = async (client, message, args, opt) => {
             annouceChannel:message.channel.id
         });
 
-        if(!data.dispatcher){ 
-            playStream(client, opt, data);
-        }else {
+        if(!data.dispatcher) playStream(client, opt, data);
+        else {
             message.channel.send(`Ajouté à la queue : **${info.title}** | Demandé par : **${message.author.tag}**`)
         }
 
         opt.active.set(message.guild.id, data);
-                     
-         }catch (e){
-          message.channel.send("une erreur est survenue " + e.message)           
-         }
 }
 
 async function playStream(client, opt, data) {
 
-    client.channels.get(data.queue[0].annouceChannel).send(`Je joue maintenant : **${data.queue[0].songTitle}** | demandé par : **${data.queue[0].requester}**`)
+    client.channels.get(data.queue[0].annouceChannel).send(`Je joue maintenant : **${data.queue[0]}** | demandé par : **${data.queue[0].requester}**`)
 
-    data.dispatcher = await data.connection.playStream(yt(data.queue[0].url, {quality:"highestaudio",filter:"audioonly"}))
+    data.dispatcher = await data.connection.playStream(yt(data.queue[0].url, {filter:"audioonly"}))
 
-    data.dispatcher.on('end', () => {
-        finish(client ,opt , this);
+    data.dispatcher.once('finish',function () {
+        finish(client ,opt ,this)
     })
 }
 
@@ -55,7 +53,7 @@ function finish(client, opt, dispatcher) {
 
     if(fetched.queue.length > 0){
 
-        opt.active.set(dispatcher.guildID, fetched);
+        opt.active.set(message.guid.id, data);
 
         playStream(client, opt, fetched);
     }else{
@@ -65,7 +63,6 @@ function finish(client, opt, dispatcher) {
         let vc = client.guilds.get(dispatcher.guildID).me.voiceChannel;
 
         if(vc) vc.leave();
-             
     }
 }
 

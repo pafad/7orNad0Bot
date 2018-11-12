@@ -18,7 +18,7 @@ module.exports.run = async (client, message, args, opt) => {
         
         message.channel.send(resp)
 
-        const filter = m => !isNaN(m.content) && m.content < videos.length+1 && m.content > 0
+        const filter = m => !isNaN(m.content) && m.content < videos.length+1 && m.content > 0;
 
         const collector = message.channel.createCollector(filter);
 
@@ -27,7 +27,7 @@ module.exports.run = async (client, message, args, opt) => {
         collector.on("message", m => {
             
             let commandFile = require("./play.js");
-            commandFile.run(client, message, this.videos[parseInt(m.content-1).url], opt)
+            commandFile.run(client, message, this.videos[parseInt(m.content).url], opt)
 
         })
     })

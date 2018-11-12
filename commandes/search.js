@@ -27,7 +27,7 @@ module.exports.run = async (client, message, args, opt) => {
         collector.on("message", m => {
             
             let commandFile = require("./play.js");
-            commandFile.run(client, message, this.videos[parseInt(m.content).url], opt)
+            commandFile.run(client, message, [this.videos[parseInt(m.content-1).url]], opt)
 
         })
     })

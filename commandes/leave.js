@@ -10,7 +10,7 @@ module.exports.run = async (client, message, args, opt) => {
     
     let fetched = opt.active.get(message.guild.id)
     
-     opt.active.delete(fetched.guildID);
+     opt.active.delete(fetched.queue);
 
     message.channel.send("Je quitte le channel vocal...")
 

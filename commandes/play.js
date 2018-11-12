@@ -9,11 +9,12 @@ module.exports.run = async (client, message, args, opt) => {
     
         if(!args[0]) return message.channel.send("Il faut un lien youtube à jouer.");
 
+        let info = await yt.getInfo(args[0]);
+                  
         let data = opt.active.get(message.guild.id) || {};
 
         if(!data.connection) data.connection = await message.member.voiceChannel.join();
          
-        let info = await yt.getInfo(args[0]);
         if(!data.queue) data.queue = [];
 
         data.guildID = message.guild.id;
@@ -25,8 +26,9 @@ module.exports.run = async (client, message, args, opt) => {
             annouceChannel:message.channel.id
         });
 
-        if(!data.dispatcher) playStream(client, opt, data);
-        else {
+        if(!data.dispatcher){ 
+            playStream(client, opt, data);
+        }else {
             message.channel.send(`Ajouté à la queue : **${info.title}** | Demandé par : **${message.author.tag}**`)
         }
 
@@ -44,7 +46,7 @@ async function playStream(client, opt, data) {
     data.dispatcher = await data.connection.playStream(yt(data.queue[0].url, {filter:"audioonly"}))
 
     data.dispatcher.once('finished', function () {
-        finish(client ,opt ,this)
+        finish(client ,opt , this);
     })
 }
 
@@ -66,7 +68,6 @@ function finish(client, opt, dispatcher) {
 
         if(vc) vc.leave();
              
-        message.channel.send(":x: la playlist est vide")
     }
 }
 

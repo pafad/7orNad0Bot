@@ -4,7 +4,7 @@ module.exports.run = async (client, message, args, opt) => {
 
     if(!fetched) return message.channel.send(":x: La playlist est vide.");
 
-    if(!message.member.voiceChannel !== message.guild.me.voiceChannel) return message.channel.send("Tu n'es pas dans le même channel vocal que moi.");
+    if(!message.member.voiceChannelID !== message.guild.me.voiceChannelID) return message.channel.send("Tu n'es pas dans le même channel vocal que moi.");
 
     let userCount = message.member.voiceChannel.members.size;
 

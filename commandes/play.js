@@ -9,10 +9,11 @@ module.exports.run = async (client, message, args, opt) => {
     
         if(!args[0]) return message.channel.send("Il faut un lien youtube à jouer.");
 
-        let data = opt.active.get(message.guil.id) || {};
+        let data = opt.active.get(message.guild.id) || {};
 
         if(!data.connection) data.connection = await message.member.voiceChannel.join();
-
+         
+        let info = yt.getInfo(args[0]);
         if(!data.queue) data.queue = [];
 
         data.guildID = message.guild.id;

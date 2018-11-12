@@ -43,7 +43,7 @@ async function playStream(client, opt, data) {
 
     data.dispatcher = await data.connection.playStream(yt(data.queue[0].url, {quality:"highestaudio",filter:"audioonly"}))
 
-    data.dispatcher.once('finish', function () {
+    data.dispatcher.on('end', () => {
         finish(client ,opt , this);
     })
 }

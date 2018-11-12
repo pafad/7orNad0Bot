@@ -11,7 +11,7 @@ module.exports.run = async (client, message, args, opt) => {
         if(!validate){
 
             let commandFile = require("./search.js")
-            commandFile.run(client,message, args, opt)
+            return commandFile.run(client,message, args, opt)
         }
 
         }

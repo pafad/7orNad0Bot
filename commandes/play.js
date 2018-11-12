@@ -62,7 +62,8 @@ function finish(client, opt, dispatcher) {
 
         playStream(client, opt, fetched);
     }else{
-        
+        client.channels.get(dispatcher.annouceChannel).send(":x: La playlist est vide")
+            
         opt.active.delete(dispatcher.guildID);
 
         let vc = client.guilds.get(dispatcher.guildID).me.voiceChannel;
@@ -76,7 +77,10 @@ function finish(client, opt, dispatcher) {
 }
 
 module.exports.help = {
-    name:"play"
+    name:"play",
+    description:"joue la musique demandée",
+    usage:"play/p <lien ou titre",
+    category:"music"
 }
 
 module.exports.conf = {

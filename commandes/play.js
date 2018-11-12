@@ -36,7 +36,7 @@ async function playStream(client, opt, data) {
 
     data.dispatcher = await data.connection.playStream(yt(data.queue[0].url, {filter:"audioonly"}))
 
-    data.dispatcher.once('finish',function () {
+    data.dispatcher.once('end',function () {
         finish(client ,opt ,this)
     })
 }
@@ -48,7 +48,7 @@ function finish(client, opt, dispatcher) {
 
     if(fetched.queue.length > 0){
 
-        opt.active.set(message.guild.id, data);
+        opt.active.set(message.guild.id, fetched);
 
         playStream(client, opt, fetched);
     }else{

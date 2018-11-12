@@ -35,8 +35,9 @@ async function playStream(client, opt, data) {
     client.channels.get(data.queue[0].annouceChannel).send(`Je joue maintenant : **${data.queue[0].songTitle}** | demandé par : **${data.queue[0].requester}**`)
 
     data.dispatcher = await data.connection.playStream(yt(data.queue[0].url, {filter:"audioonly"}))
+    data.dispatcher.guildID = data.guildID;
 
-    data.dispatcher.on('end',function(){
+    data.dispatcher.once('finish',function(){
         finish(client ,opt ,this)
     })
 }
@@ -61,6 +62,8 @@ function finish(client, opt, dispatcher) {
         
         //client.channels.get(fetched.queue[0].annouceChannel).send(":x: La playlist est vide")
     }
+
+
 }
 
 module.exports.help = {

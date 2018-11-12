@@ -13,7 +13,7 @@ module.exports.run = async (client, message, args, opt) => {
 
         if(!data.connection) data.connection = await message.member.voiceChannel.join();
          
-        let info = yt.getInfo(args[0]);
+        let info = await yt.getInfo(args[0]);
         if(!data.queue) data.queue = [];
 
         data.guildID = message.guild.id;
@@ -65,6 +65,8 @@ function finish(client, opt, dispatcher) {
         let vc = client.guilds.get(dispatcher.guildID).me.voiceChannel;
 
         if(vc) vc.leave();
+             
+        message.channel.send(":x: la playlist est vide")
     }
 }
 

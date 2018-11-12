@@ -41,11 +41,9 @@ async function playStream(client, opt, data) {
 
     client.channels.get(data.queue[0].annouceChannel).send(`Je joue maintenant : **${data.queue[0].songTitle}** | demandé par : **${data.queue[0].requester}**`)
 
-    var stream = yt(data.queue[0].url, {quality:"highestaudio" ,filter:"audioonly"})
+    data.dispatcher = await data.connection.playStream(yt(data.queue[0].url, {quality:"highestaudio",filter:"audioonly"}))
 
-    data.dispatcher = await data.connection.playStream(stream)
-
-    stream.once('end', function () {
+    data.dispatcher.once('end', function () {
         finish(client ,opt , this);
     })
 }

@@ -24,17 +24,17 @@ module.exports.run = async (client, message, args, opt) => {
 
         collector.videos = videos;
 
-        collector.on("message", m => {
+        collector.once('collect', function(m) {
             
             let commandFile = require("./play.js");
-            commandFile.run(client, message, [this.videos[parseInt(m.content-1).url]], opt)
+            commandFile.run(client, message, [this.videos[parseInt(m.content-1)].url], opt)
 
         })
     })
 }
 
 module.exports.help = {
-    name:"search",
+    name:"serach",
     description:"cherche une vidéo youtube et la joue en vocal",
     usage:"search <texte>",
     category:"music"

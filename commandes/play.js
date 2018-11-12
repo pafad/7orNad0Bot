@@ -3,7 +3,7 @@ const yt = require("ytdl-core")
 module.exports.run = async (client, message, args, opt) => {
          try{
                      
-        if(!message.member.voiceChannel) return message.channel.send("Tu n'est pas dans un channel vocal.");
+        if(!message.member.voiceChannel) return message.channel.send("Tu n'es pas dans un channel vocal.");
 
         if(message.guild.me.voiceChannel) return message.channel.send("Je suis déjà connecté en vocal.");
     
@@ -55,7 +55,7 @@ function finish(client, opt, dispatcher) {
 
     if(fetched.queue.length > 0){
 
-        opt.active.set(message.guild.id, data);
+        opt.active.set(dispatcher.guildID, fetched);
 
         playStream(client, opt, fetched);
     }else{

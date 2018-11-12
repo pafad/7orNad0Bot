@@ -21,7 +21,7 @@ module.exports.run = async (client, message, args, opt) => {
     if(fetched.queue[0].voteSkip.length >= required){
         message.channel.send("Skip avec succès !")
 
-        fetched.dispatcher.emit('end');
+        fetched.dispatcher.end();
         return;
     }
     

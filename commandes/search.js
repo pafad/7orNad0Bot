@@ -1,29 +1,34 @@
-const search = require("youtube-search")
+const search = require("yt-search")
 
 module.exports.run = async (client, message, args, opt) => {
-    search(args.join(" "), opts, function (err, res){
+    search(args.join(" "), function (err, res){
 
         if(err) return message.channel.send(":x: Une erreur est survenue lors de la recherche.")
 
+        let videos = res.videos.slice(0, 10);
+
         let resp = '';
 
-        for (var i in res) {
+        for (var i in videos) {
 
-            resp += `**[${parseInt(i)+1}]**\`${res[i].title}\`\n`;
+            resp += `**[${parseInt(i)+1}]**\`${videos[i].title}\`\n`;
 
         }
-        resp += `\`Choisi un résultat de entre 1 et ${res.length}\``  
+        resp += `\`Choisi un résultat de entre 1 et ${videos.length}\``  
         
         message.channel.send(resp)
 
-        const filter = m => !isNaN(m.content) && m.content < res.length+1 && m.content > 0
+        const filter = m => !isNaN(m.content) && m.content < videos.length+1 && m.content > 0
 
-        const collector = message-channel.createCollector(filter);
+        const collector = message.channel.createCollector(filter);
+
+        collector.videos = videos;
 
         collector.on("message", m => {
             
             let commandFile = require("./play.js");
-            commandFile.run(client, message, this.res[parseInt(m.content-1).url], opt)
+            commandFile.run(client, message, this.videos[parseInt(m.content-1).url], opt)
+
         })
     })
 }

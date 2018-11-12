@@ -1,7 +1,7 @@
 const yt = require("ytdl-core")
 
 module.exports.run = async (client, message, args, opt) => {
-         try{  
+    
         if(!message.member.voiceChannel) return message.channel.send("Tu n'es pas dans un channel vocal.");
     
         if(!args[0]) return message.channel.send("Il faut un lien youtube à jouer.");
@@ -21,9 +21,6 @@ module.exports.run = async (client, message, args, opt) => {
             url:args[0],
             annouceChannel:message.channel.id
         });
-        }catch(e){
-            console.log(e.stack)
-        }
             
         if(!data.dispatcher) playStream(client, opt, data);
         else {

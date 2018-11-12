@@ -12,8 +12,7 @@ module.exports.run = async (client, message, args, opt) => {
 
             let commandFile = require("./search.js")
             return commandFile.run(client,message, args, opt)
-        }
-
+                
         }
 
         let data = opt.active.get(message.guild.id) || {};

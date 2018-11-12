@@ -44,9 +44,9 @@ async function playStream(client, opt, data) {
 function finish(client, opt, dispatcher) {
     let fetched = opt.active.get(dispatcher.guildID);
 
-    fetched.queue.shift();
+    fetched.queue[0].shift();
 
-    if(fetched.queue.length > 0){
+    if(fetched.queue[0]){
 
         opt.active.set(dispatcher.guildID, fetched);
 

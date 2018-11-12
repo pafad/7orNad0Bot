@@ -14,7 +14,7 @@ module.exports.run = async (client, message, args, opt) => {
             resp += `**[${parseInt(i)+1}]**\`${videos[i].title}\`\n`;
 
         }
-        resp += `\`Choisi un résultat de entre 1 et ${videos.length}\``  
+        resp += `\`Choisi un résultat de entre 1 et ${videos.length} ou cancel pour annuler\``  
         
         message.channel.send(resp)
 
@@ -30,12 +30,8 @@ module.exports.run = async (client, message, args, opt) => {
                 message.channel.send("Choix annulé");
                 return;
             }
-            try {
                 let commandFile = require("./play.js");
-                commandFile.run(client, message, [this.videos[parseInt(m.content-1)].url],opt)  
-            } catch (e) {
-             message.channel.send("Une erreur est survenue : " + e.message)   
-            }
+                commandFile.run(client, message, [this.videos[parseInt(m.content-1)].url],opt);
         })
     })
 }

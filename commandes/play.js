@@ -4,8 +4,6 @@ module.exports.run = async (client, message, args, opt) => {
          try{
                      
         if(!message.member.voiceChannel) return message.channel.send("Tu n'es pas dans un channel vocal.");
-
-        if(message.guild.me.voiceChannel) return message.channel.send("Je suis déjà connecté en vocal.");
     
         if(!args[0]) return message.channel.send("Il faut un lien youtube à jouer.");
 
@@ -41,7 +39,7 @@ module.exports.run = async (client, message, args, opt) => {
 
 async function playStream(client, opt, data) {
 
-    client.channels.get(data.queue[0].annouceChannel).send(`Je joue maintenant : **${data.queue[0]}** | demandé par : **${data.queue[0].requester}**`)
+    client.channels.get(data.queue[0].annouceChannel).send(`Je joue maintenant : **${data.queue[0].songTitle}** | demandé par : **${data.queue[0].requester}**`)
 
     data.dispatcher = await data.connection.playStream(yt(data.queue[0].url, {filter:"audioonly"}))
 

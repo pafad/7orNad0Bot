@@ -55,7 +55,7 @@ function finish(client, opt, dispatcher) {
 
     if(fetched.queue.length > 0){
 
-        opt.active.set(message.guid.id, data);
+        opt.active.set(message.guild.id, data);
 
         playStream(client, opt, fetched);
     }else{

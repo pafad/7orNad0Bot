@@ -27,6 +27,7 @@ module.exports.run = async (client, message, args, opt) => {
         collector.once('collect', function(m) {
            if(m.content === "cancel"){
                 collector.stop();
+               console.log("reçu")
                 message.channel.send("Choix annulé");
                 return;
             }

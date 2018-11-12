@@ -18,7 +18,7 @@ module.exports.run = async (client, message, args, opt) => {
         
         message.channel.send(resp)
 
-        const filter = m => !isNaN(m.content) && m.content < videos.length+1 && m.content > 0;
+        const filter = m => !isNaN(m.content) && m.content < videos.length+1 && m.content > 0 || m.content ==="cancel";
 
         const collector = message.channel.createCollector(filter);
 

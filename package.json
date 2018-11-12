@@ -6,11 +6,9 @@
   "dependencies": {
     "anifetch": "^2.1.4",
     "discord.js": "^11.4.2",
-    "discord.js-music": "^2.1.0",
-    "discord.music.js": "^1.0.0",
     "erlpack": "github:hammerandchisel/erlpack",
     "ffmpeg": "0.0.4",
-    "ffmpeg-binaries": "^3.2.2",
+    "ffmpeg-binaries": "^4.0.0",
     "flip-text": "^1.1.0",
     "fs": "0.0.1-security",
     "giphy-api": "^1.2.8",
@@ -34,8 +32,8 @@
     "spotify_search": "^1.0.0",
     "superagent": "^3.8.3",
     "translate": "^1.0.3",
-    "youtube-search": "^1.1.1",
-    "ytdl-core": "^0.14.4"
+    "youtube-search": "^1.1.3",
+    "ytdl-core": "^0.28.0"
   },
   "devDependencies": {},
   "scripts": {

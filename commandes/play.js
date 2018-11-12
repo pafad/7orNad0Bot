@@ -7,7 +7,7 @@ module.exports.run = async (client, message, args, opt) => {
         if(!args[0]) return message.channel.send("Il faut un lien youtube à jouer.");
 
         let data = opt.active.get(message.guild.id) || {};
-        let info = await yt.getInfo(args[0])
+        let info = await yt.getInfo(args[0]);
         
         if(!data.connection) data.connection = await message.member.voiceChannel.join();
 
@@ -37,7 +37,7 @@ async function playStream(client, opt, data) {
     data.dispatcher = await data.connection.playStream(yt(data.queue[0].url, {filter:"audioonly"}))
     data.dispatcher.guildID = data.guildID;
 
-    data.dispatcher.once('finish',function(){
+    data.dispatcher.on('end',function(){
         finish(client ,opt ,this)
     })
 }
@@ -45,9 +45,9 @@ async function playStream(client, opt, data) {
 function finish(client, opt, dispatcher) {
     let fetched = opt.active.get(dispatcher.guildID);
 
-    fetched.queue[0].shift();
+    fetched.queue.shift();
 
-    if(fetched.queue[0]){
+    if(fetched.queue.length > 0){
 
         opt.active.set(dispatcher.guildID, fetched);
 

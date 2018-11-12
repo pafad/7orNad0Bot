@@ -8,7 +8,7 @@ module.exports.run = async (client, message, args) => {
         key: 'AIzaSyAtbRh4YfalDf8EcbhUzUnGLhFjtBbh6Kk'
       };
 
-      search(message.content.substr(8), opts, function(err, results) {
+      search(args.join(" "), opts, function(err, results) {
         if(err) return message.channel.send("erreur suite à la recherche: " + err);
         message.channel.send({embed:{
             color: Math.floor(Math.random() * 16777214) + 1,

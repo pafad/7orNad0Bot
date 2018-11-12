@@ -1,10 +1,20 @@
 const yt = require("ytdl-core")
-
+const search = require("youtube-search");
 module.exports.run = async (client, message, args, opt) => {
-    
+
         if(!message.member.voiceChannel) return message.channel.send("Tu n'es pas dans un channel vocal.");
     
         if(!args[0]) return message.channel.send("Il faut un lien youtube à jouer.");
+
+        let validate = yt.validateURL(args[0]);
+
+        if(!validate){
+
+            let commandFile = require("./search.js")
+            commandFile.run(client,message, args, opt)
+        }
+
+        }
 
         let data = opt.active.get(message.guild.id) || {};
         let info = await yt.getInfo(args[0]);
@@ -60,7 +70,7 @@ function finish(client, opt, dispatcher) {
 
         if(vc) vc.leave();
         
-        //client.channels.get(fetched.queue[0].annouceChannel).send(":x: La playlist est vide")
+        client.channels.get(fetched.queue[0].annouceChannel).send(":x: La playlist est vide")
     }
 
 

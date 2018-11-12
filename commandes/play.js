@@ -1,16 +1,13 @@
 const yt = require("ytdl-core")
 
 module.exports.run = async (client, message, args, opt) => {
-            
+         try{
+                     
         if(!message.member.voiceChannel) return message.channel.send("Tu n'est pas dans un channel vocal.");
 
         if(message.guild.me.voiceChannel) return message.channel.send("Je suis déjà connecté en vocal.");
     
         if(!args[0]) return message.channel.send("Il faut un lien youtube à jouer.");
-
-        let validate = await yt.validateURL(args[0]);
-
-        if(!validate) return message.channel.send("Entre un lien valide");
 
         let data = opt.active.get(message.guil.id) || {};
 
@@ -33,6 +30,10 @@ module.exports.run = async (client, message, args, opt) => {
         }
 
         opt.active.set(message.guild.id, data);
+                     
+         }catch (e){
+          message.channel.send("une erreur est survenue " + e.message)           
+         }
 }
 
 async function playStream(client, opt, data) {

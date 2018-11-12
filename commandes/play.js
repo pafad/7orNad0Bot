@@ -6,8 +6,9 @@ module.exports.run = async (client, message, args, opt) => {
     
         if(!args[0]) return message.channel.send("Il faut un lien youtube à jouer.");
 
-        let data = opt.active.get(message.guil.id) || {};
-
+        let data = opt.active.get(message.guild.id) || {};
+        let info = await yt.getInfo(args[0])
+        
         if(!data.connection) data.connection = await message.member.voiceChannel.join();
 
         if(!data.queue) data.queue = [];
@@ -26,7 +27,7 @@ module.exports.run = async (client, message, args, opt) => {
             
         if(!data.dispatcher) playStream(client, opt, data);
         else {
-            message.channel.send(`Ajouté à la queue : **${info.title}** | Demandé par : **${message.author.tag}**`)
+            message.channel.send(`Ajouté à la queue : **${data.queue[0].songTitle}** | Demandé par : **${message.author.tag}**`)
         }
 
         opt.active.set(message.guild.id, data);
@@ -34,7 +35,7 @@ module.exports.run = async (client, message, args, opt) => {
 
 async function playStream(client, opt, data) {
 
-    client.channels.get(data.queue[0].annouceChannel).send(`Je joue maintenant : **${data.queue[0]}** | demandé par : **${data.queue[0].requester}**`)
+    client.channels.get(data.queue[0].annouceChannel).send(`Je joue maintenant : **${data.queue[0].songTitle}** | demandé par : **${data.queue[0].requester}**`)
 
     data.dispatcher = await data.connection.playStream(yt(data.queue[0].url, {filter:"audioonly"}))
 
@@ -50,7 +51,7 @@ function finish(client, opt, dispatcher) {
 
     if(fetched.queue.length > 0){
 
-        opt.active.set(message.guid.id, data);
+        opt.active.set(message.guild.id, data);
 
         playStream(client, opt, fetched);
     }else{

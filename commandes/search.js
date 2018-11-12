@@ -25,10 +25,17 @@ module.exports.run = async (client, message, args, opt) => {
         collector.videos = videos;
 
         collector.once('collect', function(m) {
-            
-            let commandFile = require("./play.js");
-            commandFile.run(client, message, [this.videos[parseInt(m.content-1)].url], opt)
-
+           if(m.content === "cancel"){
+                collector.stop();
+                message.channel.send("Choix annulé");
+                return;
+            }
+            try {
+                let commandFile = require("./play.js");
+                commandFile.run(client, message, [this.videos[parseInt(m.content-1)].url],opt)  
+            } catch (e) {
+             message.channel.send("Une erreur est survenue : " + e.message)   
+            }
         })
     })
 }

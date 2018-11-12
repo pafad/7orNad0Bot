@@ -8,7 +8,7 @@ module.exports.run = async (client, message,args ,opt) => {
 
     if(isNaN(args[0] || args[0] > 200 || args[0] > 0)) return message.channel.send(`:x: Entre un nombre entre 1 et 200`)
 
-    fetcher.dispatcher.setVolume(args[0]/100)
+    fetched.dispatcher.setVolume(args[0]/100)
 
     message.channel.send(`Le volume mis à ${args[0]}`)
 }

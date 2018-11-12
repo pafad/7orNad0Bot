@@ -1,7 +1,7 @@
 module.exports.run = async (client, message, args, opt) => {
     let fetched = opt.active.get(message.guild.id)
 
-    if(!fetched) return message.channel.send(":x: laplaylist est vide.")
+    if(!fetched) return message.channel.send(":x: La playlist est vide.")
     
     if(message.guild.me.voiceChannel !== message.member.voiceChannel) return message.channel.send("Tu n'es pas dans le même channel vocal que moi.");
 

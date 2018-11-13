@@ -1,9 +1,10 @@
 module.exports.run = async (client, message, args) => {
-    var toFind = message.guild.roles.find("name", args.join(" ")) || message.guild.roles.find("id", args.join(" ")) || message.metions.roles.first();;
+    var toFind = message.guild.roles.find("name", args.join(" "));
     if(!toFind || toFind === undefined){
-        message.channel.send("Je n'ai pas trouvé le role `" + args.join(" ") + "` essaie la mention, l'identifiant ou le nom.")
+        message.channel.send("Je n'ai pas trouvé le role `" + args.join(" ") + "` essaie la mention ou le nom.")
     }else{
-        var filter = m => m.roles.find("name", args.join(" ")) || m => m.roles.find("id",args.join("")) || m.roles.find("id", message.mention.roles.first().id);
+       
+        var filter = m => m.roles.find("name", args.join(" "))
         message.channel.send({embed:{
             color:Math.floor(Math.random() * 16777214) + 1,
             author:{

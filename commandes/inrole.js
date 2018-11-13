@@ -3,6 +3,7 @@ module.exports.run = async (client, message, args) => {
     if(!toFind || toFind === undefined){
         message.channel.send("Je n'ai pas trouvé le role `" + args.join(" ") + "`")
     }else{
+        var filter = m => m.roles.find("name", args.join(" "));
         message.channel.send({embed:{
             color:Math.floor(Math.random() * 16777214) + 1,
             author:{

@@ -12,20 +12,20 @@ module.exports.run = async (client, message, args, opt) => {
 
     if(!fetched.queue[0].voteSkip) fetched.queue[0].voteSkip = []
 
-    if(fetched.queue[0].voteSkip.includes(message.member.id)) return message.channel.send(`Tu as déjà voté pour skip ! ${fetched.queue[0].voteSkip}/${required} votes.`);
+    if(fetched.queue[0].voteSkip.includes(message.member.id)) return message.channel.send(`Tu as déjà voté pour skip ! ${fetched.queue[0].voteSkip.length}/${required} votes.`);
 
     fetched.queue[0].voteSkip.push(message.member.id);
 
     opt.active.set(message.guild.id, fetched);
 
-    if(fetched.queue[0].voteSkip.length >= required){
+    if(fetched.queue[0].voteSkip.length == required){
         message.channel.send("Skip avec succès !")
 
         fetched.dispatcher.end();
         return;
     }
     
-    message.channel.send(`Vote pour skip avec succès ${fetched.queue[0].voteSkip.length}/${required}`)
+    message.channel.send(`${message.author.tag} à vote pour skip le titre : **${fetched.queue[0].songTitle}**\nVotes : ${fetched.queue[0].voteSkip.length}/${required}`)
 
 }
 

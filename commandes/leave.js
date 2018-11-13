@@ -7,10 +7,6 @@ module.exports.run = async (client, message, args, opt) => {
     if(message.guild.me.voiceChannelID !== message.member.voiceChannelID) return message.channel.send("Tu n'es pas dans le même channel vocal que moi.")
 
     message.guild.me.voiceChannel.leave();
-    
-    let fetched = opt.active.get(message.guild.id)
-    
-     fetched.dispatcher.end();
 
     message.channel.send("Je quitte le channel vocal...")
 

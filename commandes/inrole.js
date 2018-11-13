@@ -10,7 +10,7 @@ module.exports.run = async (client, message, args) => {
                 name:`Liste des membres ayant le role ${args.join(" ")}`,
                 icon_url:message.author.avatarURL
             },
-            description:message.guild.members.filter(filter).map(u => `${u.user.tag}\n`),
+            description:`${message.guild.members.filter(filter).map(u => u.user.tag)}\n`,
             timestamp:new Date,
             footer:{
                  icon_url:client.user.avatarURL,

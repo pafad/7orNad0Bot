@@ -15,6 +15,7 @@
     "google-translate-api": "^2.3.0",
     "google-translate-token": "^1.0.0",
     "http": "0.0.0",
+    "libnpmsearch":"^2.0.0",
     "mathjs": "^5.2.3",
     "moment": "^2.22.2",
     "mysql": "^2.15.0",

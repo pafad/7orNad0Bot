@@ -1,13 +1,22 @@
 const config = require("../config.json")
-const prefix = config.prefix
-const moment = require("moment")
+let prefix = config.prefix
+const moment = require("moment");
+const db = require("quick.db");
 const active = new Map();
 
 module.exports = async (client, message) => {
     //blacklist du bot
     if(message.author.bot)return;
+    
     if(message.channel.type === "dm") return message.channel.send("hm ?");
      //double arguments du turfu
+    db.add(`GlobalMessages_${message.author.id}`, 1);
+
+    db.add(`GuildMessages_${message.guild.id}${message.author.id}`, 1);
+
+    let fetched = await db.fetch(`prefix_${message.guild.id}`);
+    if(fetched === null) prefix = config.prefix;
+    else prefix = fetched;
     if(!message.content.startsWith(prefix))return;
   
     let messageArray = message.content.split(" ");

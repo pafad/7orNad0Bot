@@ -14,14 +14,14 @@ if(! args || args. length < 1) return message.channel.send (":x: Spécifie le r�
         let match = sm.findBestMatch(args.join(" "), roles);
         let rolename = match.bestMatch.target;
 
-        let rolename = message.guild.roles.get(indexes[roles.indexOf(username)])
-  var Mention = message.guild.roles.find("id", args.join(" ")) || rolename;
+        let toMention = message.guild.roles.get(indexes[roles.indexOf(rolename)])
+  var Mention = message.guild.roles.find("id", args.join(" ")) || toMention;
 
  message.channel.send(`<@&${Mention.id}>`)
 } 
 
 module.exports.help = {
-name:"rolemention" 
+name:"rolemention", 
 description:"mentionne le rôle souhaité",
 usage:"rolemention/rmention <rôle>",
 category:"modération" 

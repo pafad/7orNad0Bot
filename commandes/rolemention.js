@@ -7,7 +7,7 @@ if(! args || args. length < 1) return message.channel.send (":x: SpÃ©cifie le rÃ
 	let roles = [];
         let indexes = [];
         message.guild.members.forEach(function(role){
-            membres.push(role.name)
+            roles.push(role.name)
             indexes.push(role.id)
         })
 

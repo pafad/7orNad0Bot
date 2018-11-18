@@ -1,6 +1,6 @@
 const sm = require ("string-similarity") ;
 module.exports.run = async (client, message, args) => {
-if(! message.member.hasPermission("ADMINIDTRATOR")) return message.channel.send (":x: Tu n'as pas la permission administrateur.") 
+if(! message.member.hasPermission("ADMINISTRATOR")) return message.channel.send (":x: Tu n'as pas la permission administrateur.") 
 
 if(! args || args. length < 1) return message.channel.send (":x: Spécifie le rôle à mentionner.") 
 

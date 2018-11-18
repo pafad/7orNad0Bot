@@ -11,7 +11,7 @@ if(! args || args.length < 1){
 
 	let roles = [];
         let indexes = [];
-        message.guild.members.forEach(function(role){
+        message.guild.roles.forEach(function(role){
             roles.push(role.name)
             indexes.push(role.id)
         })

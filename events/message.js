@@ -5,7 +5,7 @@ const active = new Map();
 
 module.exports = async (client, message) => {
     //blacklist du bot
-    if(message.author.id ! == client.user.id)return ;
+    if(message.author.id !== client.user.id)return ;
     if(message.author.bot)return;
     
     if(message.channel.type === "dm") return message.channel.send("hm ?");

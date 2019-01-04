@@ -41,7 +41,7 @@ function changeColor() {
 }
 
 
-        client.user.setPresence({game:{name:`${config.prefix}help sur ${client.guilds.size} serveurs avec ${client.users.size} utilisateurs`,url: "https://www.twitch.tv/discordapp",type:1}})
+        client.user.setPresence({game:{name:`Departement of States`,url: "https://www.twitch.tv/discordapp",type:1}})
         console.log(`${client.user.tag} connecté !`)
         if(config.speed < 60000){console.log("The minimum speed is 60.000, if this gets abused your bot might get IP-banned"); process.exit(1);}
       setInterval(changeColor, config.speed);

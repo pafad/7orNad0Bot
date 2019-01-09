@@ -12,7 +12,7 @@ module.exports.run = async (client, message, args, opt) => {
 
     let ban = JSON.parse(body);  
   
-if(message.author.id == opt.ownerID){
+if(message.author.id == opt.OwnerID){
 if(!args){
 	message.channel.send("utilisateur introuvable")  
     return;

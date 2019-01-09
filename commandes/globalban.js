@@ -5,7 +5,7 @@ module.exports.run = async (client, message, args, opt) => {
 
  	
 	    	const banUrl = process.env.ban;
-    var user = client.users.find("id",args[0]);
+    
     request(banUrl, (err, res, body) => {
 
     if(err || res.statusCode!== 200)return
@@ -13,14 +13,14 @@ module.exports.run = async (client, message, args, opt) => {
     let ban = JSON.parse(body);  
   
 if(message.author.id == opt.ownerID){
-if(!user){
+if(!args){
 	message.channel.send("utilisateur introuvable")  
     return;
    }else{
-      if(!ban[user.id]) ban[user.id] = {} 
-      if(!ban[user.id].raison) ban[user.id].raison = args.slice(1).join(" ") 
+      if(!ban[args[0]]) ban[args[0]] = {} 
+      if(!ban[args[0]].raison) ban[args[0]].raison = args.slice(1).join(" ") 
       request({ url: banUrl, method: 'PUT', json: ban})
-      message. channel. send (`${user.tag} a été ban du bot pour: ${args.slice(1).join("")}`) 
+      message. channel. send (`${args[0]} a été ban du bot pour: ${args.slice(1).join("")}`) 
   return
       } 
   }else{

@@ -1,9 +1,9 @@
 module.exports.run = async (client, message, args) => {
     let usermention = message.guild.member(message.mentions.users.first());
     let toAdd = message.content.slice(message.content.indexOf(message.content.split(" ")[2]));
-    let userRole = message.guild.roles.find("name", `${toAdd}`);
+    let userRole = message.guild.roles.find("name", `${toAdd}`) || message.guild.roles.find("id", `${toAdd} `) 
        if(!message.guild.member(message.author).hasPermission("MANAGE_ROLES")) return message.channel.send(`${message.author}, tu n'as pas la permission de gérer les rôles.`);
-       if(!message.guild.member(client.user).hasPermission("MANAGE:ROLES")) return message.channel.send(`${message.author}, je n'ai pas la permission de lui ajouter ce rôle.`)
+       if(!message.guild.member(client.user).hasPermission("MANAGE_ROLES")) return message.channel.send(`${message.author}, je n'ai pas la permission de lui ajouter ce rôle.`)
     if(!usermention){
         message.channel.send(`:x: ${message.author}, mentionnez un utilisateur valide`)
         return;

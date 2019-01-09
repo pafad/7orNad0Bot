@@ -32,7 +32,7 @@ module.exports.run = async (client, message, args, opt) => {
                 return;
             }
                 let commandFile = require("./play.js");
-                commandFile.run(client, message, [this.videos[parseInt(m.content-1)].url],opt);
+                commandFile.run(client, message, [this.videos[parseInt(m.content-1)].url +`?vq=high`],opt);
         })
     })
 }

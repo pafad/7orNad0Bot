@@ -10,9 +10,11 @@ module.exports = async (client, message) => {
     
     if(message.channel.type === "dm") return message.channel.send("hm ?");
      //double arguments du turfu
-    
+    let prefix;
     for(var i in prefixes){
-        if (message.content.startsWith(prefixes[i])) prefix = prefixes[i]
+        
+        if (message.content.startsWith(prefixes[0])) prefix = prefixes[0]
+         
 }
   
     let messageArray = message.content.split(" ");

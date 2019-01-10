@@ -13,7 +13,7 @@ module.exports = async (client, message) => {
     
     let prefix = false;
     for(const thisPrefix of prefixes){
-        if (message.content.toLowerCase().startsWith(thisPrefix)) prefix = thisPrefix;
+        if (message.content.startsWith(thisPrefix)) prefix = thisPrefix;
 }
   
     let messageArray = message.content.split(" ");

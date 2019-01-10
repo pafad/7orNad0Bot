@@ -1,5 +1,6 @@
 const config = require("../config.json")
 const moment = require("moment");
+const prefix = config.prefix;
 const active = new Map();
 
 module.exports = async (client, message) => {
@@ -9,17 +10,7 @@ module.exports = async (client, message) => {
     
     if(message.channel.type === "dm") return message.channel.send("hm ?");
      //double arguments du turfu
-    const prefixes = ['%','X!','x!', `<@!${client.user.id}>`];
-
-  let prefix0 = false;
-
-  for(const thisPrefix of prefixes) {
-
-    if(message.content.startsWith(thisPrefix)) prefix0 = thisPrefix;
-
-  }  
- 
-  if(!prefix0) return;
+    if(!message.content.startsWith(prefix)) return ;
     
    let messageArray = message.content.split(" ");
 

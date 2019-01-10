@@ -1,5 +1,5 @@
 const config = require("../config.json")
-let prefixes = [config.prefix, "xeno ", "Xeno ", "@Xenova#4423 "] ;
+let prefixes = config.prefixes;
 const moment = require("moment");
 const active = new Map();
 

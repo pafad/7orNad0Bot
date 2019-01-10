@@ -1,4 +1,5 @@
 module.exports.run = async (client, message) => {
+    if(message.guild.emojis.size == 0) return message.channel.send(":x: Il n'y a pas d'emojis dans ce serveur") 
     message.channel.send({embed:{
       color: 0x9101ff,
        author: {

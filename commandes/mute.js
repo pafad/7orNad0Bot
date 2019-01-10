@@ -4,7 +4,8 @@ module.exports.run = async (client, message, args) => {
    let Targs = args[1];
    let Hargs = args[2];
    if (message.member.hasPermission("MANAGE_MESSAGES")){
-        if(!message.guild.roles.exists("Mute")) {
+   
+   if(!message.guild.roles.exists("Mute")) {
 
     message.guild.createRole({name: "Mute"})
 
@@ -56,8 +57,9 @@ module.exports.run = async (client, message, args) => {
   console.log(`DONE ! `);
 } 
           
-} 
-     
+}
+          
+}
      
 }
      

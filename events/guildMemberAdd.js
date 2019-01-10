@@ -1,3 +1,6 @@
+const superagent = require("superagent") 
+const request = require("request") 
+
 module.exports = async (client, member) => { 
 
  		    	const banUrl = process.env.ban

@@ -1,5 +1,5 @@
 const config = require("../config.json")
-let prefix = config.prefix;
+let prefix = config.prefix || "xeno" || "<@532665077522759680> " ;
 const moment = require("moment");
 const active = new Map();
 

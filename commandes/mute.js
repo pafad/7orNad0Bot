@@ -1,9 +1,10 @@
 module.exports.run = async (client, message, args) => {
+ 
  let memberMute = message.mentions.members.first();  
 
    
 
-   let role = message.guild.roles.find("name", "Mute") 
+ let role = message.guild.roles.find("name", "Mute") 
 
    
 
@@ -198,7 +199,6 @@ module.exports.run = async (client, message, args) => {
  }//fin de condition role
 
   
-}
 
 } 
 module.exports.help = {

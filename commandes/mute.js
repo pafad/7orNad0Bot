@@ -4,11 +4,30 @@ module.exports.run = async (client, message, args) => {
    let Targs = args[1];
    let Hargs = args[2];
    if (message.member.hasPermission("MANAGE_MESSAGES")){
+        if(!message.guild.roles.exists("Mute")) {
+
+    message.guild.createRole({name: "Mute"})
+
+    let role = message.guild.roles.find("name", "Mute")
+
+    message.guild.channels.map(c => c.overwritePermissions(role, {
+
+      "SEND_MESSAGES":false,
+
+      "ADD_REACTIONS": false,
+
+      "CONNECT": false
+
+    }))
+
+       message.channel.send("Un rôle Mute a été créé pour vous je dois également avoir la permissions de gérer les messages")
+
+   }else{
 
         if (memberMute){
     if (Hargs !== "min" && Hargs !== "h" && Hargs !== ""){
          message.channel.send("Assurez vous de mettre min pour minute et h pour heure")
-            }
+       }
 
         if(Hargs == "min"){
 
@@ -22,6 +41,7 @@ module.exports.run = async (client, message, args) => {
   console.log(`DONE ! `);
 }
     }
+          
         if (Hargs == "h"){
     let hr = Math.floor(600000 * Math.sqrt(Targs));
    setTimeout(Timer, hr);
@@ -34,20 +54,13 @@ module.exports.run = async (client, message, args) => {
 
    memberMute.removeRole(role).catch(console.error)
   console.log(`DONE ! `);
+} 
+          
+} 
+     
+     
 }
-    }
-
-     }else{
-    message.guild.createRole({name: "Mute"})
-    let role = message.guild.roles.find("name", "Mute")
-    message.guild.channels.map(c => c.overwritePermissions(role, {
-      "SEND_MESSAGES":false,
-      "ADD_REACTIONS": false,
-      "CONNECT": false
-    }))
-       message.channel.send("Un rôle Mute a été créé pour vous je dois également avoir la permissions de gérer les messages")
-   }
-   }
+     
 }
 
 module.exports.help = {

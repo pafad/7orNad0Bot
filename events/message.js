@@ -13,9 +13,11 @@ module.exports = async (client, message) => {
     let prefix;
     for(var i in prefixes){
         
-        if (message.content.startsWith(prefixes[0])) prefix = prefixes[0]
+        if (message.content.startsWith(prefixes[i])) prefix = prefixes[i]
        
-        let messageArray = message.content.split(" ");
+
+}
+   let messageArray = message.content.split(" ");
 
     let cmd = messageArray[0];
 
@@ -42,8 +44,5 @@ module.exports = async (client, message) => {
       console.log(`${moment(new Date).format('D-M-Y à HH:mm:ss')} : ${message.author.tag} a utilisé la commande ${cmd}`)
 
     }
-
-}
-  
     
    } 

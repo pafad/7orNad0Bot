@@ -9,7 +9,7 @@ module.exports = async (client, message) => {
     
     if(message.channel.type === "dm") return message.channel.send("hm ?");
      //double arguments du turfu
-    const prefixes = ['%','X!','x!', `<@!${client.user.id}> `, `Xeno `, `xeno `];
+    const prefixes = ['%','X!','x!', `<@!${client.user.id}>`];
 
   let prefix0 = false;
 

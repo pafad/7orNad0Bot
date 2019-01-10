@@ -11,9 +11,15 @@ module.exports = async (client, message) => {
      //double arguments du turfu
     const prefixes = ['%', 'xeno', "XENO" , 'Xeno ', `<@!?${client.user.id}> `];
 
-  const prefixRegex = new RegExp(`^(${prefixes.join('|')})`);
+  let prefix = false;
 
-  const prefix = message.content.match(prefixRegex);
+  for(const thisPrefix of prefixes) {
+
+    if(message.content.startsWith(thisPrefix)) prefix = thisPrefix;
+
+  }
+
+  if(!prefix) return;
     
    let messageArray = message.content.split(" ");
 

@@ -1,5 +1,5 @@
 const config = require("../config.json")
-let prefixes = config.prefixes;
+let prefixes = require(".. /prefixes.json")
 const moment = require("moment");
 const active = new Map();
 

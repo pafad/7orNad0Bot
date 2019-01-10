@@ -15,7 +15,7 @@ module.exports = async (client, message) => {
 
   for(const thisPrefix of prefixes) {
 
-    if(message.content.startsWith(thisPrefix)) prefix = thisPrefix;
+    if(message.content.startsWith(thisPrefix)) prefix0 = thisPrefix;
 
   }
   

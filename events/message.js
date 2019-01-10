@@ -9,16 +9,19 @@ module.exports = async (client, message) => {
     
     if(message.channel.type === "dm") return message.channel.send("hm ?");
      //double arguments du turfu
-    const prefixes = ['%','X!','x!', "Xeno" + " ", "xeno" + " "];
+    const prefixes = ['%','X!','x!'];
 
-  let prefix = false;
+  let prefix0 = false;
 
   for(const thisPrefix of prefixes) {
 
     if(message.content.startsWith(thisPrefix)) prefix = thisPrefix;
 
   }
-
+  
+ const prefixMention = new RegExp(`^<@!?${client.user.id}> `);
+    const prefix = message.content.match(prefixMention) ? message.content.match(prefixMention)[0] : prefix0;
+ 
   if(!prefix) return;
     
    let messageArray = message.content.split(" ");

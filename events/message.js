@@ -1,5 +1,5 @@
 const config = require("../config.json")
-let prefix = [config.prefix, "xeno", "Xeno", "<@532665077522759680> "] ;
+let prefixes = [config.prefix, "xeno", "Xeno", "<@532665077522759680> "] ;
 const moment = require("moment");
 const active = new Map();
 
@@ -11,7 +11,10 @@ module.exports = async (client, message) => {
     if(message.channel.type === "dm") return message.channel.send("hm ?");
      //double arguments du turfu
     
-    if(!message.content.startsWith(prefix))return;
+    let prefix = false;
+    for(const thisPrefix of prefixes){
+        if (message.content.toLowerCase().startsWith(thisPrefix)) prefix = thisPrefix;
+}
   
     let messageArray = message.content.split(" ");
     let cmd = messageArray[0];

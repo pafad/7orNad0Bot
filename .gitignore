@@ -61,7 +61,7 @@ typings/
 .next
 
 #mes files
-/config.json
-/package.json
-/package-lock.json
-/Procfile
+config.json
+package.json
+package-lock.json
+Procfile

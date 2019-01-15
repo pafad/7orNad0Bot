@@ -18,6 +18,10 @@ module.exports.run = async (client, message, args) => {
       name:"Info",
       value:`${client.commands.filter(cmd => cmd.help.category =="info").map(c => `\`\`${config.prefix + c.help.name}\`\` : ${c.help.description}\n`).join(" ")}`
     },
+     {
+       name : "Musique ", 
+       value :`${client.commands.filter(cmd => cmd.help.category == "music").map( c => `\`\`${config.prefix + c.help.name}\`\` : ${c.help.description}\n`).join(" ")}`
+       }, 
     {
       name:"Fun",
       value:`${client.commands.filter(cmd => cmd.help.category =="fun").map(c => `\`\`${config.prefix + c.help.name}\`\` : ${c.help.description}\n`).join(" ")}`

@@ -2,7 +2,7 @@ const superagent = require("superagent");
 const request = require("request"); 
  		
 
-module.epxorts.run = async (client, message, args) => {
+module.exports.run = async (client, message, args) => {
 if(!message.member.hasPermission("ADMINISTRATOR")){
    		
    		message.channel.send("Tu n'as pas la permission administrateur.")

@@ -35,15 +35,7 @@ module.exports = async (client, message) => {
   console.log('chargé avec succés') 
    				 
   var antispam = JSON.parse(body)
-  
-  if(!antispam[message.guild.id]) antispam[message.guild.id] = {}
-   				 
-  if(!antispam[message.guild.id].boonlean) antispam[message.guild.id].boonlean = true; 
-   				 
-  antispam[message.guild.id].boonlean = true; 
-   				 
-  request({ url: antispamurl, method: 'PUT', json: antispam})
-   				 
+   			 
 
   if(!antispam[message.guild.id]) return; 
   

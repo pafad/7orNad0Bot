@@ -1,3 +1,7 @@
+const superagent = require("superagent"); 
+const request = require("request"); 
+ 		
+
 module.epxorts.run = async (client, message, args) => {
 if(!message.member.hasPermission("ADMINISTRATOR")){
    		

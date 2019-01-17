@@ -7,7 +7,7 @@
     	],
 	"prefix" :"%", 	
 	"roleName": "#Rainbow",
-	"colors": 12,
+	"colors": 24,
 	"speed": 60000,
 	"logging": false,
   	"adminID": "524996881198219276",

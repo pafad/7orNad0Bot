@@ -8,6 +8,7 @@
     "anime-dl": "^4.0.7",
     "configstore": "^4.0.0",
     "discord.js": "^11.3.2",
+    "discord-anti-spam": "^1.1.6", 
     "erlpack": "github:hammerandchisel/erlpack",
     "ffmpeg": "0.0.4",
     "ffmpeg-binaries": "^4.0.0",

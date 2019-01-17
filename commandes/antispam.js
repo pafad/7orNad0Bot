@@ -80,7 +80,7 @@ if(!message.member.hasPermission("ADMINISTRATOR")){
    module.exports.help = {
    name: "antispam",
    description: "activer ou désactiver la fonction anti-spam",
-   usage:"anti-spam/as <enable/disable>
+   usage:"anti-spam/as <enable/disable>",
    category: "modération"
    }
    

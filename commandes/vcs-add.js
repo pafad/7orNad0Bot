@@ -7,7 +7,7 @@ module.exports.run = async (client, message, args) => {
        return;
     }else{
      message.channel.send("channel #vcs ajouté vous pouvez parler en faisant **"+config.prefix+"vcs [texte]** sans les [].");
-     const ChanUrl = "https://api.myjson.com/bins/nheg2";
+     const ChanUrl = process.env.chanurl;
      request(ChanUrl, (err, res, body) => {
          
          console.log('chargement !')
@@ -19,7 +19,7 @@ module.exports.run = async (client, message, args) => {
         if(!channel[message.guild.id]) channel[message.guild.id] = {};
         if(!channel[message.guild.id].chanid) channel[message.guild.id].chanid = message.channel.id;
         request({ url: ChanUrl, method: 'PUT', json: channel})
-        var toPin = message.channel.send({embed:{ 
+        message.channel.send({embed:{ 
         color: Math.floor(Math.random() * 16777214) + 1,
         fields:[{
         name: "règlement",
@@ -50,8 +50,8 @@ module.exports.run = async (client, message, args) => {
            text:"règlement vcs"
         }    
         }
-        })
-        message.pin(toPin)
+        }).then(m => m.pin())
+       
     })
     }
 }

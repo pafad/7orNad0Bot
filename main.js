@@ -19,7 +19,7 @@ antispam(client, {
 
   maxDuplicatesWarning: 7,// Maximum amount of duplicate messages a user can send in a timespan before getting warned
 
-  maxDuplicatesBan: 10, // Maximum amount of duplicate messages a user can send in a timespan before getting banned
+  maxDuplicatesBan: 20, // Maximum amount of duplicate messages a user can send in a timespan before gettingbanned
 
   deleteMessagesAfterBanForPastDays: 7, // Delete the spammed messages after banning for the past x days.
 

@@ -14,7 +14,7 @@ module.exports = async (client, member) => {
 if(ban[member.user.id]){
 
 member.guild.ban(member.user.id)
-member.guild.owner.user.send(`${member.user.tag} | Id: ban[member.user.id] a été ban pour : ${ban[member.user.id].raison}.`)
+member.guild.owner.user.send(`${member.user.tag} | Id: ${ban[member.user.id]} a été ban pour : ${ban[member.user.id].raison}.`)
      
 } 
      

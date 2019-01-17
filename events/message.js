@@ -37,7 +37,7 @@ module.exports = async (client, message) => {
   var antispam = JSON.parse(body)
    			 
 
-  if(!antispam[message.guild.id]) return; 
+  if(antispam[message.guild.id] == null) return; 
   
   if(antispam[message.guild.id].boonlean == false){
   	

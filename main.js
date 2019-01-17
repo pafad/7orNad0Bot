@@ -1,6 +1,6 @@
 console.log("lancement...")
 const config = require("./config.json");
-const shard = require( "./Shard.js") ; 
+const shard = require("./shard.js") ; 
 const Discord = require("discord.js");
 const fs = require("fs");
 const client = new Discord.Client({disableEveryone: true});

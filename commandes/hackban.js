@@ -1,4 +1,8 @@
 module.exports.run = async (client, message, args) => {
+    if( !message.membres.hasPermission("BAN_MEMBERS")){
+        message.channel.send("Du n'as pas la permission de bannir les membres")
+        return; 
+       }else{
     if(!args[0] || args.length < 1){
         message.channel.send(":x: Spécifiez une id d'utilisateur à bannir.")
         return
@@ -12,6 +16,7 @@ module.exports.run = async (client, message, args) => {
 }).catch(console.error)
         }
     }
+}
 }
 
 module.exports.help = {

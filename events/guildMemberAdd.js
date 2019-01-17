@@ -20,4 +20,6 @@ member.guild.owner.user.send(`${member.user.tag} | Id: ban[member.user.id] a ét
      
 })
 
+ 
+ 
 } 

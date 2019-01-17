@@ -11,7 +11,7 @@ antispam(client, {
 
   maxBuffer: 5, // Maximum amount of messages allowed to send in the interval time before getting banned.
 
-  interval: 1000, // Amount of time in ms users can send a maximum of the maxBuffer variable before getting banned.
+  interval: 500, // Amount of time in ms users can send a maximum of the maxBuffer variable before gettibanned.
 
   warningMessage: "stop spam ou je te coupe la tête.", // Warning message send to the user indicating they are going to fast.
 

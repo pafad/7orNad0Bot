@@ -1,14 +1,14 @@
 console.log("lancement...")
 const config = require("./config.json");
-const shard = require("./shard.js") ; 
+//const shard = require("./shard.js") ; 
 const Discord = require("discord.js");
 const fs = require("fs");
 const client = new Discord.Client({
   disableEveryone: true,
   
-  shardId: process.argv[1],
+  //shardId: process.argv[1],
 
-  shardCount: process.argv[2],
+  //shardCount: process.argv[2],
 
   fetchAllMembers: true
 

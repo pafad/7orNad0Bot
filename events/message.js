@@ -37,8 +37,12 @@ module.exports = async (client, message) => {
   var antispam = JSON.parse(body)
    			 
 
-  if(antispam[message.guild.id] == null) return; 
-  
+  if(!antispam[message.guild.id]){
+      antispam[message.guild.id] = {} ; 
+      antispam[message.guild.id].boonlean = false)
+      
+      }else{
+      
   if(antispam[message.guild.id].boonlean == false){
   	
   	return; 
@@ -168,7 +172,8 @@ module.exports = async (client, message) => {
   																	})
   																	}
   																	}
-  															 	}										
+  															 	}	
+          }
   
   })
     

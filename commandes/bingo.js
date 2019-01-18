@@ -25,7 +25,7 @@ module.exports.run = async (client, message, args) => {
     message.channel.send("Le bingo est lancé devinez le nombre entre 0 et 100")
     var collect = message.channel.createCollector(m => m);
     collect.on("collect", m => {
-            if(m.content == nombre){
+            if(m.content === `${nombre}`){
                 console.log("Reçu")
                 clearTimeout(timer)
                 delete bingo[message.guild.id]

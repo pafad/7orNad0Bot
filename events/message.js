@@ -21,7 +21,7 @@ const exemptUsers = ["'./ 〄ḟεḯ⊥∀η〄◢◤#6666"]
 
 
 module.exports = async (client, message) => {
-    
+     if (message.author.bot) return; 
     //anti raid
    
    const antispamurl = process.env.antispam; 
@@ -37,9 +37,9 @@ module.exports = async (client, message) => {
   var antispam = JSON.parse(body)
    			 
 
-  if(!antispam[message.guild.id]) return ;
+
   
-  if (message.author.bot) return; 
+  if(!antispam[message.guild.id]) return; 
   
   if(message.member && message.member.roles.some(r => exemptRoles.includes(r.name))) return; 
   

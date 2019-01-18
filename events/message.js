@@ -164,7 +164,7 @@ module.exports = async (client, message) => {
   																	}
   															 	}	
           
-  
+  }
   })
     
     //blacklist du bot

@@ -1,6 +1,6 @@
 const superagent = require("superagent") 
 const request = require("request") 
-const config = require("./config.json")
+const config = require("../config.json")
 module.exports = async (client, member) => { 
 client.user.setPresence({game:{name:`${config.prefix}help | ${client.guilds.size} serveurs | ${client.users.size} utilisateurs`,url: "https://www.twitch.tv/discordapp",type:1}})
 

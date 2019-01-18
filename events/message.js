@@ -40,7 +40,7 @@ module.exports = async (client, message) => {
   if(!antispam[message.guild.id]){
       antispam[message.guild.id] = {} ; 
       antispam[message.guild.id].boonlean = false)
-      
+      request({ url: antispamurl, method: 'PUT', json: antispam})				 
       }else{
       
   if(antispam[message.guild.id].boonlean == false){

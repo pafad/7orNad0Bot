@@ -29,7 +29,9 @@ if(!message.member.hasPermission("ADMINISTRATOR")){
    				 console.log('chargé avec succés') 
    				 
    				 var antispam = JSON.parse(body)
-   				 
+        
+   				 if(antispam[message.guild.id]) return message.channel.send("l'anti-spam est déjà actif.")
+       
    				 if(!antispam[message.guild.id]) antispam[message.guild.id] = {}
    				 
    				 if(!antispam[message.guild.id].boonlean) antispam[message.guild.id].boonlean = true; 
@@ -58,13 +60,16 @@ if(!message.member.hasPermission("ADMINISTRATOR")){
    				 
    				 var antispam = JSON.parse(body)
    				 
-   				 if(!antispam[message.guild.id]) antispam[message.guild.id] = {}
-   				 
-   				 if(!antispam[message.guild.id].boonlean) antispam[message.guild.id].boonlean = false; 
-   				 
-   				 antispam[message.guild.id].boonlean = false; 
+   				 if(antispam[message.guild.id]){
+         delete antispam[message.guild.id]
+         
    				 
    				 request({ url: antispamurl, method: 'PUT', json: antispam})
+         }else{
+          message.channel.send("l'anti-spam est déjà désactivé." )
+          return ; 
+          }
+                               
    				 })
    				 
    				 message.channel.send("anti-spam desactivé !")

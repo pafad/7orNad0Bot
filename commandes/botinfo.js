@@ -31,7 +31,8 @@ module.exports.run = (client, message, args, opt) => {
 module.exports.help = {
     name:"botinfo",
     description:"informations du bot",
-    usage:"botinfo/info/bi"
+    usage:"botinfo/info/bi", 
+    category:"info" 
 }
 
 module.exports.conf = {

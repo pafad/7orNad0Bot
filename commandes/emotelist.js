@@ -10,8 +10,8 @@ module.exports.run = async (client, message) => {
   url: '',
   fields: [
   {
-  name: ':gear: -> liste de rôles',
-  value: message.guild.emojis.map(e => e.toString()).join(" "),
+  name: ':gear: -> liste de émojis',
+  value: message.guild.emojis.map(e => e).join(" ") ,
   inline: false
   },
   ],

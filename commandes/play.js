@@ -43,7 +43,7 @@ async function playStream(client, opt, data) {
 
     client.channels.get(data.queue[0].annouceChannel).send(`Je joue maintenant : **${data.queue[0].songTitle}** | Demandé par : **${data.queue[0].requester}**`)
 
-    data.dispatcher = await data.connection.playStream(yt(data.queue[0].url, {filter:"audioonly", quality:"highest"}))
+    data.dispatcher = await data.connection.playStream(yt(data.queue[0].url, {filter:"audioonly", quality:"highest"}), {bitrate: 192000 /* 192kbps */})
     data.dispatcher.guildID = data.guildID;
 
     data.dispatcher.on('end',function(){

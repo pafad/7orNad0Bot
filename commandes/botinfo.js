@@ -13,7 +13,7 @@ module.exports.run = (client, message, args, opt) => {
         },
         {
         name: "Mémoire utilisée(à tester)",
-        value: Math.round(process.memoryUsage()/1000000) + "MB",
+        value: Math.round(process.memoryUsage().rss/1000000) + "MB",
         inline: false
         },
     ],

@@ -45,10 +45,18 @@ inline: false
 },
 {
 name: 'liste des rôles',
-value:  `fait __${config.prefix}roleslist__ pour avoir une liste complète`,
+value:  `fais __${config.prefix}roleslist__ pour avoir une liste complète`,
 inline: false
 },
-],
+{
+
+  name: ':gear: -> liste de émojis',
+
+  value: message.guild.emojis.map(e => e).join(" ") ,
+
+  inline: false
+
+  }],
 footer: {
 icon_url: client.user.avatarURL,
 text: `serverinfo by shiro`

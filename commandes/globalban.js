@@ -2,7 +2,23 @@ const superagent = require("superagent")
 const request = require("request") 
 
 module.exports.run = async (client, message, args, opt) => {
+ const modUrl = process.env.mods;
 
+            request(modUrl, (err, res, body) => {
+
+                
+
+                console.log('chargement !')
+
+                
+
+                if(err || res.statusCode!== 200)return
+
+                
+
+                console.log('chargé avec succés')
+
+                var mods = JSON.parse(body)
  	
 	    	const banUrl = process.env.ban;
     
@@ -12,7 +28,7 @@ module.exports.run = async (client, message, args, opt) => {
 
     let ban = JSON.parse(body);  
   
-if(message.author.id == opt.OwnerID){
+if(message.author.id == opt.OwnerID || mods[message.author.id]){
 if(!args){
 	message.channel.send("utilisateur introuvable")  
     return;
@@ -30,7 +46,7 @@ if(!args){
   
 })
 
-
+}) 
 } 
 
 module.exports.help = {

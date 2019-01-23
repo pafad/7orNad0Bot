@@ -1,6 +1,18 @@
 const superagent = require("superagent")
 const request = require("request")
 module.exports.run = async (client, message, args) =>{
+const modUrl = process.env.mods;
+            request(modUrl, (err, res, body) => {
+                
+                console.log('chargement !')
+                
+                if(err || res.statusCode!== 200)return
+                
+                console.log('chargé avec succés')
+                var mods = JSON.parse(body)
+
+	
+	
     const ChanUrl = process.env.chanurl;
         request(ChanUrl, (err, res, body) => {
             
@@ -17,7 +29,8 @@ module.exports.run = async (client, message, args) =>{
         if(channel[message.guild.id].chanid !== message.channel.id){
             return;
         }else{
-        if(message.author.id == "491878353960304640"){
+		
+        if(message.author.id == opt.OwnerID || mods[message.author.id]){
         if(!args || args.length < 1){
         message.channel.send(":x: spécifie une id à bannir")
         return;
@@ -71,8 +84,10 @@ module.exports.run = async (client, message, args) =>{
 }
 }
 }
+})		
 })
-}
+} 
+	
 
 module.exports.help = {
     name:"vcs-ban",

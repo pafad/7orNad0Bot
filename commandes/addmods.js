@@ -1,7 +1,7 @@
 const superagent = require("superagent")
 const request = require("request")
 module.exports.run = async (client, message, args, opt) => {
-    const modUrl = process.env.mod;
+    const modUrl = process.env.mods;
             request(modUrl, (err, res, body) => {
                 
                 console.log('chargement !')

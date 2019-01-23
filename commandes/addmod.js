@@ -21,7 +21,7 @@ module.exports.run = async (client, message, args, opt) => {
                }else{
                if(!mods[usermention.id]) mods[usermention.id] = {} 
                request({ url: modUrl, method: 'PUT', json: mods})
-               message.channel.send(`**${usermention.tag}** est désormais un modérateur du bot !") 
+               message.channel.send(`**${usermention.tag}** est désormais un modérateur du bot !`) 
               } 
              } 
 

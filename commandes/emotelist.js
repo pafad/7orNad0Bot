@@ -1,6 +1,6 @@
 module.exports.run = async (client, message) => {
     if(message.guild.emojis.size == 0) return message.channel.send(":x: Il n'y a pas d'emojis dans ce serveur") 
-    message.channel.send(message.guild.emojis.map(e => e).join(" "))) 
+    message.channel.send(message.guild.emojis.map(e => e).join(" "))
   }
 
   module.exports.help = {

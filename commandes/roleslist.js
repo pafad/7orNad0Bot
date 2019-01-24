@@ -7,7 +7,7 @@ icon_url: message.author.avatarURL,
 },
 title: `Les rôles de : ${message.guild.name}`,
 url: '',
-description: message.guild.roles.map(r => r.name), 
+description: `${message.guild.roles.map(r => r.name).join("\n")} `, 
 timestamp: new Date(),
 footer: {
 icon_url: client.user.avatarURL,

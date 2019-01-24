@@ -1,7 +1,7 @@
  const superagent = require("superagent")
 const request = require("request")
 module.exports.run = async (client, message, args) => {
-	if(!args || args.lenght < 1) {
+	if(!args[0]) {
 		   const afkUrl = process.env.afk;
             request(afkUrl, (err, res, body) => {
         

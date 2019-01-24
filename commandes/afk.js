@@ -46,5 +46,5 @@ category:"utility"
 } 
 
 module.exports.conf = {
-alliases:[] 
+aliases:[] 
 } 

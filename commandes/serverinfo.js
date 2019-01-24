@@ -44,22 +44,22 @@ value: message.guild.members.size,
 inline: false
 },
 {
-name:":gear:;-> nombre d'utilisateurs en ligne", 
+name:":gear: -> nombre d'utilisateurs en ligne", 
 value:message.guild.members.filter(f => f.user.presence.status === "online").size, 
 inline:false
 }, 
 {
-name:":gear:;-> nombre d'utilisateurs en afk", 
+name:":gear: -> nombre d'utilisateurs en afk", 
 value:message.guild.members.filter(f => f.user.presence.status === "idle").size, 
 inline:false
 }, 
 {
-name:":gear:;-> nombre d'utilisateurs en ne pas déranger", 
+name:":gear: -> nombre d'utilisateurs en ne pas déranger", 
 value:message.guild.members.filter(f => f.user.presence.status === "dnd").size, 
 inline:false
 }, 
 {
-name:":gear:;-> nombre d'utilisateurs en hors ligne", 
+name:":gear: -> nombre d'utilisateurs en hors ligne", 
 value:message.guild.members.filter(f => f.user.presence.status === "offline").size, 
 inline:false
 }, 

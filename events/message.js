@@ -55,7 +55,7 @@ module.exports = async (client, message) => {
 }) 
    
    
-   var mention = message.mention.members.first();
+   var mention = message.mentions.members.first();
    if(mention){
    	const afkUrl = process.env.afk;
             request(afkUrl, (err, res, body) => {

@@ -36,7 +36,7 @@ module.exports = async (client, message) => {
                 if(afk[message.guild.id + message.author.id]) {
                 
     var now = new Date().getTime();
-    var distance = userData[Sender.id].LastDaily - now;
+    var distance = afk[message.guild.id + message.author.id].time- now;
     var days = Math.floor(distance / (1000 * 60 * 60 * 24));
     var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
     var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
@@ -68,7 +68,7 @@ module.exports = async (client, message) => {
                 console.log('chargé avec succés')
                 var afk = JSON.parse(body)
                 if(afk[message.guild.id + mention.id]){
-                message.reply(`**${mention.user.tag}** est en afk :**${afk[message.guild.id + mention.id}**.`)
+                message.reply(`**${mention.user.tag}** est en afk :**${afk[message.guild.id + mention.id]}**.`)
                }
                }) 
    	}

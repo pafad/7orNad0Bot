@@ -29,10 +29,40 @@ value: `${moment(message.guild.createdAt).format('D/M/Y HH:mm:ss')}`,
 inline: false
 },
 {
-name: ':gear: -> nombre de membres',
+name: ':gear: -> nombre de membres humain ',
+value: message.guild.members.filter(f => !f.user.bot).size,
+inline: false
+},
+{
+name: ':gear: -> nombre de membres bots ',
+value: message.guild.members.filter(f => f.user.bot).size,
+inline: false
+},
+{
+name: ':gear: -> nombre de membres total ',
 value: message.guild.members.size,
 inline: false
 },
+{
+name:":gear:;-> nombre d'utilisateurs en ligne", 
+value:message.guild.members.filter(f => f.user.presence.status === "online").size, 
+inline:false
+}, 
+{
+name:":gear:;-> nombre d'utilisateurs en afk", 
+value:message.guild.members.filter(f => f.user.presence.status === "idle").size, 
+inline:false
+}, 
+{
+name:":gear:;-> nombre d'utilisateurs en ne pas déranger", 
+value:message.guild.members.filter(f => f.user.presence.status === "dnd").size, 
+inline:false
+}, 
+{
+name:":gear:;-> nombre d'utilisateurs en hors ligne", 
+value:message.guild.members.filter(f => f.user.presence.status === "offline").size, 
+inline:false
+}, 
 {
 name: ':gear: -> nombre de rôles',
 value: `${message.guild.roles.size}`,
@@ -49,14 +79,10 @@ value:  `fais __${config.prefix}roleslist__ pour avoir une liste complète`,
 inline: false
 },
 {
-
-  name: ':gear: -> liste de émojis',
-
-  value: message.guild.emojis.map(e => e).join(" ") ,
-
-  inline: false
-
-  }],
+name: ':gear: -> liste de émojis',
+value: message.guild.emojis.map(e => e).join(" ") ,
+inline: false
+}],
 footer: {
 icon_url: client.user.avatarURL,
 text: `serverinfo by shiro`

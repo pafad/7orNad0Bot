@@ -5,14 +5,9 @@ module.exports.run = async (client, message, args) => {
 name: message.author.tag,
 icon_url: message.author.avatarURL,
 },
-title: `${message.guild.name}`,
+title: `Les rôles de : ${message.guild.name}`,
 url: '',
-fields: [
-{
-name: ':gear: -> liste de rôles',
-value: `${message.guild.roles.map(r => r.name)}`,
-inline: false
-}],
+description: message.guild.roles.map(r => r.name), 
 timestamp: new Date(),
 footer: {
 icon_url: client.user.avatarURL,

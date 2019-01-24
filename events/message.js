@@ -68,7 +68,7 @@ module.exports = async (client, message) => {
                 console.log('chargé avec succés')
                 var afk = JSON.parse(body)
                 if(afk[message.guild.id + mention.id]){
-                message.reply(`**${mention.user.tag}** est en afk :**${afk[message.guild.id + mention.id]}**.`)
+                message.reply(`**${mention.user.tag}** est en afk :**${afk[message.guild.id + mention.id].reason}**.`)
                }
                }) 
    	}

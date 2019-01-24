@@ -75,12 +75,12 @@ inline: false
 },
 {
 name: 'liste des rôles',
-value:  `fais __${config.prefix}roleslist__ pour avoir une liste complète`,
+value: message.guild.roles.size < 25 ? message.guild.roles.map(e => e).join(" ") : "trop de rôles utilise la commande **"+ config.prefix +"roleslist**." ,
 inline: false
 },
 {
 name: ':gear: -> liste de émojis',
-value: message.guild.emojis.map(e => e).join(" ") ,
+value: message.guild.emojis.size < 25 ? message.guild.emojis.map(e => e).join(" ") : "trop d'emojis utilise la commande **"+ config.prefix+"emotelist**. ",
 inline: false
 }],
 footer: {

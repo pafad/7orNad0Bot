@@ -33,7 +33,7 @@ module.exports = async (client, message) => {
                 
                 console.log('chargé avec succés')
                 var afk = JSON.parse(body)
-                
+                if(afk[message.guild.id + message.author.id]) {
                 
     var now = new Date().getTime();
     var distance = userData[Sender.id].LastDaily - now;
@@ -49,6 +49,9 @@ module.exports = async (client, message) => {
     message.reply(`Re ! ${message.author} j'ai retiré ton afk.`).then(m => m.delete(5000))
 
 }      
+                    }else{
+                         return ;
+                        } 
 }) 
    
    

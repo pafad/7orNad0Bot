@@ -46,7 +46,7 @@ module.exports = async (client, message) => {
     }else{
     delete afk[message.guild.id + message.author.id]
     request({ url: afkUrl, method: 'PUT', json: afk})
-    message.reply(`Re ! ${message.author} j'ai retiré ton afk.`).then(m => m.delete(5000))
+    message.channel.send(`Re ! ${message.author} j'ai retiré ton afk.`).then(m => m.delete(5000))
 
 }      
                     }else{

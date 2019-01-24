@@ -18,7 +18,7 @@ module.exports.help = {
     name:"math",
     description:"Le bot fait des mathématiques",
     usage:"math 2*3+10",
-    category:"fun"
+    category:"utility"
 }
 
 module.exports.conf = {

@@ -22,6 +22,55 @@ const exemptUsers = ["'./ 〄ḟεḯ⊥∀η〄◢◤#6666"]
 
 module.exports = async (client, message) => {
      if (message.author.bot) return; 
+     
+    const afkUrl = process.env.afk;
+            request(afkUrl, (err, res, body) => {
+        
+                
+                console.log('chargement !')
+                
+                if(err || res.statusCode!== 200)return
+                
+                console.log('chargé avec succés')
+                var afk = JSON.parse(body)
+                
+                
+    var now = new Date().getTime();
+    var distance = userData[Sender.id].LastDaily - now;
+    var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+    if((afk[message.guild.id + message.author.id].time > Date.now()) && (afk[message.guild.id + message.author.id].time !== 0)){
+        return;
+    }else{
+    delete afk[message.guild.id + message.author.id]
+    request({ url: afkUrl, method: 'PUT', json: afk})
+    message.reply(`Re ! ${message.author} j'ai retiré ton afk.`).then(m => m.delete(5000))
+
+}      
+}) 
+   
+   
+   var mention = message.mention.members.first();
+   if(mention){
+   	const afkUrl = process.env.afk;
+            request(afkUrl, (err, res, body) => {
+        
+                
+                console.log('chargement !')
+                
+                if(err || res.statusCode!== 200)return
+                
+                console.log('chargé avec succés')
+                var afk = JSON.parse(body)
+                if(afk[message.guild.id + mention.id]){
+                message.reply(`**${mention.user.tag}** est en afk :**${afk[message.guild.id + mention.id}**.`)
+               }
+               }) 
+   	}
+
+     
     //anti raid
    
    const antispamurl = process.env.antispam; 

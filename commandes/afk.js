@@ -32,11 +32,11 @@ module.exports.run = async (client, message, args) => {
                 console.log('chargé avec succés')
                 var afk = JSON.parse(body)
                 if(!afk[message.guild.id + message.author.id]) afk[message.guild.id + message.author.id] = {};
-                if(!afk[message.guild.id + message.author.id].reason) afk[message.guild.id + message.author.id].reason = args.join(" ");
+                if(!afk[message.guild.id + message.author.id].reason) afk[message.guild.id + message.author.id].reason = `${args.join(" ")}`;
                 if(!afk[message.guild.id + message.author.id].time) afk[message.guild.id + message.author.id].time = new Date().getTime() + 120000;
                 request({ url: afkUrl, method: 'PUT', json: afk})
 
-                message.reply(`Tu es maintenant en afk pour : **${args.join(" ")}**.`)
+                message.reply(`Tu es maintenant en afk pour : **${afk[message.guild.id + message.author.id].reason}**.`)
                }) 
               }
 } 

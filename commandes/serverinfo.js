@@ -16,18 +16,23 @@ fields: [
 {
 name: ':gear: -> ID du serveur',
 value: `${message.guild.id}`,
-inline: true
+inline: false
 },
 {
 name: ':gear: -> propriétaire du serveur',
 value: `${message.guild.owner.user.username}`,
-inline: true
+inline: false
 },
 {
 name: ':gear: -> créé le:',
-value: `${moment(message.guild.createdAt).format('D/M/Y HH:mm:ss')}`,
+value: `${moment(message.guild.createdAt).format('D/M/Y à HH:mm:ss')}`,
 inline: false
 },
+{
+name: ":gear: -> tu as rejoins ce serveur le :", 
+value:`${moment(message.member.joinedAt).format('D/M/Y à HH:mm:ss')} `, 
+inline:false
+}, 
 {
 name: ':gear: -> nombre de membres humain ',
 value: message.guild.members.filter(f => !f.user.bot).size,

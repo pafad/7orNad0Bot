@@ -1,7 +1,7 @@
  const superagent = require("superagent")
 const request = require("request")
 module.exports.run = async (client, message, args) => {
-	if(!args[0]) {
+	if(!args) {
 		   const afkUrl = process.env.afk;
             request(afkUrl, (err, res, body) => {
         
@@ -19,7 +19,9 @@ module.exports.run = async (client, message, args) => {
 
   
                 message.reply(`Tu es maintenant en afk pour : **AFK**.`)
-               }) 
+               })
+		return;
+		
 		} else {
     const afkUrl = process.env.afk;
             request(afkUrl, (err, res, body) => {

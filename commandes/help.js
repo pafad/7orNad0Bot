@@ -35,7 +35,7 @@ module.exports.run = async (client, message, args) => {
       value:`${client.commands.filter(cmd => cmd.help.category =="nsfw").map(c => `\`\`${config.prefix + c.help.name}\`\` : ${c.help.description}\n`).join(" ")}`
     },
     {
-      name:"Vcs ("+client.commands.filter(c => c.help.category === "vcs").size*")",
+      name:"Vcs ("+client.commands.filter(c => c.help.category === "vcs").size+")",
       value:`${client.commands.filter(cmd => cmd.help.category =="vcs").map(c => `\`\`${config.prefix + c.help.name}\`\` : ${c.help.description}\n`).join(" ")}`
     },
     {

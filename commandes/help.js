@@ -18,6 +18,10 @@ module.exports.run = async (client, message, args) => {
       name:"Info ("+client.commands.filter(c => c.help.category === "info").size+")" ,
       value:`${client.commands.filter(cmd => cmd.help.category =="info").map(c => `\`\`${config.prefix + c.help.name}\`\` : ${c.help.description}\n`).join(" ")}`
     },
+    {
+    name:"Utilité ("+client.commands.filter(c => c.help.category === "utility").size+")" ,
+    value:`${client.commands.filter(cmd => cmd.help.category =="utility").map(c => `\`\`${config.prefix + c.help.name}\`\` : ${c.help.description}\n`).join(" ")}`
+    },
      {
        name : "Musique ("+client.commands.filter(c => c.help.category === "music").size+")", 
        value :`${client.commands.filter(cmd => cmd.help.category == "music").map( c => `\`\`${config.prefix + c.help.name}\`\` : ${c.help.description}\n`).join(" ")}`
@@ -25,6 +29,10 @@ module.exports.run = async (client, message, args) => {
     {
       name:"Fun ("+client.commands.filter(c => c.help.category === "fun").size+")",
       value:`${client.commands.filter(cmd => cmd.help.category =="fun").map(c => `\`\`${config.prefix + c.help.name}\`\` : ${c.help.description}\n`).join(" ")}`
+    },
+     {
+      name:"NSFW ("+client.commands.filter(c => c.help.category === "nsfw").size+")" ,
+      value:`${client.commands.filter(cmd => cmd.help.category =="nsfw").map(c => `\`\`${config.prefix + c.help.name}\`\` : ${c.help.description}\n`).join(" ")}`
     },
     {
       name:"Vcs ("+client.commands.filter(c => c.help.category === "vcs").size*")",

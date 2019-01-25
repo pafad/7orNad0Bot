@@ -2,7 +2,7 @@ const config = require("../config.json")
 const active = new Map();
 module.exports = (client, oldMessage, newMessage) => {
 if(newMessage.author.bot)return ;
-if(newMessage.channel.type === "dm") return message.channel.send("hm ?");
+if(newMessage.channel.type === "dm") return newMessage.channel.send("hm ?");
 
      //double arguments du turfu
 
@@ -28,11 +28,11 @@ if(newMessage.channel.type === "dm") return message.channel.send("hm ?");
 
   
 
-    let commandFile = client.commands.get(cmd.slice(prefix.length)) || client.commands.get(client.aliases.get(cmd.slice(prefix.length)));
+    let commandFile = client.commands.get(cmd.slice(config.prefix.length)) || client.commands.get(client.aliases.get(cmd.slice(prefix.length)));
 
     if(commandFile){
 
-      commandFile.run(client, message, args, opt)
+      commandFile.run(client, newMessage, args, opt)
 
       console.log(`${moment(new Date).format('D-M-Y à HH:mm:ss')} : ${message.author.tag} a utilisé la commande ${cmd}`)
 

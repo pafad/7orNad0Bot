@@ -1,11 +1,12 @@
 const config = require("../config.json") 
+const active = New map();
 module.exports = (client, oldMessage, newMessage) => {
 if(newMessage.author.bot)return ;
 if(newMessage.channel.type === "dm") return message.channel.send("hm ?");
 
      //double arguments du turfu
 
-    if(!newMessage.content.startsWith(prefix)) return ;
+    if(!newMessage.content.startsWith(config.prefix)) return ;
 
     
 

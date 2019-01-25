@@ -65,8 +65,12 @@ function changeColor() {
 }
 
         client.user.setPresence({game:{name:`${config.prefix}help | ${client.guilds.size} serveurs | ${client.users.size} utilisateurs`,url: "https://www.twitch.tv/discordapp",type:1}})
-
+       
+	
         console.log(`${client.user.tag} connecté !`)
+	
+	client.channels.get("538318102685941770").send("je suis lancé !") 
+	
 
         if(config.speed < 60000){console.log("The minimum speed is 60.000, if this gets abused your bot might get IP-banned"); process.exit(1);}
 

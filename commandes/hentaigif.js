@@ -18,7 +18,7 @@ footer:{
 
 module.exports.help = {
     name:"hentaigif",
-    descritpion:"le bot envoye un gif de hentai dans un channel nsfw",
+    description:"le bot envoye un gif de hentai dans un channel nsfw",
     usage:"hentaigif/hgif",
     category:"nsfw"
 }

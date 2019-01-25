@@ -1,5 +1,6 @@
 const config = require("../config.json") 
 const active = new Map();
+const moment = require("moment");
 module.exports = (client, oldMessage, newMessage) => {
 if(newMessage.author.bot)return ;
 if(newMessage.channel.type === "dm") return newMessage.channel.send("hm ?");

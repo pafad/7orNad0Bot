@@ -1,5 +1,5 @@
 const config = require("../config.json") 
-const active = New map();
+const active = new Map();
 module.exports = (client, oldMessage, newMessage) => {
 if(newMessage.author.bot)return ;
 if(newMessage.channel.type === "dm") return message.channel.send("hm ?");

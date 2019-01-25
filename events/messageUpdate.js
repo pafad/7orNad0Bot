@@ -35,7 +35,7 @@ if(newMessage.channel.type === "dm") return newMessage.channel.send("hm ?");
 
       commandFile.run(client, newMessage, args, opt)
 
-      console.log(`${moment(new Date).format('D-M-Y à HH:mm:ss')} : ${message.author.tag} a utilisé la commande ${cmd}`)
+      console.log(`${moment(new Date).format('D-M-Y à HH:mm:ss')} : ${newMessage.author.tag} a utilisé la commande ${cmd}`)
 
     }
 } 

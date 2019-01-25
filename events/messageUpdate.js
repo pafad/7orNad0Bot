@@ -28,7 +28,7 @@ if(newMessage.channel.type === "dm") return newMessage.channel.send("hm ?");
 
   
 
-    let commandFile = client.commands.get(cmd.slice(config.prefix.length)) || client.commands.get(client.aliases.get(cmd.slice(prefix.length)));
+    let commandFile = client.commands.get(cmd.slice(config.prefix.length)) || client.commands.get(client.aliases.get(cmd.slice(config.prefix.length)));
 
     if(commandFile){
 

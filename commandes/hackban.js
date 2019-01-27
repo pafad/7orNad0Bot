@@ -1,6 +1,6 @@
 module.exports.run = async (client, message, args) => {
     if(!message.member.hasPermissions("BAN_MEMBERS")){
-        message.channel.send("Du n'as pas la permission de bannir les membres")
+        message.channel.send("Tu n'as pas la permission de bannir les membres")
         return; 
        }else{
     if(!args[0] || args.length < 1){

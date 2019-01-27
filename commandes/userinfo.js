@@ -20,7 +20,7 @@ value:"#" +sender.discriminator
 },
 {
 name:":gear: -> Date de création:", 
-value:`Créé le : ${moment(sender.ceatedAt).format("D/M/Y à HH:mm:ss")} `
+value:`Créé le : ${moment(sender.createdAt).format("D/M/Y à HH:mm:ss")} `
 }, 
 {
 name:":gear: -> Statut:", 
@@ -64,7 +64,7 @@ value:"#" +User.discriminator
 },
 {
 name:":gear: -> Date de création:", 
-value:`Créé le : ${moment(User.ceatedAt).format("D/M/Y à HH:mm:ss")} `
+value:`Créé le : ${moment(User.createdAt).format("D/M/Y à HH:mm:ss")} `
 }, 
 {
 name:":gear: -> Statut:", 

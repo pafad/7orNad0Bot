@@ -19,8 +19,16 @@ name:":gear: -> Tag:",
 value:"#" +sender.discriminator
 },
 {
+name:":gear: -> Bot:", 
+value:!sender.bot ? "Humain" : "Bot"
+}, 
+{
 name:":gear: -> Date de création:", 
 value:`Créé le : ${moment(sender.createdAt).format("D/M/Y à HH:mm:ss")} `
+}, 
+{
+name:":gear: -> Nickname:", 
+value: message.member.nickname == undefined ? "Aucun surnom" : message.member.nickname
 }, 
 {
 name:":gear: -> Statut:", 
@@ -63,8 +71,16 @@ name:":gear: -> Tag:",
 value:"#" +User.discriminator
 },
 {
+name:":gear: -> Bot:", 
+value:!User.bot ? "Humain" : "Bot"
+}, 
+{
 name:":gear: -> Date de création:", 
 value:`Créé le : ${moment(User.createdAt).format("D/M/Y à HH:mm:ss")} `
+}, 
+{
+name:":gear: -> Nickname:", 
+value: mention.nickname == undefined ? "Aucun surnom" : mention.nickname
 }, 
 {
 name:":gear: -> Statut:", 

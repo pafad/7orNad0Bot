@@ -40,7 +40,7 @@ if(!args){
   return
       } 
   }else{
-   message. channel. send("tu n'es pas mon développeur") 
+   message. channel. send("Tu n'es pas mon développeur ou un modo du bot.") 
   return;
   } 
   

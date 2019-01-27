@@ -27,6 +27,10 @@ name:":gear: -> Date de création:",
 value:`Créé le : ${moment(sender.createdAt).format("D/M/Y à HH:mm:ss")} `
 }, 
 {
+name:":gear: -> Serveur rejoint le:", 
+value:moment(message.member.joinedAt).format("D/M/Y à HH:mm:Ss") 
+}, 
+{
 name:":gear: -> Nickname:", 
 value: message.member.nickname == undefined ? "Aucun surnom" : message.member.nickname
 }, 
@@ -78,6 +82,10 @@ value:!User.bot ? "Humain" : "Bot"
 {
 name:":gear: -> Date de création:", 
 value:`Créé le : ${moment(User.createdAt).format("D/M/Y à HH:mm:ss")} `
+}, 
+{
+name:":gear: -> Serveur rejoint le:", 
+value:moment(mention.joinedAt).format("D/M/Y à HH:mm:Ss") 
 }, 
 {
 name:":gear: -> Nickname:", 

@@ -1,7 +1,7 @@
 const config = require("../config.json")
-module.exports.run = async (client, message, args) => {
-        if(message.author.id !== config.adminID){
-            message.channel.send(`:x: ${message.author} Tu n'est pas mon developpeur.`)
+module.exports.run = async (client, message, args, opt) => {
+        if(message.author.id !== opt.OwnerID){
+            message.channel.send(`:x: ${message.author} Tu n'es pas mon developpeur.`)
             return;
         }else{
                 try {

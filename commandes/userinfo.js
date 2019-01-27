@@ -28,7 +28,7 @@ value:`Créé le : ${moment(sender.createdAt).format("D/M/Y à HH:mm:ss")} `
 }, 
 {
 name:":gear: -> Serveur rejoint le:", 
-value:moment(message.member.joinedAt).format("D/M/Y à HH:mm:Ss") 
+value:moment(message.member.joinedAt).format("D/M/Y à HH:mm:ss") 
 }, 
 {
 name:":gear: -> Nickname:", 
@@ -85,7 +85,7 @@ value:`Créé le : ${moment(User.createdAt).format("D/M/Y à HH:mm:ss")} `
 }, 
 {
 name:":gear: -> Serveur rejoint le:", 
-value:moment(mention.joinedAt).format("D/M/Y à HH:mm:Ss") 
+value:moment(mention.joinedAt).format("D/M/Y à HH:mm:ss") 
 }, 
 {
 name:":gear: -> Nickname:", 

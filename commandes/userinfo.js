@@ -20,7 +20,7 @@ value:"#" +sender.discriminator
 },
 {
 name:":gear: -> Date de création:", 
-value:`Créé le : ${moment(sender.ceatedAt).format("D-M-Y à HH:mm:ss")} `
+value:`Créé le : ${moment(sender.ceatedAt).format("D/M/Y à HH:mm:ss")} `
 }, 
 {
 name:":gear: -> Statut:", 
@@ -33,7 +33,11 @@ value: !message.member.user.presence.game ? "Pas de jeu" : message.member.user.p
 {
 name:":gear: -> Liste de rôles:", 
 value:message.member.roles.size > 25 ? "T'as trop de rôles" : message.member.roles.map(r => r).join(" ")
-}
+}, 
+{
+name:":gear: -> Liste de permissions:", 
+value:message.member.permissions.toArray().join(", ").toLowerCase()
+} 
 ],
 footer:{
 icon_url:client.user.avatarURL,
@@ -60,7 +64,7 @@ value:"#" +User.discriminator
 },
 {
 name:":gear: -> Date de création:", 
-value:`Créé le : ${moment(User.ceatedAt).format("D-M-Y à HH:mm:ss")} `
+value:`Créé le : ${moment(User.ceatedAt).format("D/M/Y à HH:mm:ss")} `
 }, 
 {
 name:":gear: -> Statut:", 
@@ -73,7 +77,11 @@ value: !User.presence.game ? "Pas de jeu" : User.presence.game.name
 {
 name:":gear: -> Liste de rôles:", 
 value:mention.roles.size > 25 ? "Il a trop de rôles" : mention.roles.map(r => r).join(" ")
-}
+}, 
+{
+name:":gear: -> Liste de permissions", 
+value:message.member.permissions.toArray().join(", ")
+} 
 ],
 footer:{
 icon_url:client.user.avatarURL,

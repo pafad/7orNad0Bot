@@ -80,7 +80,7 @@ value:mention.roles.size > 25 ? "Il a trop de rôles" : mention.roles.map(r => r
 }, 
 {
 name:":gear: -> Liste de permissions", 
-value:message.member.permissions.toArray().join(", ")
+value:mention.permissions.toArray().join(", ").toLowerCase() 
 } 
 ],
 footer:{

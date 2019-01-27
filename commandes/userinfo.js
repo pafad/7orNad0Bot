@@ -47,6 +47,7 @@ name:":gear: -> Liste de permissions:",
 value:message.member.permissions.toArray().join(", ").toLowerCase()
 } 
 ],
+timestamp:new Date(), 
 footer:{
 icon_url:client.user.avatarURL,
 text:"userinfo" 
@@ -99,6 +100,7 @@ name:":gear: -> Liste de permissions",
 value:mention.permissions.toArray().join(", ").toLowerCase() 
 } 
 ],
+timestamp:new Date(), 
 footer:{
 icon_url:client.user.avatarURL,
 text:"userinfo" 

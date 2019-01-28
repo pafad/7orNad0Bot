@@ -2,15 +2,17 @@ const sm = require ("string-similarity") ;
 
 module.exports.run = async (client, message, args) => {
 
-if(! message.member.hasPermission("ADMINISTRATOR")){
+if(! message.member.hasPermission("MANAGE_ROLES")){
 
-	message.channel.send (":x: Tu n'as pas la permission administrateur.") }else{
+	message.channel.send (":x: Tu n'as pas la permission de gérer les rôles.") 
+return;
+}else{
 
 if(! args || args.length < 1){
 
-	message.channel.send (":x: Spécifie le rôle à mentionner.")
+	message.channel.send (":x: Spécifie le rôle à éditer.")
 
-	return
+	return;
 
 }else{
 
@@ -38,10 +40,10 @@ if(!Mention) {
 
 	message.channel.send("Aucun rôles trouvé essayé le nom ou l'id")
 
-	return
+	return;
 
 }else{
- if(!message.content.includes("#") {
+ if(!message.content.includes("#")) {
  message.channel.send(":x: Tu dois entrer une couleur en format hexadécimal ex : `°#010101`") 
  return;
 } else {
@@ -65,11 +67,11 @@ if(!Mention) {
 
 module.exports.help = {
 
-name:"rolemention", 
+name:"rolecolor", 
 
-description:"mentionne le rôle souhaité",
+description:"change la couleur du rôle souhaité",
 
-usage:"rolemention/rmention <rôle>",
+usage:"rolecolor/rcolor <rôle>",
 
 category:"modération" 
 

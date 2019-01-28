@@ -79,6 +79,6 @@ category:"modération"
 
 module.exports.conf = {
 
-aliases:["rmention"] 
+aliases:["rcolor"] 
 
 } 

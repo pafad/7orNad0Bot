@@ -6,7 +6,9 @@ module.exports.run = async (client, message, args) => {
 
 if(!args) {
 
-	message.channel.send(":x: Spécifie un anime à rechercher.") 	return;
+	message.channel.send(":x: Spécifie un anime à rechercher.") 
+	
+	return;
 
 	} else {
 

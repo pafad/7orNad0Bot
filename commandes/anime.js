@@ -54,7 +54,7 @@ anime.searchAnime(args.join(), 0).then(results => {
 
     	name:"Commencé le :", 
 
-    	value:moment(results[0].attributes.createdAt).format("LLLL") 
+    	value:moment(results[0].attributes.startDate).format("LLLL") 
 
     	},
 

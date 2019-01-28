@@ -112,7 +112,7 @@ anime.searchAnime(args.join(), 0).then(results => {
 
     		},
 
-    		timestamp:new Date() 
+    		timestamp:new Date(), 
 
     		footer:{
 

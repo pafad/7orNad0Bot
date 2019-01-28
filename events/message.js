@@ -2,7 +2,8 @@ const config = require("../config.json")
 const moment = require("moment");
 const prefix = config.prefix;
 const active = new Map();
-
+const superagent = require("superagent") 
+const request = require("request") 
 
 module.exports = async (client, message) => {
      if (message.author.bot) return; 

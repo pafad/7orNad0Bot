@@ -1,5 +1,6 @@
 const wiki = require('wikijs').default
-module.exports.run = async (client, message, args, Discord) => {
+const Discord = require("discord.js") 
+module.exports.run = async (client, message, args) => {
     const embed = new Discord.RichEmbed()
 
     const query = args.join(" ");

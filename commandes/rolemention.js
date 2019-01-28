@@ -27,7 +27,7 @@ if(!Mention) {
 }else{
  message.guild.roles.find("id", Mention.id).setMentionnable(true)
  message.channel.send(`<@&${Mention.id}>`)
- message.guild.roles.get("id", Mention.id).setMentionnable(false)
+ message.guild.roles.find("id", Mention.id).setMentionnable(false)
 }
 }
 } 

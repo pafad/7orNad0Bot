@@ -25,9 +25,9 @@ if(!Mention) {
 	message.channel.send("Aucun rôles trouvé essayé le nom ou l'id")
 	return
 }else{
- message.guild.roles.find("name",Mention).setMentionnable(true)
+ message.guild.roles.find(Mention.id).setMentionnable(true)
  message.channel.send(`<@&${Mention.id}>`)
- message.guild.roles.find("name",Mention).setMentionnable(false)
+ message.guild.roles.get(Mention.id).setMentionnable(false)
 }
 }
 } 

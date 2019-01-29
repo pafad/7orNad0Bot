@@ -22,7 +22,7 @@ module.exports.run = async (client, message, args, opt) => {
 
   
 
-  var urls = res.data.playlist
+  var urls = res.data.playlist.url
 
   let data = opt.active.get(message.guild.id) || {};
 

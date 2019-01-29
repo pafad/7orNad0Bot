@@ -34,9 +34,9 @@ module.exports.run = async (client, message, args, opt) => {
 
   	console.log(urls)	  
 
-  	let info = yt.getInfo(`${urls}`)
+  	let info = yt.getInfo(`${urls[i] }`)
 	
-  	let validate = yt.validateURL()
+  	let validate = yt.validateURL(`${urls[i]}`)
         
         data.guildID = message.guild.id;
 
@@ -46,7 +46,7 @@ module.exports.run = async (client, message, args, opt) => {
 
             requester:message.author.username,
 
-            url:`${urls}`,
+            url:`${urls[i]}`,
 
             annouceChannel:message.channel.id
 

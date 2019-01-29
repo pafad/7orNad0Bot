@@ -30,13 +30,13 @@ module.exports.run = async (client, message, args, opt) => {
 
   
 
-  for async(var i in urls) {
+  for (var i in urls) {
 
   	console.log(urls[i])
 
   	
 
-  	let info = await yt.getInfo(urls[i]);
+  	let info = yt.getInfo(urls[i]);
 
   	let validate = yt.validateURL(urls[i]);
 

@@ -32,13 +32,11 @@ module.exports.run = async (client, message, args, opt) => {
 
   for (var i in urls) {
 
-  	console.log(urls[parseInt(i)-1])
-	  
-	if(`${urls[parseInt(i)-1]}` === undefined) return ;	
+  	console.log(urls[parseInt(i)-2])	  
 
-  	let info = yt.getInfo(`${urls[parseInt(i)-1]}`);
+  	let info = yt.getInfo(`${urls[parseInt(i)-2]}`);
 
-  	let validate = yt.validateURL(`${urls[parseInt(i)-1]}`);
+  	let validate = yt.validateURL(`${urls[parseInt(i)-2]}`);
 
   	
 
@@ -50,7 +48,7 @@ module.exports.run = async (client, message, args, opt) => {
 
             requester:message.author.username,
 
-            url:urls[i],
+            url:`${urls[parseInt(i)-2]}`,
 
             annouceChannel:message.channel.id
 

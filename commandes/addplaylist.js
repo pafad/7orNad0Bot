@@ -36,9 +36,9 @@ module.exports.run = async (client, message, args, opt) => {
 
   	
 
-  	let info = yt.getInfo(urls[parseInt(i)+1]);
+  	let info = yt.getInfo(`${urls[parseInt(i)+1]}`);
 
-  	let validate = yt.validateURL(urls[parseInt(i)+1]);
+  	let validate = yt.validateURL(`${urls[parseInt(i)+1]}`);
 
   	
 

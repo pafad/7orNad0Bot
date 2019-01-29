@@ -35,10 +35,10 @@ module.exports.run = async (client, message, args, opt) => {
   	console.log(urls[i])	  
 
   	let info = yt.getInfo(`${urls[i]}`)
-
+	
+	if(!info) return;
+	
   	let validate = yt.validateURL(`${urls[i]}`)
-
-  	
 
         data.guildID = message.guild.id;
 
@@ -52,7 +52,7 @@ module.exports.run = async (client, message, args, opt) => {
 
             annouceChannel:message.channel.id
 
-        }).catch(e =>{return});
+        })
 
   	} 
 

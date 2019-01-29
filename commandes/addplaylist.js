@@ -34,9 +34,9 @@ module.exports.run = async (client, message, args, opt) => {
 
   	console.log(urls[i])	  
 
-  	let info = yt.getInfo(`${urls[i]}`).catch(e => {return}) ;
+  	let info = yt.getInfo(`${urls[i]}`)
 
-  	let validate = yt.validateURL(`${urls[i]}`);
+  	let validate = yt.validateURL(`${urls[i]}`).catch(e => {return});;
 
   	
 

@@ -36,10 +36,8 @@ module.exports.run = async (client, message, args, opt) => {
 
   	let info = yt.getInfo(`${urls[i]}`)
 	
-	if(!info) return;
-	
   	let validate = yt.validateURL(`${urls[i]}`)
-
+        
         data.guildID = message.guild.id;
 
         data.queue.push({

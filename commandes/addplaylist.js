@@ -32,9 +32,9 @@ module.exports.run = async (client, message, args, opt) => {
 
   for (var i in urls) {
 
-  	console.log(urls)	  
+  	console.log(urls[i])	  
 
-  	let info = yt.getInfo(`${urls[i] }`)
+  	let info = yt.getInfo(`${urls[i]}`)
 	
   	let validate = yt.validateURL(`${urls[i]}`)
         

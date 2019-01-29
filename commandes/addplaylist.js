@@ -30,7 +30,7 @@ module.exports.run = async (client, message, args, opt) => {
 
   
 
-  for (var i in urls) {
+  for async(var i in urls) {
 
   	console.log(urls[i])
 

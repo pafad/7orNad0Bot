@@ -34,7 +34,7 @@ module.exports.run = async (client, message, args, opt) => {
 
   	console.log(urls[parseInt(i)-1])
 	  
-	if(urls[parseInt(i)-1] == undefined) return ;	
+	if(`${urls[parseInt(i)-1]}` === undefined) return ;	
 
   	let info = yt.getInfo(`${urls[parseInt(i)-1]}`);
 

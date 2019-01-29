@@ -32,11 +32,11 @@ module.exports.run = async (client, message, args, opt) => {
 
   for (var i in urls) {
 
-  	console.log(urls[parseInt(i)-1])	  
+  	console.log(urls)	  
 
-  	let info = yt.getInfo(`${urls[parseInt(i)-1]}`)
+  	let info = yt.getInfo(`${urls}`)
 	
-  	let validate = yt.validateURL(`${urls[parseInt(i)-1]}`)
+  	let validate = yt.validateURL()
         
         data.guildID = message.guild.id;
 
@@ -46,12 +46,12 @@ module.exports.run = async (client, message, args, opt) => {
 
             requester:message.author.username,
 
-            url:`${urls[i]}`,
+            url:`${urls}`,
 
             annouceChannel:message.channel.id
 
         })
-
+        urls++
   	} 
 
   	message.channel.send(`✨ ${urls.length} musiques ajoutées à la queue.`) 

@@ -32,11 +32,11 @@ module.exports.run = async (client, message, args, opt) => {
 
   for (var i in urls) {
 
-  	console.log(urls[parseInt(i) +1])	  
+  	console.log(urls[parseInt(i)-1])	  
 
-  	let info = yt.getInfo(`${urls[parseInt(i) +1]}`)
+  	let info = yt.getInfo(`${urls[parseInt(i)-1]}`)
 	
-  	let validate = yt.validateURL(`${urls[parseInt(i) +1]}`)
+  	let validate = yt.validateURL(`${urls[parseInt(i)-1]}`)
         
         data.guildID = message.guild.id;
 

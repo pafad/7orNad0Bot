@@ -33,8 +33,8 @@ module.exports.run = async (client, message, args, opt) => {
   for (var i in urls) {
 
   	console.log(urls[parseInt(i)-1])
-
-  	
+	  
+	if(!urls[i]) return ;	
 
   	let info = yt.getInfo(`${urls[parseInt(i)-1]}`);
 

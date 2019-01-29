@@ -32,11 +32,11 @@ module.exports.run = async (client, message, args, opt) => {
 
   for (var i in urls) {
 
-  	console.log(urls[parseInt(i)-2])	  
+  	console.log(urls[i])	  
 
-  	let info = yt.getInfo(`${urls[parseInt(i)-2]}`);
+  	let info = yt.getInfo(`${urls[i]}`);
 
-  	let validate = yt.validateURL(`${urls[parseInt(i)-2]}`);
+  	let validate = yt.validateURL(`${urls[i]}`);
 
   	
 
@@ -48,7 +48,7 @@ module.exports.run = async (client, message, args, opt) => {
 
             requester:message.author.username,
 
-            url:`${urls[parseInt(i)-2]}`,
+            url:`${urls[i]}`,
 
             annouceChannel:message.channel.id
 

@@ -36,7 +36,7 @@ module.exports.run = async (client, message, args, opt) => {
 
   	let info = yt.getInfo(`${urls[i]}`)
 
-  	let validate = yt.validateURL(`${urls[i]}`).catch(e => {return});;
+  	let validate = yt.validateURL(`${urls[i]}`)
 
   	
 
@@ -52,7 +52,7 @@ module.exports.run = async (client, message, args, opt) => {
 
             annouceChannel:message.channel.id
 
-        });
+        }).catch(e =>{return});
 
   	} 
 

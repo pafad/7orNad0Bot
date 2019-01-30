@@ -205,3 +205,14 @@ module.exports.run = async (client, message, args) => {
     
 } 
     	} 
+
+module.exports.help = {
+name:"tatsumaki", 
+desceiption:"donne les infos de ton compte tatsumaki", 
+usage:"tatsumaki/tatsu <@mention>", 
+category:"utility" 
+} 
+
+module.exports.conf = {
+ aliases:["tatsu"] 
+} 

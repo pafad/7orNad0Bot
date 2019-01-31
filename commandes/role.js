@@ -1,32 +1,119 @@
 module.exports.run = async (client, message, args) => {
-    let usermention = message.guild.member(message.mentions.users.first());
-    let toAdd = message.content.slice(message.content.indexOf(message.content.split(" ")[2]));
-    let userRole = message.guild.roles.find("name", `${toAdd}`) || message.guild.roles.find("id", `${toAdd} `) 
+    let usermention = message.mentions.members.first();
+
+   let toAdd = message.guild.roles.find("name", args[1]) || message.guild.roles.find("id", args[1])
+
        if(!message.guild.member(message.author).hasPermission("MANAGE_ROLES")) return message.channel.send(`${message.author}, tu n'as pas la permission de gérer les rôles.`);
+
        if(!message.guild.member(client.user).hasPermission("MANAGE_ROLES")) return message.channel.send(`${message.author}, je n'ai pas la permission de lui ajouter ce rôle.`)
-    if(!usermention){
-        message.channel.send(`:x: ${message.author}, mentionnez un utilisateur valide`)
-        return;
-   }
-  if(!message.guild.roles.exists("name", toAdd)) {
-       message.channel.send("je trouve pas ce role");
-      return;
-     }else{
-       if(usermention.roles.exists("name", `${toAdd}`)){
-         usermention.removeRole(userRole)
-         message.channel.send(`j'ai retiré le rôle: ${toAdd} à ${usermention.user.tag} fait la même commende pour lui rajouter ce rôle`)
-         return;
+
+       if(!toAdd){
+
+       message.channel.send(":x: Je ne trouve pas ce rôle.") 
+
+       return;
+
+      }else{
+
+      	
+
+       if(usermention){
+
+       	
+
+       if(usermention.roles.exists("id", `${toAdd.id}`)){
+
+       	usermention.removeRole(toAdd.id)
+
+       	message.channel.send(`[-] J'ai retiré le rôle **${toAdd.name}** à **${usermention.user.tag}** fais la même commande pour lui ajouter ce rôle.`)
+
+       	return;
+
+      		 }else{
+
+       	usermention.addRole(toAdd.id)
+
+       	message.channel.send(`[+] J'ai ajouté le rôle **${toAdd.name}** à **${usermention.user.tag}** fais la même commande pour lui retirer ce rôle.`)
+
+       	}
+
+       	return;
+
        }else{
-   usermention.addRole(userRole);
-   message.channel.send(`j'ai ajouté le role **${toAdd}** à **${usermention.user.tag}** fait la même commande pour lui retirer ce rôle.`)
-     }
-   }
+
+  
+
+        if(args[0].endsWith("members")){
+
+        
+
+        if(args[0].startsWith("+")) {
+
+        message.channel.send(`[+] J'ajoute le rôle **${toAdd.name}** à **${message.guild.members.filter(m => !m.user.bot).size} membres**, un peu de patience, le bot a besoin de temps.`) 
+
+        message.guild.members.filter(m => !m.user.bot).map(members => members.addRole(toAdd.id)) 
+
+        
+
+        }
+
+        
+
+       	if(args[0].startsWith("-")){
+
+        message.channel.send(`[-] Je retire le rôle ${toAdd.name} à **${message.guild.members.filter(m => !m.user.bot).size} membres**, un peu de patience, le bot a besoin de temps.`) 
+
+        message.guild.members.filter(m => !m.user.bot).map(members => members.removeRole(toAdd.id)) 
+
+        
+
+        }
+
+        return;
+
+        }else{
+
+       
+
+        if(args[0].endsWith("bots")){
+
+        	
+
+        	if(args[0].startsWith("+")){
+
+        message.channel.send(`[+] J'ajoute le rôle **${toAdd.name}** à **${message.guild.members.filter(m => !m.user.bot).size} membres**, un peu de patience, le bot a besoin de temps.`) 
+
+        message.guild.members.filter(m => !m.user.bot).map(members => members.addRole(toAdd.id)) 
+
+        }
+
+        
+
+       	if(args[0].startsWith("-")){
+
+        message.channel.send(`[-] Je retire le rôle **${toAdd.name}** à **${message.guild.members.filter(m => !m.user.bot).size} membres**, un peu de patience, le bot a besoin de temps.`) 
+
+        message.guild.members.filter(m => !m.user.bot).map(members => members.addRole(toAdd.id)) 
+
+        }
+
+        return;
+
+       }
+
+      } 
+
+     } 
+
+    } 
+
+   
 }
 
 module.exports.help = {
     name: "role",
     description:"donne un rôle à quelqu'un",
-    usage:"role @mention <nom du role>",
+    usage:"role <@mention | +members | +bots | -bots> <nom du role>",
     category:"modération"
 }
 

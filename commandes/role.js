@@ -81,9 +81,9 @@ module.exports.run = async (client, message, args) => {
 
         	if(args[0].startsWith("+")){
 
-        message.channel.send(`[+] J'ajoute le rôle **${toAdd.name}** à **${message.guild.members.filter(m => !m.user.bot).size} membres**, un peu de patience, le bot a besoin de temps.`) 
+        message.channel.send(`[+] J'ajoute le rôle **${toAdd.name}** à **${message.guild.members.filter(m => m.user.bot).size} membres**, un peu de patience, le bot a besoin de temps.`) 
 
-        message.guild.members.filter(m => !m.user.bot).map(members => members.addRole(toAdd.id)) 
+        message.guild.members.filter(m => m.user.bot).map(members => members.addRole(toAdd.id)) 
 
         }
 
@@ -91,9 +91,9 @@ module.exports.run = async (client, message, args) => {
 
        	if(args[0].startsWith("-")){
 
-        message.channel.send(`[-] Je retire le rôle **${toAdd.name}** à **${message.guild.members.filter(m => !m.user.bot).size} membres**, un peu de patience, le bot a besoin de temps.`) 
+        message.channel.send(`[-] Je retire le rôle **${toAdd.name}** à **${message.guild.members.filter(m => m.user.bot).size} membres**, un peu de patience, le bot a besoin de temps.`) 
 
-        message.guild.members.filter(m => !m.user.bot).map(members => members.addRole(toAdd.id)) 
+        message.guild.members.filter(m => m.user.bot).map(members => members.addRole(toAdd.id)) 
 
         }
 

@@ -7,7 +7,7 @@
 		
 		
     	],
-	"prefix" :"%", 	
+	"prefix" :"=", 	
 	"roleName": "#Rainbow",
 	"colors": 36,
 	"speed": 60000,

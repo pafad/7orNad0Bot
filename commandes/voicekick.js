@@ -18,7 +18,7 @@ await member.setVoiceChannel(temp_channel);
 
 await temp_channel.delete();
 
-message.channel.send(`**${member.user.username}** a été kick du voc.");
+message.channel.send(`**${member.user.username}** a été kick du voc.`);
 
 }
 

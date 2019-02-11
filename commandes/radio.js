@@ -1,8 +1,10 @@
 module.exports.run = (client, message, args, opt) => {
         
+        if(!message.member.voiceChannel) return message.reply("Tu n'es pas dans un channel vocal.");
+        
         if(!args){
         
-        message.channel.send("spécifie le nom de la radio.")
+        message.channel.send("Spécifie le nom de la radio.")
         
         return;
         
@@ -10,7 +12,7 @@ module.exports.run = (client, message, args, opt) => {
         
         if(args[0] === "stop"){
         
-        if(!message.guild.me.voiceChannel) return message.reply("je ne suis pas dans un channel vocal.");
+        if(!message.guild.me.voiceChannel) return message.reply("Je ne suis pas dans un channel vocal.");
         
         message.member.voiceChannel.leave();
         
@@ -24,7 +26,7 @@ module.exports.run = (client, message, args, opt) => {
 
             require("http").get(fluxwebradio, (res) => {
                 
-                if(!res) return message.reply("Aucun résultats trouvé.");
+                if(!res) return message.reply("Aucun résultats trouvés.");
                 
                 connection.playStream(res);
 
@@ -43,9 +45,9 @@ module.exports.run = (client, message, args, opt) => {
                 }});
 
             });
+            });
             }
             }
-            
             
 }
 

@@ -22,7 +22,7 @@ message.channel.send(`**${member.user.username}** a été kick du voc.`);
 
 }
 
-module.export.help = {
+module.exports.help = {
 name:"voicekick",
 description:"kick un utilisateur ou bot du vocal",
 usage:"voicekick/vk <@user/bot>",

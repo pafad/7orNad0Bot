@@ -24,11 +24,9 @@ module.exports.run = (client, message, args, opt) => {
 
         .then(connection => {
 
-            require("http").get(fluxwebradio, (res) => {
-                
-                console.log(res)
+            require("http").get(fluxwebradio, (res, err) => {
                  
-                if(res == null) return message.reply("Aucun résultats trouvés.");
+                if(err) return message.reply("Aucun résultats trouvés.");
                 
                 connection.playStream(res);
 

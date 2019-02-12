@@ -4,7 +4,7 @@ module.exports.run = async (client,message,args) => {
         message.channel.send(`:x: ${message.author} Tu n'as pas la permission de ban les membres.`);
         return;
     }else{
-        let raison = args[1].join(" ");
+        let raison = args.slice(1).join(" ");
         let membres = [];
         let indexes = [];
         message.guild.members.forEach(function(member){

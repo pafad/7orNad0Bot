@@ -30,8 +30,8 @@ module.exports.run = async (client,message,args) => {
                 return; 
             }else{
     message.delete(message.author);
-    banMember.send(`tu as été ban pour la raison: ${raison}`);
-    message.guild.member(banMember).ban(7, {reason: `${raison}`});
+    banMember.send(`Tu as été ban de **${message.guild.name}** pour la raison: ${raison}`);
+    message.guild.member(banMember).ban(7, raison);
     message.channel.sendMessage(`**${banMember}** a été ban! raison:${raison}`);
                 }
             }

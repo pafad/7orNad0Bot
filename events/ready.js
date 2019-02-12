@@ -69,7 +69,17 @@ function changeColor() {
 	
         console.log(`${client.user.tag} connecté !`)
 	
-	client.channels.get("538318102685941770").send("je suis lancé !") 
+	client.channels.get("538318102685941770").send({embed:{
+		color:0x010101, 
+		author:{
+                name:"Lancement réussi"
+		},
+		description:"Bot démarré avec succès !",
+		timestamp:new Date(),
+		footer:{
+                icon_url:client.user.avatarURL,text:"lancé"
+		} 
+	}}) 
 	
 
         if(config.speed < 60000){console.log("The minimum speed is 60.000, if this gets abused your bot might get IP-banned"); process.exit(1);}

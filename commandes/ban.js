@@ -4,7 +4,7 @@ module.exports.run = async (client,message,args) => {
         message.channel.send(`:x: ${message.author} Tu n'as pas la permission de ban les membres.`);
         return;
     }else{
-        let raison = args.join(" ").slice(18);
+        let raison = args[1].join(" ");
         let membres = [];
         let indexes = [];
         message.guild.members.forEach(function(member){
@@ -31,7 +31,7 @@ module.exports.run = async (client,message,args) => {
             }else{
     message.delete(message.author);
     banMember.send(`tu as été ban pour la raison: ${raison}`);
-    message.guild.member(banMember).ban({reason: `${raison}`});
+    message.guild.member(banMember).ban(7, {reason: `${raison}`});
     message.channel.sendMessage(`**${banMember}** a été ban! raison:${raison}`);
                 }
             }

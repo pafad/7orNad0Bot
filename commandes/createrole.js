@@ -9,9 +9,9 @@ module.exports.run = async (client, message, args) => {
     }else{
     message.guild.createRole({
         name: args[0], 
-        mentionnable:args[1] == "true" ? true : false, 
-        hoist:args[2] == "true"? true : false, 
-        color:args[3].startsWith("#") && args[3].length == 6 ? args[3] : 0x000000
+        mentionnable:false, 
+        hoist:true, 
+        color:args[1].startsWith("#") && args[1].length == 6 ? args[1] : 0x000000
     })
     message.channel.send(`:heavy_check_mark: Role créé avec succès. nom du rôle: ${args}`)
         }

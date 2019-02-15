@@ -13,7 +13,7 @@ module.exports.run = async (client, message, args) => {
         hoist:true, 
         color:args[1].startsWith("#") && args[1].length == 7 ? args[1] : 0x000000
     })
-    message.channel.send(`:heavy_check_mark: Role créé avec succès. nom du rôle: ${args}`)
+    message.channel.send(`:heavy_check_mark: Role créé avec succès. nom du rôle: ${args[0]}`)
         }
     }
 }

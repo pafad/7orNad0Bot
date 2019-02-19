@@ -4,6 +4,6 @@ const shard = new ShardingManager('./main.js', {
   autoSpawn: true
 });
 
-shard.spawn(1);
+shard.spawn(2);
 
 shard.on('launch', shard => console.log(`[SHARD] Shard ${shard.id}/${shard.totalShards}`));

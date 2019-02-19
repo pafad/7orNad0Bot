@@ -4,8 +4,8 @@ const nombre = 2;
 
 const shard = new ShardingManager('./main.js', {
   token: process.env.token,
-  autoSpawn: true, 
-  totalShards:nombre
+  totalShards:2,
+  respawn:true
 });
 
 shard.spawn(nombre);

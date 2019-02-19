@@ -1,7 +1,26 @@
+const sm = require("string-similarity") 
 module.exports.run = async (client, message, args) => {
     let usermention = message.mentions.members.first();
+    
+    let roles = [];
 
-   let toAdd = message.guild.roles.find("name", args[1]) || message.guild.roles.find("id", args[1])
+        let indexes = [];
+
+        message.guild.roles.forEach(function(role){
+
+            roles.push(role.name)
+
+            indexes.push(role.id)
+
+        })
+
+        let match = sm.findBestMatch(args.join(" "), roles);
+
+        let rolename = match.bestMatch.target;
+
+        let toMention = message.guild.roles.get(indexes[roles.indexOf(rolename)])
+        
+   let toAdd = message.guild.roles.find("name", args.join(" ")) || message.guild.roles.find("id", args.join(" ")) || toMention ;
 
        if(!message.guild.member(message.author).hasPermission("MANAGE_ROLES")) return message.channel.send(`${message.author}, tu n'as pas la permission de gérer les rôles.`);
 

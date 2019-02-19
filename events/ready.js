@@ -3,7 +3,7 @@ const config = require("../config.json")
 module.exports = async (client) => {
        
                 //rainbow
-
+if(client.shard.id + 1 == 1){
 const size    = config.colors;
 
 const rainbow = new Array(size);
@@ -63,7 +63,13 @@ function changeColor() {
   }
 
 }
+	
+    if(config.speed < 60000){console.log("The minimum speed is 60.000, if this gets abused your bot might get IP-banned"); process.exit(1);}
 
+      setInterval(changeColor, config.speed);
+
+        
+} 
         client.user.setPresence({game:{name:`${config.prefix}help | ${client.guilds.size} serveurs | ${client.users.size} utilisateurs`,url: "https://www.twitch.tv/discordapp",type:1}})
        
 	
@@ -81,9 +87,7 @@ function changeColor() {
 		//} 
 	//}}) 
 	
+	
 
-        if(config.speed < 60000){console.log("The minimum speed is 60.000, if this gets abused your bot might get IP-banned"); process.exit(1);}
-
-      setInterval(changeColor, config.speed);
-        
+    
 }

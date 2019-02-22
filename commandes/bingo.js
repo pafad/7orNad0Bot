@@ -10,7 +10,7 @@ module.exports.run = async (client, message, args) => {
          
          console.log('chargé avec succés')
          var bingo = JSON.parse(body)
-    let nombre = Math.floor(Math.random()*100);
+    let nombre = !parseInt(args[0]) ? Math.floor(Math.random()*100) : parseInt(args[0]);
     if(!message.member.hasPermission("MANAGE_MESSAGES")){
         message.channel.send("Tu n'as pas la permission de gérer les messages.")
         return;
@@ -22,7 +22,12 @@ module.exports.run = async (client, message, args) => {
         if(!bingo[message.guild.id]) bingo[message.guild.id] = {};
         request({ url: BingoUrl, method: 'PUT', json: bingo})
     message.author.send(`le nombre est : **${nombre}**`)
-    message.channel.send("Le bingo est lancé devinez le nombre entre 0 et 100")
+    message.channel.send("Le bingo est lancé devinez le nombre entre 0 et" + nombre)
+    var timer = setTimeout(() => {
+        delete bingo[message.guild.id]
+        request({ url: BingoUrl, method: 'PUT', json: bingo})
+        message.channel.send("Zetes des noob à ne pas trouver le nombre au bout de 2 minutes, la réponse était : **"+nombre+"**")
+     }, 120000);
     var collect = message.channel.createCollector(m => m);
     collect.on("collect", m => {
             if(m.content === `${nombre}`){
@@ -34,12 +39,6 @@ module.exports.run = async (client, message, args) => {
                 message.channel.send(`GG à ${m.author} qui a trouvé le nombre ${nombre}`)
             }
      },120000)
-     var timer = setTimeout(() => {
-        delete bingo[message.guild.id]
-        request({ url: BingoUrl, method: 'PUT', json: bingo})
-        message.channel.send("Zetes des noob à ne pas trouver le nombre au bout de 2 minutes, la réponse était : **"+nombre+"**")
-     }, 120000);
-        
     }
     }
 })

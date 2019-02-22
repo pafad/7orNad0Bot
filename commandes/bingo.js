@@ -10,7 +10,7 @@ module.exports.run = async (client, message, args) => {
          
          console.log('chargé avec succés')
          var bingo = JSON.parse(body)
-    let nombre = !parseInt(args[0]) ? Math.floor(Math.random()*100) : parseInt(args[0]);
+    let nombre = !isNaN(args[0]) ? Math.floor(Math.random()*100) : Math.floor(Math.random() * args[0]);
     if(!message.member.hasPermission("MANAGE_MESSAGES")){
         message.channel.send("Tu n'as pas la permission de gérer les messages.")
         return;
@@ -22,7 +22,7 @@ module.exports.run = async (client, message, args) => {
         if(!bingo[message.guild.id]) bingo[message.guild.id] = {};
         request({ url: BingoUrl, method: 'PUT', json: bingo})
     message.author.send(`le nombre est : **${nombre}**`)
-    message.channel.send("Le bingo est lancé devinez le nombre entre 0 et" + nombre)
+    message.channel.send("Le bingo est lancé devinez le nombre entre **0 et " + args[0]+"**.")
     var timer = setTimeout(() => {
         delete bingo[message.guild.id]
         request({ url: BingoUrl, method: 'PUT', json: bingo})

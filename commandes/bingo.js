@@ -10,7 +10,7 @@ module.exports.run = async (client, message, args) => {
          
          console.log('chargé avec succés')
          var bingo = JSON.parse(body)
-    let nombre = !isNaN(args[0]) ? Math.floor(Math.random()*100) : Math.floor(Math.random() * args[0]);
+    let nombre = !isNaN(args[0]) ? Math.floor(Math.random() * args[0]) : Math.floor(Math.random()*100);
     if(!message.member.hasPermission("MANAGE_MESSAGES")){
         message.channel.send("Tu n'as pas la permission de gérer les messages.")
         return;

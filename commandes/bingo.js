@@ -22,7 +22,7 @@ module.exports.run = async (client, message, args) => {
         if(!bingo[message.guild.id]) bingo[message.guild.id] = {};
         request({ url: BingoUrl, method: 'PUT', json: bingo})
     message.author.send(`le nombre est : **${nombre}**`)
-    message.channel.send("Le bingo est lancé devinez le nombre entre **0 et " + !args[0] ? "100" : args[0] +"**.")
+    message.channel.send(`Le bingo est lancé devinez le nombre entre **0 et ${!isNaN(args[0]) ? args[0] : "100"}**.`)
     var timer = setTimeout(() => {
         delete bingo[message.guild.id]
         request({ url: BingoUrl, method: 'PUT', json: bingo})

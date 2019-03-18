@@ -44,7 +44,7 @@ value: !message.member.user.presence.game ? "Pas de jeu" : message.member.user.p
 },
 {
 name:":gear: -> Dernier message:", 
-value:message.member.user.lastMessage 
+value:message.member.user.lastMessage.content
 }, 
 {
 name:":gear: -> Liste de rôles:", 
@@ -106,7 +106,7 @@ value: !User.presence.game ? "Pas de jeu" : User.presence.game.name
 },
 {
 name:":gear -> Dernier message:", 
-value:User.lastMessage
+value:User.lastMessage.content
 }, 
 {
 name:":gear: -> Liste de rôles:", 

@@ -213,11 +213,11 @@ module.exports.help = {
 
 name:"roleinfo", 
 description:"voir les info du rôle souhaité",
-usage:"roleinfo/ri <rôle>
+usage:"roleinfo/ri <rôle>", 
 category:"info" 
 
 }
 
-module.exports.conf = 
+module.exports.conf = {
 aliases:["ri"] 
 } 

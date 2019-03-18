@@ -103,6 +103,10 @@ value:User.presence.status
 {
 name:":gear: -> Jeu:", 
 value: !User.presence.game ? "Pas de jeu" : User.presence.game.name
+},
+{
+name:":gear -> Dernier message:", 
+value:User.lastMessage
 }, 
 {
 name:":gear: -> Liste de rôles:", 

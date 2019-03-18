@@ -42,10 +42,8 @@ value:message.member.user.presence.status
 name:":gear: -> Jeu:", 
 value: !message.member.user.presence.game ? "Pas de jeu" : message.member.user.presence.game.name
 },
-{
-name:":gear: -> Dernier message:", 
-value:message.member.user.lastMessage.content
-}, 
+
+
 {
 name:":gear: -> Liste de rôles:", 
 value:message.member.roles.size > 25 ? "T'as trop de rôles" : message.member.roles.map(r => r).join(" ")

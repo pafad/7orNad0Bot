@@ -41,6 +41,10 @@ value:message.member.user.presence.status
 {
 name:":gear: -> Jeu:", 
 value: !message.member.user.presence.game ? "Pas de jeu" : message.member.user.presence.game.name
+},
+{
+name:":gear: -> Dernier message:", 
+value:message.member.user.lastMessage 
 }, 
 {
 name:":gear: -> Liste de rôles:", 
@@ -50,6 +54,7 @@ value:message.member.roles.size > 25 ? "T'as trop de rôles" : message.member.ro
 name:":gear: -> Liste de permissions:", 
 value:message.member.permissions.toArray().join(", ").toLowerCase()
 } 
+
 ],
 timestamp:new Date(), 
 footer:{

@@ -26,5 +26,6 @@ module.exports.help = {
   }
 
   module.exports.conf = {
-    aliases:["addrole"]
+    aliases:["addrole"],
+cooldown:5
   }

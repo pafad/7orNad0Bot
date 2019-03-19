@@ -60,7 +60,7 @@ module.exports.run = async (client, message, args) => {
         name:`Commande : ${client.commands.get(args[0]).help.name}`,
         icon_url:message.author.avatarURL
       },
-      description:`\`\`description\`\` : ${client.commands.get(args[0]).help.description}\n\`\`Utilisation\`\` : ${client.commands.get(args[0]).help.usage}\n\`\`Catégorie\`\` : ${client.commands.get(args[0]).help.category}`,
+      description:`\`\`description\`\` : ${client.commands.get(args.join(" ")).help.description}\n\`\`Utilisation\`\` : ${client.commands.get(args.join(" ")).help.usage}\n\`\`Catégorie\`\` : ${client.commands.get(args.join(" ")).help.category}\n\`\`Cooldown:\`\` ${client.commands.get(args.join(" ")).conf.cooldown} secondes`,
       timestamp:new Date,
       thumbnail:{
         url:client.user.avatarURL
@@ -83,5 +83,6 @@ module.exports.help = {
 }
 
 module.exports.conf = {
-  aliases:["h"]
+  aliases:["h"],
+cooldown:3
 }

@@ -17,5 +17,6 @@ module.exports.help = {
 }
 
 module.exports.conf = {
-  aliases:["dit"]
+  aliases:["dit"],
+cooldown:5
 }

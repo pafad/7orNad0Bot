@@ -4,6 +4,7 @@ const prefix = config.prefix;
 const active = new Map();
 const superagent = require("superagent") 
 const request = require("request") 
+let cooldown = new Set();
 
 module.exports = async (client, message) => {
      if (message.author.bot) return; 
@@ -90,11 +91,28 @@ module.exports = async (client, message) => {
     let commandFile = client.commands.get(cmd.slice(prefix.length)) || client.commands.get(client.aliases.get(cmd.slice(prefix.length)));
 
     if(commandFile){
+    
+    if(cooldown.has(message.author.id)){
 
-      commandFile.run(client, message, args, opt)
+    message.delete();
 
-      console.log(`${moment(new Date).format('D-M-Y à HH:mm:ss')} : ${message.author.tag} a utilisé la commande ${cmd}`)
+    return message.reply("du calme ! Tu dois attendre **" + client.commands.get(cmd.slice(prefix.length).conf.cooldown || client.commands.get(client.aliases.get(cmd.slice(prefix.length))).conf.cooldown +"** secondes entre chaques commandes.").then(m => m.delete(5000))
 
+    } 
+
+    cooldown.add(message.author.id)
+         
+    commandFile.run(client, message, args, opt)
+
+    console.log(`${moment(new Date).format('D-M-Y à HH:mm:ss')} : ${message.author.tag} a utilisé la commande ${cmd}`)
+
+         
+     setTimeout(() => {
+
+     cooldown.delete(message.author.id)
+
+    }, client.commands.get(cmd.slice(prefix.length).conf.cooldown || client.commands.get(client.aliases.get(cmd.slice(prefix.length))).conf.cooldown * 1000)  
+         
     }
     
    } 

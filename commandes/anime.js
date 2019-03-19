@@ -148,6 +148,8 @@ category:"utility"
 
 module.exports.conf = {
 
-aliases:[]
+aliases:[],
+
+cooldown:3
 
 } 

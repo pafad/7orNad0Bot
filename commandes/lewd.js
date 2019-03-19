@@ -17,12 +17,13 @@ footer:{
 } 
 
 module.exports.help = {
-    name:"nsfwneko",
+    name:"lewd",
     description:"montre une image aléatoire de neko(NSFW)",
-    usage:"nsfwneko/lewd",
+    usage:"lewd",
     category:"nsfw"
 }
 
 module.exports.conf = {
-    aliases:["lewd"]
+    aliases:[],
+cooldown:3
   }

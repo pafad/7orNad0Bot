@@ -96,7 +96,7 @@ module.exports = async (client, message) => {
     if(cooldown.has(message.author.id)){
     const cdseconds = [] ;
          
-    cdseconds.push(new Date().getTime() + commandFile.conf.cooldown * 1000);
+    cdseconds.push(Date.now() + commandFile.conf.cooldown * 1000);
 
     var now = new Date().getTime()
 

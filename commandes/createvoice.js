@@ -18,5 +18,6 @@ module.exports.help = {
   }
 
   module.exports.conf = {
-    aliases:["addvoice"]
+    aliases:["addvoice"],
+cooldown:5
   }

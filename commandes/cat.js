@@ -24,5 +24,7 @@ module.exports.help = {
   }
 
   module.exports.conf = {
-    aliases:["chat"]
+    aliases:["chat"],
+
+cooldown:3
   }

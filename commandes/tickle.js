@@ -24,5 +24,6 @@ module.exports.help = {
 }
 
 module.exports.conf = {
-    aliases:["chatouille"]
+    aliases:["chatouille"],
+cooldown:3
   }

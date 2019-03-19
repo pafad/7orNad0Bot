@@ -393,5 +393,6 @@ module.exports.help = {
 }
 
 module.exports.conf = {
-  aliases:["si"]
+  aliases:["si"],
+cooldown:3
 }

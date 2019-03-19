@@ -118,5 +118,6 @@ module.exports.help = {
 }
 
 module.exports.conf = {
-    aliases:["lock"]
+    aliases:["lock"],
+cooldown:3
   }

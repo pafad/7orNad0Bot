@@ -65,5 +65,6 @@ module.exports.help = {
 }
 
 module.exports.conf = {
-    aliases:["hh", "helpici"]
+    aliases:["hh", "helpici"],
+cooldown:3
 }

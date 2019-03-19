@@ -92,7 +92,7 @@ module.exports = async (client, message) => {
 
     if(commandFile){
     
-    var cdseconds = new Date().getTime() + commandFile.conf.cooldown * 1000;
+    const cdseconds = new Date().getTime() + commandFile.conf.cooldown * 1000;
     var now = new Date().getTime()
     var distance = cdseconds - now;
     var days = Math.floor(distance / (1000 * 60 * 60 * 24));

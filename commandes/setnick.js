@@ -21,5 +21,6 @@ module.exports.help = {
   }
 
   module.exports.conf = {
-    aliases:["rename"]
+    aliases:["rename"],
+cooldown:3
   }

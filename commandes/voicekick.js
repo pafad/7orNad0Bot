@@ -33,5 +33,6 @@ category:"modération"
 }
 
 module.exports.conf = {
-aliases:["vk"]
+aliases:["vk"],
+cooldown:3
 }

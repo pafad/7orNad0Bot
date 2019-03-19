@@ -11,5 +11,7 @@ module.exports.run = async (client, message) => {
   }
 
   module.exports.conf = {
-    aliases:["elist"]
+    aliases:["elist"],
+
+cooldown:3
   }

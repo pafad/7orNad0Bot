@@ -22,5 +22,6 @@ module.exports.help = {
 }
 
 module.exports.conf = {
-    aliases:["demute"]
+    aliases:["demute"],
+cooldown:3
 }

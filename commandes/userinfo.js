@@ -133,5 +133,6 @@ category:"info"
 } 
 
 module.exports.conf = {
-aliases:["ui"] 
+aliases:["ui"],
+cooldown:3
 } 

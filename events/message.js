@@ -100,7 +100,7 @@ module.exports = async (client, message) => {
 
     var distance = cdseconds - now;
          
-    console.log(distance) 
+ 
          
     var days = Math.floor(distance / (1000 * 60 * 60 * 24));
 
@@ -110,7 +110,7 @@ module.exports = async (client, message) => {
 
     var seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-     
+    console.log(seconds)
 
     if(cooldown.has(commandFile, message.author.id, cdseconds)){
 

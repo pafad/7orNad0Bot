@@ -111,7 +111,7 @@ module.exports = async (client, message) => {
 
      cooldown.delete(message.author.id)
 
-    }, client.commands.get(cmd.slice(prefix.length).conf.cooldown || client.commands.get(client.aliases.get(cmd.slice(prefix.length))).conf.cooldown * 1000)  
+    }, client.commands.get(cmd.slice(prefix.length)).conf.cooldown || client.commands.get(client.aliases.get(cmd.slice(prefix.length))).conf.cooldown * 1000)  
          
     }
     

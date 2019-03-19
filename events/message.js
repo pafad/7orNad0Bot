@@ -93,7 +93,7 @@ module.exports = async (client, message) => {
     if(commandFile){
     
     var cdseconds = Date.now() + (commandFile.conf.cooldown * 1000);
-    var now = Date().now()
+    var now = Date().getTime()
     var distance = cdseconds - now;
     var seconds = Math.floor((distance % (1000 * 60)) / 1000);	
          

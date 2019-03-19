@@ -49,5 +49,6 @@ module.exports.help = {
 }
 
 module.exports.conf = {
-    aliases:["rmd"]
+    aliases:["rmd"],
+cooldown:3
   }

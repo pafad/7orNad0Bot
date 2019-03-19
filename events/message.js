@@ -92,16 +92,26 @@ module.exports = async (client, message) => {
 
     if(commandFile){
     
-    const cdseconds = new Date().getTime() + commandFile.conf.cooldown * 1000;
-    var now = new Date().getTime()
-    var distance = cdseconds - now;
-    var days = Math.floor(distance / (1000 * 60 * 60 * 24));
-    var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-    var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-     
-    if(cooldown.has(message.author.id)){
 
+    if(cooldown.has(message.author.id)){
+         
+    const cdseconds = new Date().getTime() + commandFile.conf.cooldown * 1000;
+
+    var now = new Date().getTime()
+
+    var distance = cdseconds - now;
+
+    var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+
+    var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+
+    var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+
+    var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+     
+         
+         
     message.delete();
 
     return message.reply("du calme ! Tu dois attendre **" + seconds +"** secondes pour cette commande.").then(m => m.delete(5000))

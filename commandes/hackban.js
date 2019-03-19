@@ -27,5 +27,6 @@ module.exports.help = {
   }
 
   module.exports.conf = {
-    aliases:["hban"]
+    aliases:["hban"],
+cooldown:5
   }

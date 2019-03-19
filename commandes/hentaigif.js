@@ -24,5 +24,7 @@ module.exports.help = {
 }
 
 module.exports.conf = {
-    aliases:["hgif"]
+    aliases:["hgif"],
+
+cooldown:3
   }

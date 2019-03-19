@@ -92,7 +92,7 @@ module.exports = async (client, message) => {
 
     if(commandFile){
     
-    var waitTime = commandFile.conf.cooldown * 1000;
+    var waitTime = commandFile.conf.cooldown * 10000;
          
     var cdseconds = Date.now() + waitTime;
 

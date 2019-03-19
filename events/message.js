@@ -92,11 +92,16 @@ module.exports = async (client, message) => {
 
     if(commandFile){
     
+    var cdseconds = Date.now() + (commandFile.conf.cooldown * 1000);
+    var now = Date().now()
+    var distance = cdseconds - now;
+    var seconds = Math.floor((distance % (1000 * 60)) / 1000);	
+         
     if(cooldown.has(message.author.id)){
 
     message.delete();
 
-    return message.reply("du calme ! Tu dois attendre **" + commandFile.conf.cooldown +"** secondes pour cette commande.").then(m => m.delete(5000))
+    return message.reply("du calme ! Tu dois attendre **" + seconds +"** secondes pour cette commande.").then(m => m.delete(5000))
 
     } 
 

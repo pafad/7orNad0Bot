@@ -137,8 +137,8 @@ module.exports = async (client, message) => {
     message.delete();
 
     return message.reply("du calme ! Tu dois attendre **" + seconds +"** secondes pour cette commande.").then(m => m.delete(5000))
-       } 
-    } 
+       
+    }
     
                  
     

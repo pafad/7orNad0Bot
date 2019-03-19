@@ -96,7 +96,7 @@ module.exports = async (client, message) => {
 
     message.delete();
 
-    return message.reply("du calme ! Tu dois attendre **" + commandFile.conf.cooldown +"** secondes entre chaques commandes.").then(m => m.delete(5000))
+    return message.reply("du calme ! Tu dois attendre **" + commandFile.conf.cooldown +"** secondes pour cette commande.").then(m => m.delete(5000))
 
     } 
 

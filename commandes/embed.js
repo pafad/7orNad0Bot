@@ -25,5 +25,6 @@ module.exports.help = {
 }
 
 module.exports.conf = {
-    aliases:["e"]
+    aliases:["e"],
+cooldown:3
   }

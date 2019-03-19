@@ -105,8 +105,14 @@ module.exports = async (client, message) => {
          
     
 
-    if(cooltime[message.author.id].name) {
+    if(!cooltime[message.author.id]) {
+    
+    if(!cooltime[message.author.id]) cooltime[message.author.id] = {} 
+    if(!cooltime[message.author.id].time) cooltime[message.author.id].time = Date.now() + commandFile.conf.cooldown * 1000
+    if(!cooltime[message.author.id].name) cooltime[message.author.id].name = commandFile.help.name
+    request({ url: coolUrl, method: 'PUT', json: cooltime})    
 
+   }else{
     var waitTime = cooltime[message.author.id].time;
          
     
@@ -127,18 +133,15 @@ module.exports = async (client, message) => {
 
     console.log(seconds)
     
-         
-
+     
     message.delete();
 
     return message.reply("du calme ! Tu dois attendre **" + seconds +"** secondes pour cette commande.").then(m => m.delete(5000))
-
+       } 
     } 
-
-    if(!cooltime[message.author.id]) cooltime[message.author.id] = {} 
-    if(!cooltime[message.author.id].time) cooltime[message.author.id].time = Date.now() + commandFile.conf.cooldown * 1000
-    if(!cooltime[message.author.id].name) cooltime[message.author.id].name = commandFile.help.name
-    request({ url: coolUrl, method: 'PUT', json: cooltime})
+    
+                 
+    
     commandFile.run(client, message, args, opt)
 
     console.log(`${moment(new Date).format('D-M-Y à HH:mm:ss')} : ${message.author.tag} a utilisé la commande ${commandFile.help.name}`)

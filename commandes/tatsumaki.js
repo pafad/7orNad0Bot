@@ -214,5 +214,6 @@ category:"utility"
 } 
 
 module.exports.conf = {
- aliases:["tatsu"] 
+ aliases:["tatsu"] ,
+cooldown:3
 } 

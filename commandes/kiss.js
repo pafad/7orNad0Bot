@@ -25,5 +25,6 @@ module.exports.help = {
 }
 
 module.exports.conf = {
-    aliases:["bisous"]
+    aliases:["bisous"],
+cooldown:3
   }

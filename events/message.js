@@ -94,11 +94,11 @@ module.exports = async (client, message) => {
     
 
     if(cooldown.has(message.author.id)){
-    const cdseconds = [] ;
-         
-    cdseconds.push(Date.now() + commandFile.conf.cooldown * 1000);
 
-    var now = new Date().getTime()
+         
+    var cdseconds = Date.now() + commandFile.conf.cooldown * 1000;
+
+    var now = new Date().getTime();
 
     var distance = cdseconds - now;
 

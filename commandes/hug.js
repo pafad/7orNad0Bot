@@ -25,5 +25,7 @@ module.exports.help = {
 }
 
 module.exports.conf = {
-    aliases:["calin"]
+    aliases:["calin"],
+
+cooldown:3
   }

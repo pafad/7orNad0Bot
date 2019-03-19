@@ -67,5 +67,6 @@ module.exports.help = {
 }
 
 module.exports.conf = {
-    aliases:["bi", "info"]
+    aliases:["bi", "info"],
+cooldown:3
   }

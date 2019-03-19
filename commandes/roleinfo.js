@@ -219,5 +219,6 @@ category:"info"
 }
 
 module.exports.conf = {
-aliases:["ri"] 
+aliases:["ri"] ,
+cooldown:3
 } 

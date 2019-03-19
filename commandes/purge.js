@@ -103,5 +103,6 @@ module.exports.help = {
 }
 
 module.exports.conf = {
-  aliases:["clear"]
+  aliases:["clear"],
+cooldown:3
 }

@@ -92,11 +92,7 @@ module.exports = async (client, message) => {
 
     if(commandFile){
     
-
-    if(cooldown.has(message.author.id)){
-
-         
-    var cdseconds = Date.now() + commandFile.conf.cooldown * 1000;
+     var cdseconds = Date.now() + commandFile.conf.cooldown * 1000;
 
     var now = new Date().getTime();
 
@@ -111,6 +107,11 @@ module.exports = async (client, message) => {
     var seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
      
+
+    if(cooldown.has(commandFile, message.author.id, cdseconds)){
+
+         
+    
          
          
     message.delete();
@@ -119,7 +120,7 @@ module.exports = async (client, message) => {
 
     } 
 
-    cooldown.add(message.author.id)
+    cooldown.add(commandFile, message.author.id, cdseconds)
          
     commandFile.run(client, message, args, opt)
 

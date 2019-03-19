@@ -19,5 +19,6 @@ module.exports.help = {
 }
 
 module.exports.conf = {
-    aliases:["addcat"]
+    aliases:["addcat"],
+cooldown:5
   }

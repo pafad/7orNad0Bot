@@ -97,7 +97,9 @@ module.exports = async (client, message) => {
     var now = new Date().getTime();
 
     var distance = cdseconds - now;
-
+         
+    console.log(distance) 
+         
     var days = Math.floor(distance / (1000 * 60 * 60 * 24));
 
     var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));

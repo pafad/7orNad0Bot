@@ -37,5 +37,6 @@ category:"owner"
 } 
 
 module.exports.conf = {
-aliases:[] 
+aliases:[],
+cooldown:5
 } 

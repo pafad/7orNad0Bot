@@ -92,11 +92,14 @@ module.exports = async (client, message) => {
 
     if(commandFile){
     
-    var cdseconds = new Date().getTime() + (commandFile.conf.cooldown * 1000);
+    var cdseconds = new Date().getTime() + commandFile.conf.cooldown * 1000;
     var now = new Date().getTime()
     var distance = cdseconds - now;
-    var seconds = Math.floor((distance % (1000 * 60)) / 1000);	
-         
+    var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+     
     if(cooldown.has(message.author.id)){
 
     message.delete();

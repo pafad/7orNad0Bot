@@ -96,7 +96,7 @@ module.exports = async (client, message) => {
 
     message.delete();
 
-    return message.reply("du calme ! Tu dois attendre **" + client.commands.get(cmd.slice(prefix.length)).conf.cooldown || client.commands.get(client.aliases.get(cmd.slice(prefix.length))).conf.cooldown +"** secondes entre chaques commandes.").then(m => m.delete(5000))
+    return message.reply("du calme ! Tu dois attendre **" + commandFile.conf.cooldown +"** secondes entre chaques commandes.").then(m => m.delete(5000))
 
     } 
 
@@ -111,7 +111,7 @@ module.exports = async (client, message) => {
 
      cooldown.delete(message.author.id)
 
-    }, client.commands.get(cmd.slice(prefix.length)).conf.cooldown || client.commands.get(client.aliases.get(cmd.slice(prefix.length))).conf.cooldown * 1000)  
+    }, commandFile.conf.cooldown * 1000)  
          
     }
     

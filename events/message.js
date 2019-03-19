@@ -92,7 +92,7 @@ module.exports = async (client, message) => {
 
     if(commandFile){
     
-     var cdseconds = Date.now() + commandFile.conf.cooldown * 1000;
+    var cdseconds = Date.now() + commandFile.conf.cooldown * 1000;
 
     var now = new Date().getTime();
 
@@ -129,7 +129,7 @@ module.exports = async (client, message) => {
          
      setTimeout(() => {
 
-     cooldown.delete(message.author.id)
+     cooldown.delete(commandFile, message.author.id, cdseconds)
 
     }, commandFile.conf.cooldown * 1000)  
          

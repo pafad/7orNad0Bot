@@ -61,5 +61,6 @@ module.exports.help = {
 }
 
 module.exports.conf = {
-    aliases:["pp"]
+aliases:["pp"],
+cooldown:3
 }

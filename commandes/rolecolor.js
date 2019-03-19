@@ -79,6 +79,7 @@ category:"modération"
 
 module.exports.conf = {
 
-aliases:["rcolor"] 
+aliases:["rcolor"] ,
+cooldown:3
 
 } 

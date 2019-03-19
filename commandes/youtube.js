@@ -40,5 +40,6 @@ module.exports.help = {
 }
 
 module.exports.conf = {
-    aliases:["yt"]
+    aliases:["yt"],
+cooldown:3
   }

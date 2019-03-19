@@ -22,7 +22,7 @@ module.exports = async (client, message) => {
                 if(afk[message.guild.id + message.author.id]) {
                 
     var now = new Date().getTime();
-    var distance = afk[message.guild.id + message.author.id].time- now;
+    var distance = afk[message.guild.id + message.author.id].time - now;
     var days = Math.floor(distance / (1000 * 60 * 60 * 24));
     var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
     var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
@@ -92,13 +92,28 @@ module.exports = async (client, message) => {
 
     if(commandFile){
     
-    var waitTime = commandFile.conf.cooldown * 10000;
+    const coolUrl = process.env.cooltime;
+            request(coolUrl, (err, res, body) => {
+        
+                
+                console.log('chargement !')
+                
+                if(err || res.statusCode!== 200)return
+                
+                console.log('chargé avec succés')
+                var cooltime = JSON.parse(body)  
          
-    var cdseconds = Date.now() + waitTime;
+    
+
+    if(cooltime[message.author.id].name) {
+
+    var waitTime = cooltime[message.author.id].time;
+         
+    
 
     var now = new Date().getTime();
 
-    var distance = cdseconds - now;
+    var distance = waitTime - now;
          
  
          
@@ -111,32 +126,34 @@ module.exports = async (client, message) => {
     var seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
     console.log(seconds)
-
-    if(cooldown.has(commandFile, message.author.id, cdseconds)){
-
-         
     
          
-         
+
     message.delete();
 
     return message.reply("du calme ! Tu dois attendre **" + seconds +"** secondes pour cette commande.").then(m => m.delete(5000))
 
     } 
 
-    cooldown.add(commandFile, message.author.id, cdseconds)
-         
+    if(!cooltime[message.author.id]) cooltime[message.author.id] = {} 
+    if(!cooltime[message.author.id].time) cooltime[message.author.id].time = Date.now() + commandFile.conf.cooldown * 1000
+    if(!cooltime[message.author.id].name) cooltime[message.author.id].name = commandFile.help.name
+    request({ url: coolUrl, method: 'PUT', json: cooltime})
     commandFile.run(client, message, args, opt)
 
-    console.log(`${moment(new Date).format('D-M-Y à HH:mm:ss')} : ${message.author.tag} a utilisé la commande ${cmd}`)
+    console.log(`${moment(new Date).format('D-M-Y à HH:mm:ss')} : ${message.author.tag} a utilisé la commande ${commandFile.help.name}`)
 
          
      setTimeout(() => {
 
-     cooldown.delete(commandFile, message.author.id, cdseconds)
+     delete cooltime[message.author.id]
+          
+     request({ url: coolUrl, method: 'PUT', json: cooltime})
 
     }, commandFile.conf.cooldown * 1000)  
-         
+     
+   })             
+                 
     }
     
    } 

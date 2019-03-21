@@ -103,15 +103,13 @@ module.exports = async (client, message) => {
                 console.log('chargé avec succés')
                 var cooltime = JSON.parse(body)  
          
-    if(!cooltime[message.author.id] || !cooltime[message.author.id].id === cooltime[message.author.id].id){
+    if(!cooltime[message.author.id+commandFile.help.name+commandFile.conf.aliases]){
     
-    if(!cooltime[message.author.id]) cooltime[message.author.id] = {} 
-    if(!cooltime[message.author.id].time) cooltime[message.author.id].time = Date.now() + commandFile.conf.cooldown * 1000
-    if(!cooltime[message.author.id].name) cooltime[message.author.id].name = commandFile.help.name
-    if(!cooltime[message.author.id].id) cooltime[message.author.id].id = Math.floor(Math.random()*100000000)
+    if(!cooltime[message.author.id+commandFile.help.name+commandFile.conf.aliases]) cooltime[message.author.id+commandFile.help.name+commandFile.conf.aliases] = {} 
+    if(!cooltime[message.author.id+commandFile.help.name+commandFile.conf.aliases].time) cooltime[message.author.id+commandFile.help.name+commandFile.conf.aliases].time = Date.now() + commandFile.conf.cooldown * 1000
     request({ url: coolUrl, method: 'PUT', json: cooltime})    
    }else{
-    var waitTime = cooltime[message.author.id].time;
+    var waitTime = cooltime[message.author.id+commandFile.help.name+commandFile.conf.aliases].time;
          
     
 
@@ -147,7 +145,7 @@ module.exports = async (client, message) => {
          
      setTimeout(() => {
 
-     delete cooltime[message.author.id]
+     delete cooltime[message.author.id+commandFile.help.name+commandFile.conf.aliases]
           
      request({ url: coolUrl, method: 'PUT', json: cooltime})
 

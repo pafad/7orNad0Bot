@@ -105,7 +105,7 @@ module.exports = async (client, message) => {
          
     
 
-    if(!cooltime[message.author.id].name == commandFile.help.name) {
+    if(!cooltime[message.author.id] || !cooltime[message.author.id].name == commandFile.help.name) {
     
     if(!cooltime[message.author.id]) cooltime[message.author.id] = {} 
     if(!cooltime[message.author.id].time) cooltime[message.author.id].time = Date.now() + commandFile.conf.cooldown * 1000

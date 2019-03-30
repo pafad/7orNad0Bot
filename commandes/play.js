@@ -20,7 +20,7 @@ module.exports.run = async (client, message, args, opt) => {
   
         let info = await yt.getInfo(args[0]);
   
-        console.log(info)
+        console.log(data) 
   
         if(!data.connection) data.connection = await message.member.voiceChannel.join();
 
@@ -79,7 +79,7 @@ function finish(client, opt, dispatcher) {
 module.exports.help = {
     name:"play",
     description:"joue la musique demandée",
-    usage:"play/p <lien ou titre",
+    usage:"play/p <lien ou titre>",
     category:"music"
 }
 

@@ -67,10 +67,15 @@ function finish(client, opt, dispatcher) {
 
         let vc = client.guilds.get(dispatcher.guildID).me.voiceChannel;
 
-        if(vc) vc.leave();
-        
+        if(vc){
+                
+          
+        vc.leave();
         client.channels.get(client.user.lastMessage.channel.id).send(":x: La playlist est vide")
+
     }
+        
+       } 
 
 
 }

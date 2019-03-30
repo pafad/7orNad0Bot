@@ -83,5 +83,6 @@ module.exports.help = {
 }
 
 module.exports.conf = {
-    aliases:["p"]
+    aliases:["p"], 
+    cooldown:2
 }

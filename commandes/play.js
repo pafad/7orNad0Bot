@@ -17,8 +17,11 @@ module.exports.run = async (client, message, args, opt) => {
         }
 
         let data = opt.active.get(message.guild.id) || {};
+  
         let info = await yt.getInfo(args[0]);
-        
+  
+        console.log(info)
+  
         if(!data.connection) data.connection = await message.member.voiceChannel.join();
 
         if(!data.queue) data.queue = [];

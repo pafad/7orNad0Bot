@@ -92,66 +92,66 @@ module.exports = async (client, message) => {
 
     if(commandFile){
     
-    const coolUrl = process.env.cooltime;
-            request(coolUrl, (err, res, body) => {
-        
+    //const coolUrl = process.env.cooltime;
+      //      request(coolUrl, (err, res, body) => {
+       
                 
-                console.log('chargement !')
+              //  console.log('chargement !')
                 
-                if(err || res.statusCode!== 200)return
+             //   if(err || res.statusCode!== 200)return
                 
-                console.log('chargé avec succés')
-                var cooltime = JSON.parse(body)  
+            //    console.log('chargé avec succés')
+           //     var cooltime = JSON.parse(body)  
          
-    if(!cooltime[message.author.id+commandFile.help.name+commandFile.conf.aliases]){
+//    if(!cooltime[message.author.id+commandFile.help.name+commandFile.conf.aliases]){
     
-    if(!cooltime[message.author.id+commandFile.help.name+commandFile.conf.aliases]) cooltime[message.author.id+commandFile.help.name+commandFile.conf.aliases] = {} 
-    if(!cooltime[message.author.id+commandFile.help.name+commandFile.conf.aliases].time) cooltime[message.author.id+commandFile.help.name+commandFile.conf.aliases].time = Date.now() + commandFile.conf.cooldown * 1000
-    request({ url: coolUrl, method: 'PUT', json: cooltime})    
-   }else{
-    var waitTime = cooltime[message.author.id+commandFile.help.name+commandFile.conf.aliases].time;
+//    if(!cooltime[message.author.id+commandFile.help.name+commandFile.conf.aliases]) cooltime[message.author.id+commandFile.help.name+commandFile.conf.aliases] = {} 
+//    if(!cooltime[message.author.id+commandFile.help.name+commandFile.conf.aliases].time) cooltime[message.author.id+commandFile.help.name+commandFile.conf.aliases].time = Date.now() + commandFile.conf.cooldown * 1000
+//    request({ url: coolUrl, method: 'PUT', json: cooltime})    
+//   }else{
+//    var waitTime = cooltime[message.author.id+commandFile.help.name+commandFile.conf.aliases].time;
          
     
 
-    var now = new Date().getTime();
+//    var now = new Date().getTime();
 
-    var distance = waitTime - now;
+ //   var distance = waitTime - now;
          
  
          
-    var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+//    var days = Math.floor(distance / (1000 * 60 * 60 * 24));
 
-    var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+//    var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
 
-    var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+//    var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
 
-    var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+//    var seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-    console.log(seconds)
+//    console.log(seconds)
     
      
-    message.delete();
+ //   message.delete();
 
-    return message.reply("du calme ! Tu dois attendre **" + seconds +"** secondes pour cette commande.").then(m => m.delete(5000))
+//    return message.reply("du calme ! Tu dois attendre **" + seconds +"** secondes pour cette commande.").then(m => m.delete(5000))
        
-    }
+//    }
     
                  
     
     commandFile.run(client, message, args, opt)
 
-    console.log(`${moment(new Date).format('D-M-Y à HH:mm:ss')} : ${message.author.tag} a utilisé la commande ${commandFile.help.name}`)
+ //   console.log(`${moment(new Date).format('D-M-Y à HH:mm:ss')} : ${message.author.tag} a utilisé la commande ${commandFile.help.name}`)
 
          
-     setTimeout(() => {
+ //    setTimeout(() => {
 
-     delete cooltime[message.author.id+commandFile.help.name+commandFile.conf.aliases]
+  //   delete cooltime[message.author.id+commandFile.help.name+commandFile.conf.aliases]
           
-     request({ url: coolUrl, method: 'PUT', json: cooltime})
+  //   request({ url: coolUrl, method: 'PUT', json: cooltime})
 
-    }, commandFile.conf.cooldown * 1000)  
+//    }, commandFile.conf.cooldown * 1000)  
      
-   })             
+//   })             
                  
     }
     

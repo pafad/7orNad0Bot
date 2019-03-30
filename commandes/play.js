@@ -69,7 +69,7 @@ function finish(client, opt, dispatcher) {
 
         if(vc) vc.leave();
         
-        client.channels.get(fetched.queue[0].annouceChannel).send(":x: La playlist est vide")
+        client.channels.get(client.user.lastMessage.channel.id).send(":x: La playlist est vide")
     }
 
 

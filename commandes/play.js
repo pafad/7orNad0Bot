@@ -69,7 +69,8 @@ function finish(client, opt, dispatcher) {
 
         if(vc) vc.leave();
 
-
+} 
+        
 }
 
 module.exports.help = {

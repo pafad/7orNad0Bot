@@ -20,8 +20,6 @@ module.exports.run = async (client, message, args, opt) => {
   
         let info = await yt.getInfo(args[0]);
   
-        console.log(data) 
-  
         if(!data.connection) data.connection = await message.member.voiceChannel.join();
 
         if(!data.queue) data.queue = [];
@@ -44,7 +42,7 @@ module.exports.run = async (client, message, args, opt) => {
 }
 
 async function playStream(client, opt, data) {
-
+    console.log(data)
     client.channels.get(data.queue[0].annouceChannel).send(`Je joue maintenant : **${data.queue[0].songTitle}** | Demandé par : **${data.queue[0].requester}**`)
 
     data.dispatcher = await data.connection.playStream(yt(data.queue[0].url, {filter:"audioonly", quality:"highest"}), {bitrate: 200000 /* 200kbps */})

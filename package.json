@@ -35,7 +35,7 @@
     "random-cat": "^1.0.1",
     "random-number": "0.0.9",
     "random-puppy": "^1.1.0",
-    "request": "^2.87.0",
+    "request": "^2.88.0",
     "snekfetch": "^4.0.0",
     "string-similarity": "^2.0.0",
     "superagent": "^3.8.3",

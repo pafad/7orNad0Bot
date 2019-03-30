@@ -48,7 +48,7 @@ async function playStream(client, opt, data) {
     data.dispatcher = await data.connection.playStream(yt(data.queue[0].url, {filter:"audioonly", quality:"highest"}), {bitrate: 200000 /* 200kbps */})
     data.dispatcher.guildID = data.guildID;
 
-    data.dispatcher.once('end',function(){
+    data.dispatcher.on('end',function(){
         finish(client ,opt ,this)
     })
 }

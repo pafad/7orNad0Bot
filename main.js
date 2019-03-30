@@ -10,7 +10,7 @@ const client = new Discord.Client({
 
   //shardCount: process.argv[2],
 
-  fetchAllMembers: true
+
 
 });
 

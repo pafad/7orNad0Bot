@@ -68,8 +68,7 @@ function finish(client, opt, dispatcher) {
         let vc = client.guilds.get(dispatcher.guildID).me.voiceChannel;
 
         if(vc) vc.leave();
-        
-        client.channels.get(fetched.queue[0].annouceChannel).send(":x: La playlist est vide")
+       
     }
 
 
@@ -83,5 +82,6 @@ module.exports.help = {
 }
 
 module.exports.conf = {
-    aliases:["p"]
+    aliases:["p"], 
+    cooldown:2
 }

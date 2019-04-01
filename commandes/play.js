@@ -90,9 +90,7 @@ function finish(client, opt, dispatcher) {
 
     }else{
 
-        client.channels.get(dispatcher.annouceChannel).send(":x: La playlist est vide")
-
-            
+        
 
         opt.active.delete(dispatcher.guildID);
 

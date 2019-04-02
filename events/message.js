@@ -8,6 +8,8 @@ const request = require("request")
 module.exports = async (client, message) => {
      if (message.author.bot) return; 
      
+    if(message.channel.type === "dm") return message.channel.send("hm ?");
+     
     const afkUrl = process.env.afk;
             request(afkUrl, (err, res, body) => {
         
@@ -63,11 +65,9 @@ module.exports = async (client, message) => {
      
   										  												
     
-    //blacklist du bot
    
-    if(message.author.bot)return;
+   
     
-    if(message.channel.type === "dm") return message.channel.send("hm ?");
      //double arguments du turfu
     if(!message.content.startsWith(prefix)) return ;
     

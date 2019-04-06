@@ -68,7 +68,7 @@ async function playStream(client, opt, data) {
 
     data.dispatcher.guildID = data.guildID;
 
-    data.dispatcher.on('end',function(){
+    data.dispatcher.on('end',end => {
 
         finish(client ,opt ,this)
 

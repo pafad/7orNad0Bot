@@ -3,7 +3,7 @@ module.exports.run = async (client, message, args) => {
          message.channel.send(":x: Spécifier un bug à report.");
          return;
     }else{
-        client.channels.get("533935706737737728").send({embed:{
+        client.channels.get("565055284733673472").send({embed:{
             color: Math.floor(Math.random() * 16777214) + 1,
             thumbnail: {
              url:  message.author.avatarURL

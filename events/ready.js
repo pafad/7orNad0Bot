@@ -7,7 +7,7 @@ module.exports = async (client) => {
 	
         console.log(`${client.user.tag} connecté !`)
 	
-	client.channels.get("538318102685941770").send({embed:{
+	client.channels.get("564478327914627082").send({embed:{
 		color:0x010101, 
 		author:{
                 name:"Lancement réussi"

@@ -16,7 +16,7 @@ module.exports.run = async (client, message, args, opt) => {
 
             let commandFile = require("./search.js")
 
-            return commandFile.run(client,message, args, opt)
+            return commandFile.run(client, message, args, opt)
 
                 
 
@@ -28,9 +28,9 @@ module.exports.run = async (client, message, args, opt) => {
 
         
 
-        if(!data.connection) data.connection = await message.member.voiceChannel.join();
+        if(!data.connection){ data.connection = await message.member.voiceChannel.join();} 
 
-        if(!data.queue) data.queue = [];
+        if(!data.queue) { data.queue = [];} 
 
         data.guildID = message.guild.id;
 
@@ -48,7 +48,7 @@ module.exports.run = async (client, message, args, opt) => {
 
             
 
-        if(!data.dispatcher) playStream(client, opt, data);
+        if(!data.dispatcher) play(client, opt, data);
 
         else {
 
@@ -60,7 +60,7 @@ module.exports.run = async (client, message, args, opt) => {
 
 }
 
-async function playStream(client, opt, data) {
+async function play(client, opt, data) {
 
     client.channels.get(data.queue[0].annouceChannel).send(`Je joue maintenant : **${data.queue[0].songTitle}** | demandé par : **${data.queue[0].requester}**`)
 
@@ -86,7 +86,7 @@ function finish(client, opt, dispatcher) {
 
         opt.active.set(dispatcher.guildID, fetched);
 
-        playStream(client, opt, fetched);
+        play(client, opt, fetched);
 
     }else{
 

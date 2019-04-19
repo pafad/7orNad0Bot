@@ -21,6 +21,7 @@
     "got": "^9.3.2",
     "http": "0.0.0",
     "libnpmsearch": "^2.0.0",
+    "libopus":"^1.2.1",
     "mathjs": "^5.2.3",
     "moment": "^2.22.2",
     "nekos.life": "^1.0.5",
@@ -30,7 +31,7 @@
     "node-lolibooru": "0.0.3",
     "node-opus": "^0.3.1",
     "nodemon": "^1.17.5",
-    "opus script":"^0.0.6"
+    "opusscript":"^0.0.6", 
     "pokemon-gif": "^1.0.13",
     "quick.db": "^6.1.1",
     "random-anime-wallpapers": "^1.1.0",

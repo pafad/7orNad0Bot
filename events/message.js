@@ -93,10 +93,20 @@ module.exports = async (client, message) => {
 
     if(commandFile){
     
-   commandFile.run(client, message, args, opt)
+    try{
+
+    commandFile.run(client, message, args, opt)
+    
+   } catch (e) {
+
+   message.channel.send("Une erreur est survenue: **"+ e.message+"**") 
+
+   } finally {
 
    console.log(`${moment(new Date).format('D-M-Y à HH:mm:ss')} : ${message.author.tag} a utilisé la commande ${commandFile.help.name}`)
-                 
+                   
+   } 
+   
     }
     
    } 

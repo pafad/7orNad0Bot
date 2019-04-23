@@ -8,10 +8,10 @@ module.exports.run = async (client, message, args) => {
         return;
     }else{
     message.guild.createRole({
-        name: args[0], 
+        name:args[args.length-1], 
         mentionnable:false, 
         hoist:true, 
-        color:args[1].startsWith("#") && args[1].length == 7 ? args[1] : 0x000000
+        color:args.slice(args.length-1).startsWith("#") && args[args.length-1].length == 7 ? args[1] : "#000000"
     })
     message.channel.send(`:heavy_check_mark: Role créé avec succès. nom du rôle: ${args[0]}`)
         }
@@ -21,7 +21,7 @@ module.exports.run = async (client, message, args) => {
 module.exports.help = {
     name: "createrole",
     description:"le bot crée un role",
-    usage:"createrole/addrole <texte> <true/false> <true/false> <couleur hexadécimal>",
+    usage:"createrole/addrole <texte> <couleur hexadécimal>",
     category:"modération"
   }
 

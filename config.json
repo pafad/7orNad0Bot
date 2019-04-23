@@ -12,7 +12,7 @@
 	"roleName": "#Rainbow",
 	"colors": 48,
 	"speed": 60000,
-	"logging": true,
+	"logging": false,
   	"adminID": "524996881198219276",
 	"passes": 1
 }

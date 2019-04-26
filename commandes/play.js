@@ -40,7 +40,7 @@ module.exports.run = async (client, message, args, opt) => {
 
             url:args[0],
             
-            infos:info 
+            infos:info, 
 
             annouceChannel:message.channel.id
 

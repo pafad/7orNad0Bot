@@ -1,4 +1,5 @@
 const config = require("../config.json")
+const tools = require("../functions/tools.js")
 const moment = require("moment");
 const prefix = config.prefix;
 const active = new Map();
@@ -95,7 +96,7 @@ module.exports = async (client, message) => {
     
     try{
 
-    commandFile.run(client, message, args, opt)
+    commandFile.run(client, message, args, opt, tools)
     
    } catch (e) {
 

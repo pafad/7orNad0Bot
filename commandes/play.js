@@ -34,7 +34,7 @@ module.exports.run = async (client, message, args, opt) => {
 
         data.guildID = message.guild.id;
 
-        await data.queue.push({
+        data.queue.push({
 
             songTitle:info.title,
 
@@ -66,7 +66,7 @@ async function play(client, opt, data) {
 
     client.channels.get(data.queue[0].annouceChannel).send(`Je joue maintenant : **${data.queue[0].songTitle}** | demandé par : **${data.queue[0].requester}**`)
 
-    data.dispatcher = await data.connection.playStream(data.queue[0].toPlay)
+    data.dispatcher = await data.connection.playStream(data.queue[0].toPlay || data.queue[0].url)
 
     data.dispatcher.guildID = data.guildID;
 

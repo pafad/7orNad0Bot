@@ -26,8 +26,6 @@ module.exports.run = async (client, message, args, opt) => {
 
         let info = await yt.getInfo(args[0])
         
-        let stream = yt.downloadFromInfo(info, {filter:"audioonly"});
-
         if(!data.connection){ data.connection = await message.member.voiceChannel.join();} 
 
         if(!data.queue) { data.queue = [];} 
@@ -42,7 +40,7 @@ module.exports.run = async (client, message, args, opt) => {
 
             url:args[0],
             
-            toPlay:stream, 
+            infos:info 
 
             annouceChannel:message.channel.id
 
@@ -66,7 +64,7 @@ async function play(client, opt, data) {
 
     client.channels.get(data.queue[0].annouceChannel).send(`Je joue maintenant : **${data.queue[0].songTitle}** | demandé par : **${data.queue[0].requester}**`)
 
-    data.dispatcher = await data.connection.playStream(data.queue[0].toPlay || data.queue[0].url)
+    data.dispatcher = await data.connection.playStream(yt.downloadFromInfo(data.queue[0].infos,{filter:"audioonly"}))
 
     data.dispatcher.guildID = data.guildID;
 

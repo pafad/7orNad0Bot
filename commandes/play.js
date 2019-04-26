@@ -24,7 +24,7 @@ module.exports.run = async (client, message, args, opt) => {
 
         let data = opt.active.get(message.guild.id) || {};
 
-        let info = await yt.getInfo(args[0]);
+        let info = await yt.getBasicInfo(args[0]);
 
         
 

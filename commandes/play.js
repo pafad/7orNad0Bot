@@ -42,7 +42,7 @@ module.exports.run = async (client, message, args, opt) => {
 
             url:args[0],
             
-            toPlay:stream
+            toPlay:stream, 
 
             annouceChannel:message.channel.id
 

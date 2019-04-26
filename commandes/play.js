@@ -26,7 +26,7 @@ module.exports.run = async (client, message, args, opt) => {
 
         let info = await yt.getInfo(args[0])
         
-        let stream = yt.downloadFromInfo(info, {filter:"audioonly", quality:"highestaudio"});
+        let stream = yt.downloadFromInfo(info, {filter:"audioonly"});
 
         if(!data.connection){ data.connection = await message.member.voiceChannel.join();} 
 
@@ -34,7 +34,7 @@ module.exports.run = async (client, message, args, opt) => {
 
         data.guildID = message.guild.id;
 
-        data.queue.push({
+        await data.queue.push({
 
             songTitle:info.title,
 

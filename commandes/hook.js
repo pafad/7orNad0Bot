@@ -10,3 +10,14 @@ message.delete()
  			tools.hook(message.channel, message.author.username, args.join(" "), role.hexColor.slice(1), message.author.avatarURL)
  			
 } 
+
+module.exports.help = {
+name:"hook", 
+description:"faire parler un webhook", 
+usage:"hook <texte>", 
+category:"fun" 
+} 
+
+module.exports.conf = { 
+aliases:[] 
+} 

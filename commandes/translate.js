@@ -1,6 +1,6 @@
 const translate = require("@k3rn31p4nic/google-translate-api");
 
-module.exports.run (client, message, args) => {
+module.exports.run = async (client, message, args) => {
 
  			let translatelanguage = args[0];
     if(!translatelanguage) return message.channel.send("Entre le langage.\nEx: ``=translate fr ¿Holà, que tal?``");

@@ -36,7 +36,7 @@ module.exports.run = async (client, message, args) => {
             
         }).catch(err => {
             
-            return m.edit("Entre un langage validé.");
+            return m.edit("Une erreur est survenue: **"+err.message+"**");
 
         });
 

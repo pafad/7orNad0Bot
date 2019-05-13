@@ -28,7 +28,7 @@ module.exports.run = async (client, message, args) => {
              }], 
              timestamp:new Date(), 
              footer:{
-             	icon_url:bot.user.avatarURL, 
+             	icon_url:client.user.avatarURL, 
              	text:"Translate" 
              	}
              	}}) 

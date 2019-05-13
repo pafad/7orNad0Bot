@@ -4,6 +4,7 @@
   "description": "bot discord",
   "main": "main.js",
   "dependencies": {
+    "@k3rn31p4nic/google-translate-api": "^1.0.5",
     "anifetch": "^2.1.4",
     "anime-dl": "^4.0.7",
     "configstore": "^4.0.0",
